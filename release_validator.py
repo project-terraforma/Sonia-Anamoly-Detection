@@ -70,10 +70,35 @@ class EnhancedReleaseValidator:
         data = {}
         
         # 1. Current release statistics (release-to-release comparison)
+        # First try the base directory
         stats_file = os.path.join(base_dir, 'part-00000-e026a40b-54d9-40e1-88da-120888a6928a-c000.csv')
+        
         if os.path.exists(stats_file):
             data['release_stats'] = pd.read_csv(stats_file, sep='\t')
             print(f"✓ Loaded release stats: {len(data['release_stats'])} theme/type combinations")
+        else:
+            # Try to find in latest Metrics/metrics folder (note: nested metrics folder)
+            metrics_dir = os.path.join(base_dir, 'Metrics', 'metrics')
+            if os.path.exists(metrics_dir):
+                # Get all date folders
+                date_folders = [d for d in os.listdir(metrics_dir) 
+                              if os.path.isdir(os.path.join(metrics_dir, d)) and d.startswith('202')]
+                if date_folders:
+                    # Get the latest date folder
+                    latest_date = sorted(date_folders)[-1]
+                    changelog_file = os.path.join(metrics_dir, latest_date, 'changelog_stats', 
+                                                 'part-00000-e026a40b-54d9-40e1-88da-120888a6928a-c000.csv')
+                    
+                    if os.path.exists(changelog_file):
+                        data['release_stats'] = pd.read_csv(changelog_file, sep='\t')
+                        print(f"✓ Loaded release stats from {latest_date}: {len(data['release_stats'])} theme/type combinations")
+                    else:
+                        print(f"Warning: No changelog stats found in {latest_date}/changelog_stats/")
+                        print(f"Looked in: {changelog_file}")
+                else:
+                    print("Warning: No date folders found in Metrics/metrics directory")
+            else:
+                print("Warning: No Metrics/metrics directory found - skipping threshold checks")
         
         # 2. Historical total counts
         hist_dir = os.path.join(base_dir, 'Metrics', 'theme_column_summary_stats', 'release_to_release_comparisons')
