@@ -327,6 +327,17 @@ class EnhancedReleaseValidator:
         if class_comparisons is not None:
             print("\nRunning class distribution analysis...")
             anomalies.extend(self._check_class_shifts(class_comparisons))
+
+        # Opportunistic additional checks (heuristics)
+        coverage_df = column_historical if column_historical is not None else column_stats
+        if coverage_df is not None:
+            anomalies.extend(self._check_junk_rate_increase(coverage_df))
+
+        # Spammy names heuristic (best-effort scan of CSVs outside Metrics/)
+        anomalies.extend(self._check_spammy_names(base_dir=os.path.dirname(os.path.abspath(__file__))))
+
+        # Optional invalid geometry scan (requires shapely if present)
+        anomalies.extend(self._check_invalid_geometries(base_dir=os.path.dirname(os.path.abspath(__file__))))
         
         return sorted(anomalies, key=lambda x: (x.severity.value, x.theme, x.type_))
     
@@ -405,14 +416,159 @@ class EnhancedReleaseValidator:
         """Check for data quality issues based on change patterns."""
         anomalies = []
         for _, row in df.iterrows():
-            if row['data_changed_perc'] > 5.0:
+            # Compute unchanged if not present
+            changed = float(row.get('data_changed_perc', 0.0))
+            added = float(row.get('added_perc', 0.0))
+            removed = float(row.get('removed_perc', 0.0))
+            unchanged = float(row.get('unchanged_perc', 100.0)) if 'unchanged_perc' in df.columns else max(0.0, 100.0 - changed - added - removed)
+
+            # Elevate cases with extremely low unchanged or very high modified
+            if changed > 5.0 or unchanged < 50.0:
                 anomalies.append(Anomaly(
                     theme=row['theme'],
                     type_=row['type'],
-                    rule="High Data Modification Rate",
-                    severity=Severity.WARNING,
-                    message=f"{row['data_changed_perc']:.2f}% of records modified (potential quality issue)",
-                    actual_value=row['data_changed_perc']
+                    rule="High Data Modification / Low Unchanged",
+                    severity=Severity.CRITICAL if (changed > 20.0 or unchanged < 1.0) else Severity.WARNING,
+                    message=f"Changed {changed:.2f}% | Unchanged {unchanged:.2f}%",
+                    actual_value=changed
+                ))
+        return anomalies
+
+    def _check_junk_rate_increase(self, coverage_df: pd.DataFrame) -> List[Anomaly]:
+        """Detect spikes in junk/low-confidence rate using coverage metrics if present."""
+        anomalies: List[Anomaly] = []
+        if 'release' not in coverage_df.columns:
+            return anomalies
+        # Candidate columns that might indicate junk/spam/low confidence
+        candidates = [c for c in coverage_df.columns if any(k in c.lower() for k in ['junk', 'spam', 'low_conf'])]
+        if not candidates:
+            return anomalies
+        releases = sorted(coverage_df['release'].unique())
+        if len(releases) < 2:
+            return anomalies
+        prev_r, curr_r = releases[-2], releases[-1]
+        prev = coverage_df[coverage_df['release'] == prev_r]
+        curr = coverage_df[coverage_df['release'] == curr_r]
+        for (theme, type_), curr_grp in curr.groupby(['theme', 'type']):
+            prev_grp = prev[(prev['theme'] == theme) & (prev['type'] == type_)]
+            if prev_grp.empty:
+                continue
+            curr_row = curr_grp.iloc[0]
+            prev_row = prev_grp.iloc[0]
+            tc_curr = float(curr_row.get('total_count', 0.0))
+            tc_prev = float(prev_row.get('total_count', 0.0))
+            if tc_prev <= 0 or tc_curr <= 0:
+                continue
+            for col in candidates:
+                try:
+                    curr_rate = float(curr_row[col]) / tc_curr * 100.0
+                    prev_rate = float(prev_row[col]) / tc_prev * 100.0
+                except Exception:
+                    continue
+                abs_inc = curr_rate - prev_rate
+                rel_inc = (curr_rate / prev_rate) if prev_rate > 0 else float('inf')
+                if abs_inc > 2.0 and rel_inc > 2.0:
+                    anomalies.append(Anomaly(
+                        theme=theme,
+                        type_=type_,
+                        column=col,
+                        rule="Junk/Spam Rate Increase",
+                        severity=Severity.WARNING if abs_inc <= 10 else Severity.CRITICAL,
+                        message=f"'{col}' rate {prev_rate:.2f}% → {curr_rate:.2f}% (+{abs_inc:.2f}%, {rel_inc:.1f}x)",
+                        actual_value=curr_rate
+                    ))
+        return anomalies
+
+    def _check_spammy_names(self, base_dir: str) -> List[Anomaly]:
+        """Heuristic scan for spammy-sounding names across CSVs outside Metrics/."""
+        anomalies: List[Anomaly] = []
+        csvs: List[str] = []
+        for root, _, files in os.walk(base_dir):
+            if 'Metrics' in root:
+                continue
+            for f in files:
+                if f.lower().endswith('.csv'):
+                    csvs.append(os.path.join(root, f))
+        sampled = 0
+        spammy = 0
+        patterns = [
+            'free money', 'win cash', 'best prices', 'discount!!!', 'http://', 'https://',
+            'call now', 'limited offer', 'earn $$$', 'crypto', 'loan', 'guaranteed', 'betting',
+        ]
+        for path in csvs[:30]:
+            try:
+                df = pd.read_csv(path, nrows=2000)
+            except Exception:
+                continue
+            name_cols = [c for c in df.columns if c.lower() in ['name', 'names']]
+            if not name_cols:
+                continue
+            col = name_cols[0]
+            vals = df[col].dropna().astype(str).head(2000)
+            for v in vals:
+                sampled += 1
+                if any(p in v.lower() for p in patterns):
+                    spammy += 1
+            if sampled >= 5000:
+                break
+        if sampled >= 100:
+            rate = spammy / max(sampled, 1) * 100.0
+            if rate > 0.5:
+                anomalies.append(Anomaly(
+                    theme='places',
+                    type_='place',
+                    rule='Spammy Names Heuristic',
+                    severity=Severity.INFO if rate < 2 else Severity.WARNING,
+                    message=f"Approx. spammy-name rate ~{rate:.2f}% across sampled CSVs",
+                    actual_value=rate,
+                    expected_range=None
+                ))
+        return anomalies
+
+    def _check_invalid_geometries(self, base_dir: str) -> List[Anomaly]:
+        """Optional invalid geometry scanning using Shapely when available."""
+        anomalies: List[Anomaly] = []
+        try:
+            from shapely import wkt
+            from shapely.geometry.base import BaseGeometry
+        except Exception:
+            return anomalies
+        candidates: List[str] = []
+        for root, _, files in os.walk(base_dir):
+            for f in files:
+                if f.lower().endswith('.csv') and ('geom' in f.lower() or 'sample' in root.lower()):
+                    candidates.append(os.path.join(root, f))
+        invalid = 0
+        checked = 0
+        for path in candidates[:10]:
+            try:
+                df = pd.read_csv(path, nrows=2000)
+            except Exception:
+                continue
+            geom_cols = [c for c in df.columns if any(k in c.lower() for k in ['wkt', 'geom', 'geometry'])]
+            if not geom_cols:
+                continue
+            gcol = geom_cols[0]
+            for val in df[gcol].dropna().astype(str).head(2000):
+                try:
+                    geom: BaseGeometry = wkt.loads(val)
+                    checked += 1
+                    if not geom.is_valid:
+                        invalid += 1
+                except Exception:
+                    continue
+            if checked >= 2000:
+                break
+        if checked >= 100:
+            rate = invalid / max(checked, 1) * 100.0
+            if rate > 0.1:
+                anomalies.append(Anomaly(
+                    theme='geometry',
+                    type_='feature',
+                    rule='Invalid Geometries (WKT)',
+                    severity=Severity.WARNING if rate < 1.0 else Severity.CRITICAL,
+                    message=f"Invalid geometry rate ≈ {rate:.2f}% across sampled rows",
+                    actual_value=rate
                 ))
         return anomalies
     
@@ -823,7 +979,7 @@ class EnhancedReleaseValidator:
             report.append("")
         
         if info:
-            report.append(f"ℹ️  INFORMATIONAL ({len(info)}):")
+            report.append(f" INFORMATIONAL ({len(info)}):")
             report.append("-"*80)
             for anomaly in info[:20]:
                 report.append(f"  {anomaly}")
