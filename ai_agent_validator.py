@@ -31,7 +31,7 @@ class AgentAnomaly:
 
 
 class AIReleaseValidator:
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(self, api_key: Optional[str] = None, prompt_override: Optional[str] = None):
         """
         Initialize the AI-powered release validator.
         
@@ -47,6 +47,7 @@ class AIReleaseValidator:
         
         self.client = anthropic.Anthropic(api_key=self.api_key)
         self.model = "claude-sonnet-4-20250514"  # Latest Sonnet 4.5
+        self.prompt_override = prompt_override
     
     def analyze_release(self, 
                        release_stats: pd.DataFrame,
@@ -74,7 +75,7 @@ class AIReleaseValidator:
         )
         
         # Create the analysis prompt
-        prompt = self._create_analysis_prompt(context)
+        prompt = self.prompt_override or self._create_analysis_prompt(context)
         
         print("\n" + "="*80)
         print("AI AGENT ANALYSIS")
@@ -181,17 +182,24 @@ The rule-based system detected these anomalies:
 
 Analyze this release data and identify anomalies in these categories:
 
-1. **Unexpected Data Churn**: Unusual changes between releases
-   - Attribute coverage drops (e.g., 10% fewer places have websites)
+1. **Attribute Coverage Changes**: Changes in data completeness (HIGH PRIORITY)
+   - Coverage drops (e.g., 10% fewer places have websites)
+   - Coverage spikes (e.g., emails going from 0% to 8% suddenly)
+   - Dramatic swings in attribute availability
+   - Look for both absolute changes (>5%) and relative changes (>2x or >0.5x)
+   - These often indicate data source changes, enrichment, or quality issues
+
+2. **Unexpected Data Churn**: Unusual changes between releases
    - Feature count fluctuations (sudden drops in total counts)
    - High churn rates that might indicate ID instability
+   - Unusual add/remove patterns
 
-2. **Data Quality Issues**: Content and completeness problems
+3. **Data Quality Issues**: Content and completeness problems
    - Increases in incomplete data (missing critical attributes)
    - Suspicious patterns that might indicate spam/vandalism
-   - Unusual attribute coverage spikes
+   - Stagnation (complete lack of updates)
 
-3. **Systematic Issues**: Patterns suggesting pipeline problems
+4. **Systematic Issues**: Patterns suggesting pipeline problems
    - Multiple themes affected similarly
    - Unusual correlations between different metrics
    - Deviations from typical monthly patterns
