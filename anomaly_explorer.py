@@ -281,13 +281,13 @@ class AnomalyExplorer:
     <h2>By Anomaly Type</h2>
     {self.group_by_anomaly_type().to_html(classes='table')}
     
-    <h2>🌍 Top 20 Countries</h2>
+    <h2> Top 20 Countries</h2>
     {self.top_countries(20).to_html(classes='table')}
     
-    <h2>🔥 Top 30 Anomalies by Change</h2>
+    <h2> Top 30 Anomalies by Change</h2>
     {self.top_anomalies(30).to_html(classes='table', index=False)}
     
-    <h2>🎯 Unique Patterns (Excluding Duplication Bug)</h2>
+    <h2> Unique Patterns (Excluding Duplication Bug)</h2>
     {self.unique_patterns().to_html(classes='table')}
     
     <h2>📋 All Anomalies</h2>
