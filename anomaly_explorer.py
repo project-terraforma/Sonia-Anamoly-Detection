@@ -272,13 +272,13 @@ class AnomalyExplorer:
         </div>
     </div>
     
-    <h2>📊 By Pattern</h2>
+    <h2>By Pattern</h2>
     {self.group_by_pattern().to_html(classes='table')}
     
-    <h2>📊 By Theme</h2>
+    <h2>By Theme</h2>
     {self.group_by_theme().to_html(classes='table')}
     
-    <h2>📊 By Anomaly Type</h2>
+    <h2>By Anomaly Type</h2>
     {self.group_by_anomaly_type().to_html(classes='table')}
     
     <h2>🌍 Top 20 Countries</h2>
