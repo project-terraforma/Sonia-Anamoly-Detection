@@ -290,7 +290,7 @@ class AnomalyExplorer:
     <h2> Unique Patterns (Excluding Duplication Bug)</h2>
     {self.unique_patterns().to_html(classes='table')}
     
-    <h2>📋 All Anomalies</h2>
+    <h2> All Anomalies</h2>
     <div class="filter-section">
         <input type="text" id="search" placeholder="Search..." onkeyup="filterTable()">
         <select id="severityFilter" onchange="filterTable()">
