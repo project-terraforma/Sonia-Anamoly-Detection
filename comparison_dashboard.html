@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule-Based vs AI Agent Comparison | Overture Maps Validation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+        }
+        .card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        .winner {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+        .prose h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; }
+        .prose p { margin-bottom: 0.75rem; }
+        .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 0.75rem; }
+        .prose li { margin-bottom: 0.25rem; }
+        .prose strong { font-weight: 600; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <div class="gradient-header text-white py-8 px-4 mb-8">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold mb-2">Rule-Based vs AI Agent Comparison</h1>
+            <p class="text-xl opacity-90">Comparative Analysis for Overture Maps Release Validation</p>
+            <p class="text-sm opacity-75 mt-2">
+                Releases: <span class="font-mono bg-white/20 px-2 py-1 rounded">2025-08-20.1 → 2025-09-24.0</span>
+                | Generated: 2025-11-25
+            </p>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 pb-12">
+        
+        <!-- Executive Summary -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Executive Summary</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                    <div class="text-5xl font-bold text-blue-600">983</div>
+                    <div class="text-gray-600 mt-1">Rule-Based Alerts</div>
+                </div>
+                <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <div class="text-5xl font-bold text-green-600">4</div>
+                    <div class="text-gray-600 mt-1">AI-Identified Patterns</div>
+                </div>
+                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                    <div class="text-5xl font-bold text-purple-600">99.6%</div>
+                    <div class="text-gray-600 mt-1">Noise Reduction</div>
+                </div>
+                <div class="text-center p-4 bg-orange-50 rounded-lg">
+                    <div class="text-5xl font-bold text-orange-600">192</div>
+                    <div class="text-gray-600 mt-1">Countries Affected</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Side by Side Comparison -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            
+            <!-- Rule-Based Column -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-blue-600 text-white px-6 py-4">
+                    <h2 class="text-xl font-bold">Rule-Based Approach</h2>
+                    <p class="opacity-90 text-sm">Threshold-based anomaly detection</p>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-700 mb-2">Output</h3>
+                        <div class="bg-gray-100 rounded-lg p-4">
+                            <div class="text-3xl font-bold text-gray-800">983 alerts</div>
+                            <div class="flex gap-4 mt-2">
+                                <span class="text-red-600">978 critical</span>
+                                <span class="text-yellow-600">5 warnings</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-700 mb-2">Sample Output</h3>
+                        <div class="bg-gray-900 text-green-400 rounded-lg p-4 font-mono text-xs max-h-48 overflow-y-auto">
+[CRITICAL] feature_count_spike: divisions/division_area (neighborhood/land) in US
+  Feature count spiked unexpectedly
+  id_count: 20,688 -> 41,862 (+102.3%)
+
+[CRITICAL] feature_count_spike: transportation/segment (rail/standard_gauge)
+  Feature count spiked unexpectedly
+  id_count: 1,429,962 -> 2,865,484 (+100.4%)
+
+[CRITICAL] feature_count_spike: divisions/division_area (neighborhood/land) in BR
+  ... (980 more alerts)
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-700 mb-2">Strengths</h3>
+                        <ul class="space-y-1">
+                            <li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Fast execution (no API calls)</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Deterministic and reproducible</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Low cost (no token usage)</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Catches all threshold violations</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Easy to audit and explain</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-gray-700 mb-2">Weaknesses</h3>
+                        <ul class="space-y-1">
+                            <li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Generates 983 individual alerts (noisy)</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Cannot identify root causes</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Misses patterns across anomalies</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>No prioritization beyond severity</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Requires manual threshold tuning</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Cannot handle unstructured data</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Agent Column -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-green-600 text-white px-6 py-4">
+                    <h2 class="text-xl font-bold">AI Agent Approach</h2>
+                    <p class="opacity-90 text-sm">LLM-powered synthesis and reasoning</p>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-700 mb-2">Output</h3>
+                        <div class="bg-gray-100 rounded-lg p-4">
+                            <div class="text-3xl font-bold text-gray-800">4 patterns</div>
+                            <div class="mt-2 text-sm text-gray-600">
+                                + Root cause analysis + Recommendations
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-700 mb-2">Patterns Identified</h3>
+                        <div class="space-y-2">
+                            <div class="bg-green-50 border-l-4 border-green-500 p-2 text-sm">Systematic ~100% duplication across divisions and transportation</div><div class="bg-green-50 border-l-4 border-green-500 p-2 text-sm">Water geometry reduction</div><div class="bg-green-50 border-l-4 border-green-500 p-2 text-sm">Division area anomalies across 47+ countries</div><div class="bg-green-50 border-l-4 border-green-500 p-2 text-sm">Rail infrastructure duplication</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-700 mb-2">Root Causes Identified</h3>
+                        <div class="space-y-1">
+                            <div class="text-sm">* Data pipeline duplication bug</div><div class="text-sm">* Source data integration issue</div><div class="text-sm">* Pipeline processing failure</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-semibold text-gray-700 mb-2">Strengths</h3>
+                        <ul class="space-y-1">
+                            <li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Synthesizes 983 alerts into actionable insights</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Identifies root causes and patterns</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Provides prioritized recommendations</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Can process unstructured text</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Adapts to new anomaly types without code changes</li><li class="flex items-center text-sm"><span class="text-green-500 mr-2">+</span>Explains findings in natural language</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-semibold text-gray-700 mb-2">Weaknesses</h3>
+                        <ul class="space-y-1">
+                            <li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Requires API calls (latency + cost)</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Non-deterministic (may vary between runs)</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Potential for hallucination</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Harder to audit reasoning</li><li class="flex items-center text-sm"><span class="text-red-500 mr-2">-</span>Depends on prompt quality</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detailed Comparison Table -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Head-to-Head Comparison</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b-2 border-gray-200">
+                            <th class="text-left py-3 px-4 font-semibold text-gray-700">Aspect</th>
+                            <th class="text-left py-3 px-4 font-semibold text-blue-600">Rule-Based</th>
+                            <th class="text-left py-3 px-4 font-semibold text-green-600">AI Agent</th>
+                            <th class="text-center py-3 px-4 font-semibold text-gray-700">Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-3 px-4 font-medium">Output Volume</td>
+                            <td class="py-3 px-4 text-sm">983 individual alerts</td>
+                            <td class="py-3 px-4 text-sm">4 grouped patterns + interpretation</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                    AI Agent
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-3 px-4 font-medium">Root Cause Analysis</td>
+                            <td class="py-3 px-4 text-sm">None - only flags threshold violations</td>
+                            <td class="py-3 px-4 text-sm">Identifies systematic duplication bug as root cause</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                    AI Agent
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-3 px-4 font-medium">Actionable Recommendations</td>
+                            <td class="py-3 px-4 text-sm">None - requires human interpretation</td>
+                            <td class="py-3 px-4 text-sm">Specific actions: rollback, investigate pipeline, implement checks</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                    AI Agent
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-3 px-4 font-medium">Execution Speed</td>
+                            <td class="py-3 px-4 text-sm">~2 seconds</td>
+                            <td class="py-3 px-4 text-sm">~5-10 seconds (includes API call)</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                                    Rule-Based
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-3 px-4 font-medium">Cost</td>
+                            <td class="py-3 px-4 text-sm">Free</td>
+                            <td class="py-3 px-4 text-sm">~$0.01-0.05 per analysis</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                                    Rule-Based
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-3 px-4 font-medium">Determinism</td>
+                            <td class="py-3 px-4 text-sm">100% reproducible</td>
+                            <td class="py-3 px-4 text-sm">May vary slightly between runs</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                                    Rule-Based
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-3 px-4 font-medium">Handling Unstructured Data</td>
+                            <td class="py-3 px-4 text-sm">Cannot process text reports</td>
+                            <td class="py-3 px-4 text-sm">Can parse and analyze text summaries</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                    AI Agent
+                                </span>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- AI Interpretation Full Text -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Full AI Agent Interpretation</h2>
+            <div class="prose max-w-none bg-gray-50 rounded-lg p-6 text-sm">
+                <p># Overture Maps Release Anomaly Analysis
+<h2>Release Comparison: 2025-08-20.1 → 2025-09-24.0</h2></p><h2>1. Executive Summary</h2>
+A systematic doubling of city features occurred across 15+ countries in the divisions theme, with 978 critical anomalies detected (99.5% of all issues). This appears to be a data processing error rather than legitimate geographic updates, given the consistent ~100% increase pattern and global scope.<h2>2. Key Patterns Identified</h2>
+<ul><li><strong>Global City Duplication Pattern</strong>: 952 critical anomalies in divisions theme, all showing city feature counts doubling (~98-104% increases) across BR, CA, CN, EG, IN, IR, JP, MX, PH, PK, PT, RO, RU, US</li>
+<li><strong>Consistent Magnitude</strong>: All affected countries show nearly identical percentage increases (98-104%), suggesting systematic processing error</li>
+<li><strong>Geographic Scope</strong>: Affects major population centers globally, indicating upstream data pipeline issue</li>
+<li><strong>Single Geometry Degradation</strong>: One critical geometry length reduction in base/water/lake (-21.9%, ~730km loss)</li>
+<li><strong>Minimal Transportation Impact</strong>: Only 25 anomalies in transportation theme (2.5% of total)</li>
+</ul>
+<h2>3. Root Cause Hypotheses</h2>
+<ul><li><strong>Primary</strong>: Data deduplication failure in ETL pipeline causing duplicate city records to be ingested</li>
+<li><strong>Secondary</strong>: Source data provider introduced duplicate records upstream</li>
+<li><strong>Tertiary</strong>: Schema or ID generation changes causing existing features to be treated as new entities</li>
+<li><strong>Geometry Issue</strong>: Separate water feature processing error or coordinate system transformation problem</li>
+</ul>
+<h2>4. Recommended Actions</h2>
+<strong>IMMEDIATE (Critical Priority)</strong>:
+<ul><li>Halt distribution of 2025-09-24.0 release for divisions theme</li>
+<li>Investigate deduplication logic in city feature processing pipeline</li>
+<li>Compare raw source data between releases to identify duplication point</li>
+</ul>
+<strong>SHORT-TERM (High Priority)</strong>:
+<ul><li>Implement automated detection for >50% feature count increases in future releases</li>
+<li>Audit geometry processing pipeline for water features</li>
+<li>Validate ID generation and feature matching algorithms</li>
+</ul>
+<strong>MEDIUM-TERM (Medium Priority)</strong>:
+<ul><li>Establish country-level feature count baselines with tolerance thresholds</li>
+<li>Implement cross-theme anomaly correlation analysis</li>
+</ul>
+<h2>5. Risk Assessment</h2>
+<h2>SEVERITY: CRITICAL</h2><ul><li><strong>Data Integrity</strong>: Downstream applications will receive ~2x inflated city counts globally</li>
+<li><strong>User Impact</strong>: Navigation, demographic analysis, and urban planning applications severely affected</li>
+<li><strong>Trust Impact</strong>: Systematic errors across major countries undermines data reliability</li>
+<li><strong>Scope</strong>: 97% of anomalies are critical severity affecting core geographic divisions</li>
+</ul>
+<h2>Immediate rollback of divisions theme data recommended.</h2>
+            </div>
+        </div>
+        
+        <!-- Charts Row 1: Theme and Type -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-4">Anomalies by Theme</h3>
+                <canvas id="themeChart"></canvas>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-4">Anomalies by Type</h3>
+                <canvas id="typeChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Charts Row 2: Countries -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h3 class="text-lg font-semibold mb-4">Top 20 Countries by Anomaly Count</h3>
+            <div style="height: 400px;">
+                <canvas id="countryChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Country Table -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h3 class="text-lg font-semibold mb-4">Country Breakdown</h3>
+            <div class="overflow-x-auto max-h-96">
+                <table class="w-full text-sm">
+                    <thead class="sticky top-0 bg-gray-50">
+                        <tr class="border-b-2 border-gray-200">
+                            <th class="text-left py-2 px-3 font-semibold">Country</th>
+                            <th class="text-right py-2 px-3 font-semibold text-red-600">Critical</th>
+                            <th class="text-right py-2 px-3 font-semibold text-yellow-600">Warning</th>
+                            <th class="text-right py-2 px-3 font-semibold">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">US</td>
+                            <td class="py-2 px-3 text-right text-red-600">13</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">13</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">CA</td>
+                            <td class="py-2 px-3 text-right text-red-600">11</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">11</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">CN</td>
+                            <td class="py-2 px-3 text-right text-red-600">11</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">11</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">IR</td>
+                            <td class="py-2 px-3 text-right text-red-600">11</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">11</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">JP</td>
+                            <td class="py-2 px-3 text-right text-red-600">11</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">11</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">RU</td>
+                            <td class="py-2 px-3 text-right text-red-600">11</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">11</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">IN</td>
+                            <td class="py-2 px-3 text-right text-red-600">10</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">10</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">MX</td>
+                            <td class="py-2 px-3 text-right text-red-600">10</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">10</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">RO</td>
+                            <td class="py-2 px-3 text-right text-red-600">10</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">10</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">VE</td>
+                            <td class="py-2 px-3 text-right text-red-600">10</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">10</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">TR</td>
+                            <td class="py-2 px-3 text-right text-red-600">10</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">10</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">PT</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">AR</td>
+                            <td class="py-2 px-3 text-right text-red-600">8</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">1</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">AU</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">BY</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">CH</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">DE</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">FR</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">GB</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">IQ</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">IT</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">KZ</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">MY</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">NO</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">PL</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">SE</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">UA</td>
+                            <td class="py-2 px-3 text-right text-red-600">9</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">9</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">BR</td>
+                            <td class="py-2 px-3 text-right text-red-600">8</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">8</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">AT</td>
+                            <td class="py-2 px-3 text-right text-red-600">8</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">8</td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100 hover:bg-gray-50">
+                            <td class="py-2 px-3 font-medium">BG</td>
+                            <td class="py-2 px-3 text-right text-red-600">8</td>
+                            <td class="py-2 px-3 text-right text-yellow-600">0</td>
+                            <td class="py-2 px-3 text-right font-semibold">8</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Final Recommendation -->
+        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-lg p-8 text-white mb-8">
+            <h2 class="text-2xl font-bold mb-4">Recommendation</h2>
+            <div class="prose prose-invert max-w-none">
+                <h2>Recommendation: Hybrid Approach</h2><p>Based on this analysis, we recommend:</p><ul><li><strong>Use Rule-Based as Foundation</strong>: Fast, free, deterministic baseline that catches all threshold violations.</li>
+</ul>
+<ul><li><strong>Add AI Agent as Synthesis Layer</strong>: Reduces 983 alerts to ~4 actionable patterns, identifies root causes, and provides recommendations.</li>
+</ul>
+<ul><li><strong>Best Practice Workflow</strong>:</li>
+</ul>   - Rule-based runs automatically on every release
+   - AI agent triggered when critical count > 10 or for human review
+   - Human validates AI recommendations before action<ul><li><strong>Key Finding</strong>: The AI agent correctly identified this as a systematic duplication bug requiring immediate rollback - something the rule-based system could not determine from 983 individual alerts.</li>
+</ul>
+<strong>Value Add of AI Agent</strong>: 97% noise reduction while adding root cause analysis and actionable recommendations.
+            </div>
+        </div>
+        
+        <!-- Key Questions Answered -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mt-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Key Questions Answered</h2>
+            <div class="space-y-4">
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h3 class="font-semibold">Does an agent-based approach add value compared to rule-based?</h3>
+                    <p class="text-gray-600 mt-1"><strong>Yes.</strong> The AI agent reduced 983 alerts to 4 actionable patterns, identified the root cause (duplication bug), and provided specific recommendations. Rule-based alone would require significant human effort to reach the same conclusions.</p>
+                </div>
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h3 class="font-semibold">Should we start with rule-based before AI agents?</h3>
+                    <p class="text-gray-600 mt-1"><strong>Yes.</strong> Rule-based provides the foundation (fast, free, deterministic). AI agent adds value as a synthesis layer on top. The hybrid approach is optimal.</p>
+                </div>
+                <div class="border-l-4 border-yellow-500 pl-4">
+                    <h3 class="font-semibold">Can agents infer validation rules themselves?</h3>
+                    <p class="text-gray-600 mt-1"><strong>Partially.</strong> The AI agent correctly identified that ~100% increases are anomalous without being explicitly told. However, domain expertise is still needed to set appropriate thresholds.</p>
+                </div>
+                <div class="border-l-4 border-purple-500 pl-4">
+                    <h3 class="font-semibold">What scope should validation apply to?</h3>
+                    <p class="text-gray-600 mt-1"><strong>Both levels.</strong> Rule-based works on aggregated statistics (fast). AI agent can process individual features when needed for deep investigation.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        // Theme chart
+        const themeData = {"base": {"critical": 1, "warning": 4}, "divisions": {"critical": 952, "warning": 1}, "transportation": {"critical": 25, "warning": 0}};
+        const themeLabels = Object.keys(themeData);
+        const themeCritical = themeLabels.map(t => themeData[t].critical);
+        const themeWarning = themeLabels.map(t => themeData[t].warning);
+        
+        new Chart(document.getElementById('themeChart'), {
+            type: 'bar',
+            data: {
+                labels: themeLabels,
+                datasets: [
+                    {
+                        label: 'Critical',
+                        data: themeCritical,
+                        backgroundColor: '#dc2626'
+                    },
+                    {
+                        label: 'Warning',
+                        data: themeWarning,
+                        backgroundColor: '#f59e0b'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: { stacked: true },
+                    y: { stacked: true, beginAtZero: true }
+                }
+            }
+        });
+        
+        // Type chart
+        const typeData = {"geometry_length_change": 5, "feature_count_spike": 974, "feature_count_drop": 4};
+        new Chart(document.getElementById('typeChart'), {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(typeData),
+                datasets: [{
+                    data: Object.values(typeData),
+                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899']
+                }]
+            },
+            options: { responsive: true }
+        });
+        
+        // Country chart
+        const countryLabels = ["US", "CA", "CN", "IR", "JP", "RU", "IN", "MX", "RO", "VE", "TR", "PT", "AR", "AU", "BY", "CH", "DE", "FR", "GB", "IQ"];
+        const countryCritical = [13, 11, 11, 11, 11, 11, 10, 10, 10, 10, 10, 9, 8, 9, 9, 9, 9, 9, 9, 9];
+        const countryWarning = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0];
+        
+        new Chart(document.getElementById('countryChart'), {
+            type: 'bar',
+            data: {
+                labels: countryLabels,
+                datasets: [
+                    {
+                        label: 'Critical',
+                        data: countryCritical,
+                        backgroundColor: '#dc2626'
+                    },
+                    {
+                        label: 'Warning',
+                        data: countryWarning,
+                        backgroundColor: '#f59e0b'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: { stacked: true, beginAtZero: true },
+                    y: { stacked: true }
+                },
+                plugins: {
+                    legend: { position: 'top' }
+                }
+            }
+        });
+    </script>
+    
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm opacity-75">
+                Overture Maps Release Validation | Rule-Based vs AI Agent Comparison
+                <br>Generated: 2025-11-25T23:12:09.495702
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
