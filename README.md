@@ -165,13 +165,7 @@ Metrics/
 Geographic concentration detected: 78% of all addresses/address changes are in US
 ```
 
-### 6. Multi-Release Trends
-**Data source:** `theme_class_summary_stats/release_to_release_comparisons/*.csv`
-
-- Detects gradual degradation over multiple releases
-- Catches slow-moving issues that single-release comparisons miss
-
-### 7. Incomplete Data Detection
+### 6. Incomplete Data Detection
 **Data source:** `theme_column_summary_stats/*.csv`
 
 - Detects when null rates increase for required fields
@@ -183,7 +177,7 @@ Geographic concentration detected: 78% of all addresses/address changes are in U
   Missing data increased for 'addresses': 12.3% → 15.8% null
 ```
 
-### 8. Confidence Score Monitoring
+### 7. Confidence Score Monitoring
 **Data source:** `theme_column_summary_stats/*.csv` (places only)
 
 - Tracks confidence score coverage
