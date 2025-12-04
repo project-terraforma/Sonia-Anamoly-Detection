@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overture Maps Anomaly Analysis Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <div class="gradient-header text-white py-8 px-4 mb-8">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold mb-2">Overture Maps Anomaly Analysis</h1>
+            <p class="text-xl opacity-90">Rule-Based Detection + AI Agent Synthesis</p>
+            <p class="text-sm opacity-75 mt-2">
+                Releases: <span class="font-mono bg-white/20 px-2 py-1 rounded">2025-08-20.1 -> 2025-09-24.0</span>
+                | Generated: 2025-12-03
+            </p>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 pb-12">
+        
+        <!-- Executive Summary -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Executive Summary</h2>
+            <p class="text-lg text-gray-700 mb-6">Release 2025-09-24.0 shows severe data quality degradation with 1,062 anomalies (97% critical), dominated by massive feature count spikes in divisions theme (957 critical anomalies) and widespread attribute coverage failures across all themes. The release affects 192 countries globally, indicating systemic data processing issues rather than localized problems.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-600">1062</div>
+                    <div class="text-gray-600 text-sm">Rule-Based Alerts</div>
+                </div>
+                <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <div class="text-4xl font-bold text-green-600">5</div>
+                    <div class="text-gray-600 text-sm">AI Patterns</div>
+                </div>
+                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                    <div class="text-4xl font-bold text-purple-600">99.5%</div>
+                    <div class="text-gray-600 text-sm">Noise Reduction</div>
+                </div>
+                <div class="text-center p-4 bg-red-50 rounded-lg">
+                    <div class="text-4xl font-bold text-red-600">1030</div>
+                    <div class="text-gray-600 text-sm">Critical Issues</div>
+                </div>
+                <div class="text-center p-4 bg-orange-50 rounded-lg">
+                    <div class="text-4xl font-bold text-orange-600">192</div>
+                    <div class="text-gray-600 text-sm">Countries Affected</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Risk Assessment Banner -->
+        <div class="bg-red-100 border border-red-300 rounded-xl p-6 mb-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-bold text-red-800">Risk Assessment: CRITICAL</h3>
+                    <p class="text-red-700">All downstream consumers will receive corrupted data with massive feature count anomalies, missing critical attributes, and geometry errors affecting mapping applications, routing systems, and geospatial analytics</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-3xl font-bold text-red-600">94%</div>
+                    <div class="text-sm text-red-600">Confidence</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AI Patterns -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">AI-Identified Patterns</h2>
+            <p class="text-gray-600 mb-4">The AI agent synthesized 1062 rule-based alerts into 5 actionable patterns:</p>
+            
+        <div class="bg-white border-l-4 border-red-500 p-4 mb-4 rounded-r-lg shadow">
+            <div class="flex justify-between items-start">
+                <h4 class="font-semibold text-lg">Divisions Data Explosion</h4>
+                <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm">CRITICAL</span>
+            </div>
+            <p class="text-gray-600 mt-2">Massive feature count spikes in divisions theme with significant additions in China (7,188 divisions, 3,179 division_areas) and other countries</p>
+            <div class="mt-2 flex gap-4 text-sm text-gray-500">
+                <span>Confidence: 95%</span>
+                <span>Anomalies: 959</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Evidence: 957 critical anomalies in divisions theme, with 974 total feature_count_spike anomalies across the release</p>
+            <button onclick="toggleDetails('details_divisions_data_explosion')" class="mt-2 text-sm text-blue-600 hover:text-blue-800">
+                ▶ Show underlying anomalies
+            </button>
+            
+            <div id="details_divisions_data_explosion" class="hidden mt-4 border-t pt-4">
+                <h5 class="font-semibold text-sm mb-2">Sample Anomalies (992 total):</h5>
+                <div class="max-h-64 overflow-y-auto">
+                    <table class="w-full text-xs">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-2 py-1 text-left">Theme/Type</th>
+                                <th class="px-2 py-1 text-left">Country</th>
+                                <th class="px-2 py-1 text-left">Column</th>
+                                <th class="px-2 py-1 text-left">Description</th>
+                                <th class="px-2 py-1 text-right">Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/infrastructure</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Net gain of 1,367,815 features (1,501,897 added, 134,082 removed)">Net gain of 1,367,815 features (1,501,897 added, 1...</td>
+                                <td class="px-2 py-1 text-right">1.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">BR</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">100.6%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">CA</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">98.9%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">CN</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">99.9%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">EG</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">102.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">IN</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">102.3%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">IR</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">98.5%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">JP</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">100.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">MX</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">98.7%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">PH</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">101.3%</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-gray-400 mt-2">Use anomaly_explorer.py to see all anomalies and source files</p>
+            </div>
+            
+        </div>
+        
+        <div class="bg-white border-l-4 border-red-500 p-4 mb-4 rounded-r-lg shadow">
+            <div class="flex justify-between items-start">
+                <h4 class="font-semibold text-lg">Global Attribute Coverage Crisis</h4>
+                <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm">CRITICAL</span>
+            </div>
+            <p class="text-gray-600 mt-2">Systematic failure of attribute population across all themes, with 95-99% missing values for key fields including required fields like 'names'</p>
+            <div class="mt-2 flex gap-4 text-sm text-gray-500">
+                <span>Confidence: 92%</span>
+                <span>Anomalies: 69</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Evidence: 69 low_attribute_coverage anomalies, including 97.7% of lands missing required 'names' field and 99.2% of addresses missing 'postal_city'</p>
+            <button onclick="toggleDetails('details_global_attribute_coverage_crisis')" class="mt-2 text-sm text-blue-600 hover:text-blue-800">
+                ▶ Show underlying anomalies
+            </button>
+            
+            <div id="details_global_attribute_coverage_crisis" class="hidden mt-4 border-t pt-4">
+                <h5 class="font-semibold text-sm mb-2">Sample Anomalies (69 total):</h5>
+                <div class="max-h-64 overflow-y-auto">
+                    <table class="w-full text-xs">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-2 py-1 text-left">Theme/Type</th>
+                                <th class="px-2 py-1 text-left">Country</th>
+                                <th class="px-2 py-1 text-left">Column</th>
+                                <th class="px-2 py-1 text-left">Description</th>
+                                <th class="px-2 py-1 text-right">Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">addresses/address</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">postal_city</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="99.2% of addresss missing 'postal_city' (0.8% coverage)">99.2% of addresss missing 'postal_city' (0.8% cove...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/infrastructure</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">wikidata</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="99.8% of infrastructures missing 'wikidata' (0.2% coverage)">99.8% of infrastructures missing 'wikidata' (0.2% ...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/infrastructure</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">surface</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="97.2% of infrastructures missing 'surface' (2.8% coverage)">97.2% of infrastructures missing 'surface' (2.8% c...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/infrastructure</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">height</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="99.1% of infrastructures missing 'height' (0.9% coverage)">99.1% of infrastructures missing 'height' (0.9% co...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/land</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">wikidata</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="99.7% of lands missing 'wikidata' (0.3% coverage)">99.7% of lands missing 'wikidata' (0.3% coverage)...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/land</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">names</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="97.7% of lands missing 'names' (2.3% coverage)">97.7% of lands missing 'names' (2.3% coverage)...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/land</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">elevation</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="98.7% of lands missing 'elevation' (1.3% coverage)">98.7% of lands missing 'elevation' (1.3% coverage)...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/land</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">surface</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="99.8% of lands missing 'surface' (0.2% coverage)">99.8% of lands missing 'surface' (0.2% coverage)...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/land</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">level</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="100.0% of lands missing 'level' (0.0% coverage)">100.0% of lands missing 'level' (0.0% coverage)...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/land_use</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">wikidata</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="99.4% of land_uses missing 'wikidata' (0.6% coverage)">99.4% of land_uses missing 'wikidata' (0.6% covera...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-gray-400 mt-2">Use anomaly_explorer.py to see all anomalies and source files</p>
+            </div>
+            
+        </div>
+        
+        <div class="bg-white border-l-4 border-red-500 p-4 mb-4 rounded-r-lg shadow">
+            <div class="flex justify-between items-start">
+                <h4 class="font-semibold text-lg">Infrastructure Data Surge</h4>
+                <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm">CRITICAL</span>
+            </div>
+            <p class="text-gray-600 mt-2">Net gain of 1.37M infrastructure features with poor attribute quality, suggesting bulk data ingestion without proper validation</p>
+            <div class="mt-2 flex gap-4 text-sm text-gray-500">
+                <span>Confidence: 88%</span>
+                <span>Anomalies: 7</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Evidence: 1,501,897 infrastructure features added vs 134,082 removed, with 99.8% missing wikidata and 97.2% missing surface attributes</p>
+            <button onclick="toggleDetails('details_infrastructure_data_surge')" class="mt-2 text-sm text-blue-600 hover:text-blue-800">
+                ▶ Show underlying anomalies
+            </button>
+            
+            <div id="details_infrastructure_data_surge" class="hidden mt-4 border-t pt-4">
+                <h5 class="font-semibold text-sm mb-2">Sample Anomalies (987 total):</h5>
+                <div class="max-h-64 overflow-y-auto">
+                    <table class="w-full text-xs">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-2 py-1 text-left">Theme/Type</th>
+                                <th class="px-2 py-1 text-left">Country</th>
+                                <th class="px-2 py-1 text-left">Column</th>
+                                <th class="px-2 py-1 text-left">Description</th>
+                                <th class="px-2 py-1 text-right">Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/infrastructure</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">wikidata</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="99.8% of infrastructures missing 'wikidata' (0.2% coverage)">99.8% of infrastructures missing 'wikidata' (0.2% ...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/infrastructure</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">surface</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="97.2% of infrastructures missing 'surface' (2.8% coverage)">97.2% of infrastructures missing 'surface' (2.8% c...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/infrastructure</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">height</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="99.1% of infrastructures missing 'height' (0.9% coverage)">99.1% of infrastructures missing 'height' (0.9% co...</td>
+                                <td class="px-2 py-1 text-right">0.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/infrastructure</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Net gain of 1,367,815 features (1,501,897 added, 134,082 removed)">Net gain of 1,367,815 features (1,501,897 added, 1...</td>
+                                <td class="px-2 py-1 text-right">1.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">BR</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">100.6%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">CA</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">98.9%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">CN</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">99.9%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">EG</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">102.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">IN</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">102.3%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">divisions/division</td>
+                                <td class="px-2 py-1">IR</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">98.5%</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-gray-400 mt-2">Use anomaly_explorer.py to see all anomalies and source files</p>
+            </div>
+            
+        </div>
+        
+        <div class="bg-white border-l-4 border-red-500 p-4 mb-4 rounded-r-lg shadow">
+            <div class="flex justify-between items-start">
+                <h4 class="font-semibold text-lg">Geometry Integrity Issues</h4>
+                <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm">CRITICAL</span>
+            </div>
+            <p class="text-gray-600 mt-2">Significant geometry changes including 21.9% reduction in lake geometry lengths, indicating potential data corruption or processing errors</p>
+            <div class="mt-2 flex gap-4 text-sm text-gray-500">
+                <span>Confidence: 85%</span>
+                <span>Anomalies: 3</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Evidence: Lake geometry length dropped from 3,331.8km to 2,602.1km (-21.9%), with 3 geometry_length_change anomalies total</p>
+            <button onclick="toggleDetails('details_geometry_integrity_issues')" class="mt-2 text-sm text-blue-600 hover:text-blue-800">
+                ▶ Show underlying anomalies
+            </button>
+            
+            <div id="details_geometry_integrity_issues" class="hidden mt-4 border-t pt-4">
+                <h5 class="font-semibold text-sm mb-2">Sample Anomalies (3 total):</h5>
+                <div class="max-h-64 overflow-y-auto">
+                    <table class="w-full text-xs">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-2 py-1 text-left">Theme/Type</th>
+                                <th class="px-2 py-1 text-left">Country</th>
+                                <th class="px-2 py-1 text-left">Column</th>
+                                <th class="px-2 py-1 text-left">Description</th>
+                                <th class="px-2 py-1 text-right">Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/water</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Total geometry length changed significantly">Total geometry length changed significantly...</td>
+                                <td class="px-2 py-1 text-right">-21.9%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/land</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Total geometry length changed significantly">Total geometry length changed significantly...</td>
+                                <td class="px-2 py-1 text-right">-13.8%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">base/land</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Total geometry length changed significantly">Total geometry length changed significantly...</td>
+                                <td class="px-2 py-1 text-right">-13.4%</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-gray-400 mt-2">Use anomaly_explorer.py to see all anomalies and source files</p>
+            </div>
+            
+        </div>
+        
+        <div class="bg-white border-l-4 border-red-500 p-4 mb-4 rounded-r-lg shadow">
+            <div class="flex justify-between items-start">
+                <h4 class="font-semibold text-lg">Transportation Network Instability</h4>
+                <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm">CRITICAL</span>
+            </div>
+            <p class="text-gray-600 mt-2">Multiple anomalies in transportation data including feature count changes and attribute coverage issues</p>
+            <div class="mt-2 flex gap-4 text-sm text-gray-500">
+                <span>Confidence: 78%</span>
+                <span>Anomalies: 37</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Evidence: 33 critical and 4 warning anomalies in transportation theme</p>
+            <button onclick="toggleDetails('details_transportation_network_instability')" class="mt-2 text-sm text-blue-600 hover:text-blue-800">
+                ▶ Show underlying anomalies
+            </button>
+            
+            <div id="details_transportation_network_instability" class="hidden mt-4 border-t pt-4">
+                <h5 class="font-semibold text-sm mb-2">Sample Anomalies (37 total):</h5>
+                <div class="max-h-64 overflow-y-auto">
+                    <table class="w-full text-xs">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="px-2 py-1 text-left">Theme/Type</th>
+                                <th class="px-2 py-1 text-left">Country</th>
+                                <th class="px-2 py-1 text-left">Column</th>
+                                <th class="px-2 py-1 text-left">Description</th>
+                                <th class="px-2 py-1 text-right">Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/connector</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Net gain of 2,412,319 features (2,797,905 added, 385,586 removed)">Net gain of 2,412,319 features (2,797,905 added, 3...</td>
+                                <td class="px-2 py-1 text-right">0.6%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">100.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">101.0%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">100.9%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">100.4%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">100.4%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">101.6%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">100.3%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">101.2%</td>
+                            </tr>
+                
+                            <tr class="border-b border-gray-100">
+                                <td class="px-2 py-1">transportation/segment</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1">None</td>
+                                <td class="px-2 py-1 max-w-xs truncate" title="Feature count spiked unexpectedly">Feature count spiked unexpectedly...</td>
+                                <td class="px-2 py-1 text-right">101.6%</td>
+                            </tr>
+                
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-gray-400 mt-2">Use anomaly_explorer.py to see all anomalies and source files</p>
+            </div>
+            
+        </div>
+        
+        </div>
+        
+        <!-- Two Column: Root Causes + Actions -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Root Causes -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Root Cause Hypotheses</h3>
+                
+        <div class="mb-4 p-3 bg-gray-50 rounded-lg">
+            <div class="flex justify-between">
+                <span class="font-medium">Bulk data ingestion from new source without proper validation pipeline</span>
+                <span class="text-sm px-2 py-1 bg-red-100 rounded">HIGH</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Massive feature additions (1.5M+ infrastructure, 7K+ divisions in China) combined with extremely poor attribute coverage suggests automated ingestion of raw data</p>
+        </div>
+        
+        <div class="mb-4 p-3 bg-gray-50 rounded-lg">
+            <div class="flex justify-between">
+                <span class="font-medium">Data processing pipeline failure affecting attribute mapping</span>
+                <span class="text-sm px-2 py-1 bg-red-100 rounded">HIGH</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">Systematic attribute coverage failures across all themes (69 anomalies) with 95-99% missing values indicates broken attribute processing rather than source data issues</p>
+        </div>
+        
+        <div class="mb-4 p-3 bg-gray-50 rounded-lg">
+            <div class="flex justify-between">
+                <span class="font-medium">Geometry processing errors during data transformation</span>
+                <span class="text-sm px-2 py-1 bg-yellow-100 rounded">MEDIUM</span>
+            </div>
+            <p class="text-sm text-gray-500 mt-1">21.9% reduction in lake geometry lengths and other geometry changes suggest coordinate transformation or simplification errors</p>
+        </div>
+        
+            </div>
+            
+            <!-- Recommended Actions -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Recommended Actions</h3>
+                
+        <div class="flex items-start gap-3 mb-3">
+            <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-xs font-semibold">IMMEDIATE</span>
+            <div>
+                <p class="font-medium">Halt release deployment and investigate divisions theme data explosion</p>
+                <p class="text-sm text-gray-500">957 critical anomalies in divisions represent 93% of all critical issues and indicate potential data corruption</p>
+            </div>
+        </div>
+        
+        <div class="flex items-start gap-3 mb-3">
+            <span class="px-2 py-1 bg-red-100 text-red-800 rounded text-xs font-semibold">IMMEDIATE</span>
+            <div>
+                <p class="font-medium">Audit attribute processing pipeline for systematic coverage failures</p>
+                <p class="text-sm text-gray-500">69 attribute coverage anomalies with 95-99% missing values across all themes indicates broken data processing</p>
+            </div>
+        </div>
+        
+        <div class="flex items-start gap-3 mb-3">
+            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs font-semibold">SHORT_TERM</span>
+            <div>
+                <p class="font-medium">Implement validation gates for bulk feature additions exceeding normal thresholds</p>
+                <p class="text-sm text-gray-500">1.37M infrastructure additions without proper attribute validation suggests missing quality controls</p>
+            </div>
+        </div>
+        
+        <div class="flex items-start gap-3 mb-3">
+            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-semibold">PREVENTIVE</span>
+            <div>
+                <p class="font-medium">Establish geometry integrity checks and attribute coverage minimums before release</p>
+                <p class="text-sm text-gray-500">21.9% geometry changes and systematic attribute failures should trigger automatic release blocks</p>
+            </div>
+        </div>
+        
+            </div>
+        </div>
+        
+        <!-- Geographic Insights -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Geographic Insights</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    
+        <div class="mb-4 p-3 bg-blue-50 rounded-lg">
+            <p class="font-medium">Asian countries dominate new divisions additions</p>
+            <p class="text-sm text-gray-600 mt-1">China leads with 7,188 new divisions, Vietnam with 2,534, and Indonesia with 1,984, suggesting focused data collection or integration efforts in Asia-Pacific region</p>
+            <div class="flex gap-2 mt-2"><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">CN</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">VN</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">ID</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">JP</span></div>
+        </div>
+        
+        <div class="mb-4 p-3 bg-blue-50 rounded-lg">
+            <p class="font-medium">Global distribution of critical anomalies shows systematic rather than regional issues</p>
+            <p class="text-sm text-gray-600 mt-1">Top affected countries each have 10-13 critical anomalies with similar patterns, indicating pipeline-wide problems rather than country-specific data issues</p>
+            <div class="flex gap-2 mt-2"><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">US</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">CA</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">CN</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">IR</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">JP</span></div>
+        </div>
+        
+        <div class="mb-4 p-3 bg-blue-50 rounded-lg">
+            <p class="font-medium">Southern Hemisphere additions in division_areas</p>
+            <p class="text-sm text-gray-600 mt-1">New Zealand leads division_area additions (3,179), followed by Argentina (2,823), suggesting expanded coverage in previously under-represented regions</p>
+            <div class="flex gap-2 mt-2"><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">NZ</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">AR</span><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs mr-1">AU</span></div>
+        </div>
+        
+                </div>
+                <div style="height: 300px;">
+                    <canvas id="countryChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-4">Anomalies by Theme</h3>
+                <canvas id="themeChart"></canvas>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-lg font-semibold mb-4">Anomalies by Type</h3>
+                <canvas id="typeChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Comparison Table -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Rule-Based vs AI Agent Comparison</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b-2 border-gray-200">
+                            <th class="text-left py-3 px-4">Aspect</th>
+                            <th class="text-left py-3 px-4 text-blue-600">Rule-Based</th>
+                            <th class="text-left py-3 px-4 text-green-600">AI Agent</th>
+                            <th class="text-center py-3 px-4">Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr class="border-b border-gray-100">
+                            <td class="py-3 px-4 font-medium">Output Volume</td>
+                            <td class="py-3 px-4 text-sm">1062 individual alerts</td>
+                            <td class="py-3 px-4 text-sm">5 grouped patterns + interpretation</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                    AI Agent
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100">
+                            <td class="py-3 px-4 font-medium">Root Cause Analysis</td>
+                            <td class="py-3 px-4 text-sm">None - only flags threshold violations</td>
+                            <td class="py-3 px-4 text-sm">Identifies systematic issues and root causes</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                    AI Agent
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100">
+                            <td class="py-3 px-4 font-medium">Geographic Insights</td>
+                            <td class="py-3 px-4 text-sm">Lists affected countries</td>
+                            <td class="py-3 px-4 text-sm">Identifies geographic patterns and concentrations</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                    AI Agent
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100">
+                            <td class="py-3 px-4 font-medium">Confidence Scores</td>
+                            <td class="py-3 px-4 text-sm">Binary (anomaly or not)</td>
+                            <td class="py-3 px-4 text-sm">Per-pattern confidence scores</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                                    AI Agent
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100">
+                            <td class="py-3 px-4 font-medium">Execution Speed</td>
+                            <td class="py-3 px-4 text-sm">~2-5 seconds</td>
+                            <td class="py-3 px-4 text-sm">~10-15 seconds (includes API call)</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                                    Rule-Based
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100">
+                            <td class="py-3 px-4 font-medium">Cost</td>
+                            <td class="py-3 px-4 text-sm">Free</td>
+                            <td class="py-3 px-4 text-sm">~$0.02 per analysis</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                                    Rule-Based
+                                </span>
+                            </td>
+                        </tr>
+                        
+                        <tr class="border-b border-gray-100">
+                            <td class="py-3 px-4 font-medium">Determinism</td>
+                            <td class="py-3 px-4 text-sm">100% reproducible</td>
+                            <td class="py-3 px-4 text-sm">May vary slightly between runs</td>
+                            <td class="py-3 px-4 text-center">
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                                    Rule-Based
+                                </span>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Data Quality Assessment -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Data Quality Assessment</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                    <div class="text-2xl font-bold">CRITICAL</div>
+                    <div class="text-gray-600">Overall Rating</div>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold mb-2">Key Concerns</h4>
+                    <ul class="text-sm text-gray-600"><li class="mb-1">• 97% critical anomaly rate</li><li class="mb-1">• Massive unvalidated feature additions</li><li class="mb-1">• Systematic attribute coverage failure</li><li class="mb-1">• Geometry integrity issues</li></ul>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold mb-2">Most Affected Themes</h4>
+                    <div class="flex flex-wrap gap-2"><span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm mr-1">divisions</span><span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm mr-1">base</span><span class="px-2 py-1 bg-red-100 text-red-800 rounded text-sm mr-1">transportation</span></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        // Toggle function for showing/hiding anomaly details
+        function toggleDetails(elementId) {
+            const el = document.getElementById(elementId);
+            if (el) {
+                el.classList.toggle('hidden');
+                const btn = el.previousElementSibling;
+                if (btn && btn.tagName === 'BUTTON') {
+                    btn.textContent = el.classList.contains('hidden') 
+                        ? '▶ Show underlying anomalies' 
+                        : '▼ Hide underlying anomalies';
+                }
+            }
+        }
+        
+        // Theme chart
+        const themeData = {"addresses": {"critical": 1, "warning": 2, "info": 0}, "base": {"critical": 15, "warning": 11, "info": 0}, "buildings": {"critical": 20, "warning": 10, "info": 0}, "divisions": {"critical": 957, "warning": 2, "info": 0}, "places": {"critical": 4, "warning": 3, "info": 0}, "transportation": {"critical": 33, "warning": 4, "info": 0}};
+        const themeLabels = Object.keys(themeData);
+        const themeCritical = themeLabels.map(t => themeData[t].critical || 0);
+        const themeWarning = themeLabels.map(t => themeData[t].warning || 0);
+        
+        new Chart(document.getElementById('themeChart'), {
+            type: 'bar',
+            data: {
+                labels: themeLabels,
+                datasets: [
+                    { label: 'Critical', data: themeCritical, backgroundColor: '#dc2626' },
+                    { label: 'Warning', data: themeWarning, backgroundColor: '#f59e0b' }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }
+            }
+        });
+        
+        // Type chart
+        const typeData = {"low_attribute_coverage": 69, "net_feature_gain": 7, "geometry_length_change": 3, "net_feature_loss": 1, "feature_count_spike": 974, "feature_count_drop": 4, "high_removal_rate": 1, "data_regeneration": 1, "high_addition_rate": 1, "churn_spike": 1};
+        new Chart(document.getElementById('typeChart'), {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(typeData),
+                datasets: [{
+                    data: Object.values(typeData),
+                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#06b6d4', '#84cc16']
+                }]
+            },
+            options: { responsive: true }
+        });
+        
+        // Country chart
+        const countryLabels = ["US", "CA", "CN", "IR", "JP", "RU", "IN", "MX", "RO", "VE", "TR", "PT", "AR", "AU", "BY", "CH", "DE", "FR", "GB", "IQ"];
+        const countryCritical = [13, 11, 11, 11, 11, 11, 10, 10, 10, 10, 10, 9, 8, 9, 9, 9, 9, 9, 9, 9];
+        const countryWarning = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0];
+        
+        new Chart(document.getElementById('countryChart'), {
+            type: 'bar',
+            data: {
+                labels: countryLabels,
+                datasets: [
+                    { label: 'Critical', data: countryCritical, backgroundColor: '#dc2626' },
+                    { label: 'Warning', data: countryWarning, backgroundColor: '#f59e0b' }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: { x: { stacked: true }, y: { stacked: true } }
+            }
+        });
+    </script>
+    
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center text-sm opacity-75">
+            Overture Maps Anomaly Detection System | Generated: 2025-12-03T12:32:54.271811
+        </div>
+    </footer>
+</body>
+</html>

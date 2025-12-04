@@ -37,15 +37,40 @@ class AnomalyExplorer:
         self.df['is_near_total_loss'] = self.df['percent_change'].between(-105, -95)
         self.df['abs_change'] = self.df['percent_change'].abs()
         
+        # Categorize anomaly types for grouping
+        self.df['anomaly_category'] = self.df['anomaly_type'].apply(self._categorize_anomaly)
+        
         print(f"Loaded {self.original_count} anomalies")
         print(f"  - Critical: {len(self.df[self.df['severity'] == 'critical'])}")
         print(f"  - Warning: {len(self.df[self.df['severity'] == 'warning'])}")
+        print(f"  - Info: {len(self.df[self.df['severity'] == 'info'])}")
+        print(f"\nAnomaly types found:")
+        for atype, count in self.df['anomaly_type'].value_counts().items():
+            print(f"  - {atype}: {count}")
         print()
+    
+    @staticmethod
+    def _categorize_anomaly(anomaly_type: str) -> str:
+        """Categorize anomaly types into broader categories."""
+        categories = {
+            'feature_count': ['feature_count_drop', 'feature_count_spike'],
+            'churn': ['high_removal_rate', 'high_addition_rate', 'churn_spike', 'churn_rate_spike', 'net_feature_loss', 'net_feature_gain'],
+            'data_quality': ['data_quality_degradation', 'data_regeneration', 'incomplete_data_increase', 'confidence_score_drop'],
+            'coverage': ['attribute_coverage_drop', 'attribute_coverage_spike', 'low_attribute_coverage'],
+            'category': ['category_distribution_shift', 'new_category_appeared', 'category_disappeared'],
+            'geometry': ['geometry_length_change', 'geometry_size_anomaly'],
+            'geographic': ['geographic_concentration'],
+            'historical': ['historical_deviation', 'growth_velocity_change'],
+        }
+        for category, types in categories.items():
+            if anomaly_type in types:
+                return category
+        return 'other'
     
     # ==================== FILTERING ====================
     
     def filter_severity(self, severity: str) -> 'AnomalyExplorer':
-        """Filter by severity level ('critical' or 'warning')."""
+        """Filter by severity level ('critical', 'warning', or 'info')."""
         self.df = self.df[self.df['severity'] == severity]
         print(f"Filtered to {severity}: {len(self.df)} anomalies")
         return self
@@ -68,10 +93,22 @@ class AnomalyExplorer:
         print(f"Filtered to country={country}: {len(self.df)} anomalies")
         return self
     
+    def filter_column(self, column: str) -> 'AnomalyExplorer':
+        """Filter by column/field name (e.g., 'names', 'address_level_3')."""
+        self.df = self.df[self.df['column'] == column]
+        print(f"Filtered to column={column}: {len(self.df)} anomalies")
+        return self
+    
     def filter_anomaly_type(self, anomaly_type: str) -> 'AnomalyExplorer':
-        """Filter by anomaly type (e.g., 'feature_count_spike', 'feature_count_drop')."""
+        """Filter by anomaly type (e.g., 'feature_count_spike', 'low_attribute_coverage')."""
         self.df = self.df[self.df['anomaly_type'] == anomaly_type]
         print(f"Filtered to anomaly_type={anomaly_type}: {len(self.df)} anomalies")
+        return self
+    
+    def filter_anomaly_category(self, category: str) -> 'AnomalyExplorer':
+        """Filter by anomaly category (e.g., 'coverage', 'churn', 'geometry')."""
+        self.df = self.df[self.df['anomaly_category'] == category]
+        print(f"Filtered to anomaly_category={category}: {len(self.df)} anomalies")
         return self
     
     def filter_percent_change(self, min_pct: Optional[float] = None, max_pct: Optional[float] = None) -> 'AnomalyExplorer':
@@ -104,9 +141,16 @@ class AnomalyExplorer:
     def reset(self) -> 'AnomalyExplorer':
         """Reset all filters."""
         self.df = pd.DataFrame(self.raw_data['anomalies'])
+        if 'percent_change' in self.df.columns:
+            self.df['percent_change'] = pd.to_numeric(self.df['percent_change'], errors='coerce')
+        if 'previous_value' in self.df.columns:
+            self.df['previous_value'] = pd.to_numeric(self.df['previous_value'], errors='coerce')
+        if 'current_value' in self.df.columns:
+            self.df['current_value'] = pd.to_numeric(self.df['current_value'], errors='coerce')
         self.df['is_duplication'] = self.df['percent_change'].between(95, 105)
         self.df['is_near_total_loss'] = self.df['percent_change'].between(-105, -95)
         self.df['abs_change'] = self.df['percent_change'].abs()
+        self.df['anomaly_category'] = self.df['anomaly_type'].apply(self._categorize_anomaly)
         print(f"Reset: {len(self.df)} anomalies")
         return self
     
@@ -115,6 +159,12 @@ class AnomalyExplorer:
     def group_by(self, *columns) -> pd.DataFrame:
         """Group anomalies by specified columns and show counts."""
         cols = list(columns)
+        # Filter to columns that exist
+        cols = [c for c in cols if c in self.df.columns]
+        if not cols:
+            print("No valid columns to group by")
+            return pd.DataFrame()
+        
         grouped = self.df.groupby(cols).agg(
             count=('anomaly_type', 'size'),
             avg_percent_change=('percent_change', 'mean'),
@@ -141,6 +191,17 @@ class AnomalyExplorer:
         """Group by anomaly type."""
         return self.group_by('anomaly_type')
     
+    def group_by_anomaly_category(self) -> pd.DataFrame:
+        """Group by anomaly category (broader grouping)."""
+        return self.group_by('anomaly_category')
+    
+    def group_by_column(self) -> pd.DataFrame:
+        """Group by column/field name (for coverage anomalies)."""
+        if 'column' not in self.df.columns:
+            print("No 'column' field in anomalies")
+            return pd.DataFrame()
+        return self.group_by('column')
+    
     def group_by_severity(self) -> pd.DataFrame:
         """Group by severity."""
         return self.group_by('severity')
@@ -152,20 +213,170 @@ class AnomalyExplorer:
         self.df.loc[self.df['is_near_total_loss'], 'pattern'] = 'near_total_loss (~-100%)'
         return self.group_by('pattern')
     
+    # ==================== SOURCE FILE HELPERS ====================
+    
+    def get_source_files(self) -> pd.DataFrame:
+        """Get the source data files for each anomaly to help with debugging."""
+        results = []
+        for _, row in self.df.iterrows():
+            theme = row.get('theme', '')
+            ftype = row.get('type', '')
+            country = row.get('country', '')
+            release_current = row.get('release_current', '')
+            release_previous = row.get('release_previous', '')
+            anomaly_type = row.get('anomaly_type', '')
+            column = row.get('column', '')
+            
+            # Determine source file paths based on anomaly type
+            if anomaly_type in ['feature_count_spike', 'feature_count_drop', 'category_distribution_shift', 'geographic_concentration']:
+                source_file = f"metrics/{release_current}/row_counts/theme={theme}/type={ftype}/*.csv"
+            elif anomaly_type in ['low_attribute_coverage', 'attribute_coverage_drop', 'attribute_coverage_spike']:
+                source_file = f"theme_column_summary_stats/{release_current}.theme={theme}.type={ftype}.csv"
+            elif anomaly_type in ['geometry_length_change', 'geometry_size_anomaly']:
+                source_file = f"metrics/{release_current}/row_counts/theme={theme}/type={ftype}/*.csv"
+            elif anomaly_type in ['high_removal_rate', 'high_addition_rate', 'churn_spike', 'data_regeneration', 'net_feature_loss', 'net_feature_gain']:
+                source_file = f"metrics/{release_current}/changelog_stats/*.csv"
+            elif anomaly_type == 'historical_deviation':
+                source_file = f"theme_column_summary_stats/release_to_release_comparisons/theme={theme}.type={ftype}.csv"
+            else:
+                source_file = f"metrics/{release_current}/**/{theme}/{ftype}/*.csv"
+            
+            results.append({
+                'anomaly_type': anomaly_type,
+                'theme': theme,
+                'type': ftype,
+                'country': country,
+                'column': column,
+                'severity': row.get('severity', ''),
+                'description': row.get('description', ''),
+                'source_file': source_file,
+                'release': release_current
+            })
+        
+        return pd.DataFrame(results)
+    
+    def show_files_for_pattern(self, anomaly_type: str) -> pd.DataFrame:
+        """Show source files for a specific anomaly type pattern."""
+        files_df = self.get_source_files()
+        pattern_files = files_df[files_df['anomaly_type'] == anomaly_type]
+        
+        # Get unique file patterns
+        unique_files = pattern_files.groupby(['source_file', 'theme', 'type']).agg(
+            count=('anomaly_type', 'size'),
+            countries=('country', lambda x: ', '.join(sorted(set(str(c) for c in x.dropna() if c))[:5]))
+        ).reset_index()
+        
+        return unique_files.sort_values('count', ascending=False)
+    
+    def export_with_sources(self, path: str) -> None:
+        """Export anomalies with source file information to CSV."""
+        files_df = self.get_source_files()
+        files_df.to_csv(path, index=False)
+        print(f"Exported {len(files_df)} anomalies with source files to {path}")
+    
     # ==================== ANALYSIS ====================
     
     def summary(self) -> dict:
         """Get summary statistics of current filtered data."""
-        return {
+        result = {
             'total_anomalies': len(self.df),
             'by_severity': self.df['severity'].value_counts().to_dict(),
             'by_anomaly_type': self.df['anomaly_type'].value_counts().to_dict(),
+            'by_anomaly_category': self.df['anomaly_category'].value_counts().to_dict(),
             'by_theme': self.df['theme'].value_counts().to_dict(),
-            'duplication_bug_count': self.df['is_duplication'].sum(),
-            'other_anomalies': (~self.df['is_duplication']).sum(),
+            'duplication_bug_count': int(self.df['is_duplication'].sum()),
+            'other_anomalies': int((~self.df['is_duplication']).sum()),
             'unique_countries': self.df['country'].nunique(),
             'countries_affected': self.df['country'].dropna().unique().tolist()[:20],
         }
+        
+        # Add column stats if present
+        if 'column' in self.df.columns:
+            result['by_column'] = self.df['column'].dropna().value_counts().to_dict()
+        
+        return result
+    
+    def drill_down(self, anomaly_type: str = None, theme: str = None, 
+                   severity: str = None, column: str = None) -> pd.DataFrame:
+        """Drill down into specific anomalies with full details."""
+        filtered = self.df.copy()
+        
+        if anomaly_type:
+            filtered = filtered[filtered['anomaly_type'] == anomaly_type]
+        if theme:
+            filtered = filtered[filtered['theme'] == theme]
+        if severity:
+            filtered = filtered[filtered['severity'] == severity]
+        if column:
+            filtered = filtered[filtered['column'] == column]
+        
+        # Select useful columns
+        display_cols = ['severity', 'anomaly_type', 'theme', 'type', 'subtype', 
+                        'country', 'column', 'description', 'percent_change', 
+                        'previous_value', 'current_value']
+        available_cols = [c for c in display_cols if c in filtered.columns]
+        
+        return filtered[available_cols].sort_values(
+            ['severity', 'anomaly_type'], 
+            ascending=[True, True]
+        )
+    
+    def explain_ai_pattern(self, pattern_name: str) -> pd.DataFrame:
+        """
+        Map an AI pattern name back to the underlying rule-based anomalies.
+        
+        Common AI pattern names and their likely anomaly types:
+        - "Divisions Data Explosion" -> feature_count_spike in divisions
+        - "Global Attribute Coverage Crisis" -> low_attribute_coverage
+        - "Infrastructure Data Surge" -> net_feature_gain, high_addition_rate
+        - "Geometry Integrity Issues" -> geometry_length_change, geometry_size_anomaly
+        - "Transportation Network Instability" -> various in transportation theme
+        """
+        pattern_mapping = {
+            'division': {'theme': 'divisions'},
+            'explosion': {'anomaly_type': 'feature_count_spike'},
+            'coverage': {'anomaly_category': 'coverage'},
+            'attribute': {'anomaly_category': 'coverage'},
+            'infrastructure': {'theme': 'base', 'type': 'infrastructure'},
+            'surge': {'anomaly_category': 'churn'},
+            'geometry': {'anomaly_category': 'geometry'},
+            'transportation': {'theme': 'transportation'},
+            'building': {'theme': 'buildings'},
+            'place': {'theme': 'places'},
+            'regeneration': {'anomaly_type': 'data_regeneration'},
+            'duplication': {'is_duplication': True},
+        }
+        
+        # Find matching filters based on pattern name keywords
+        filters = {}
+        pattern_lower = pattern_name.lower()
+        for keyword, filter_dict in pattern_mapping.items():
+            if keyword in pattern_lower:
+                filters.update(filter_dict)
+        
+        if not filters:
+            print(f"Could not determine filters for pattern: {pattern_name}")
+            print("Try filtering manually with drill_down() or filter methods")
+            return pd.DataFrame()
+        
+        # Apply filters
+        filtered = self.df.copy()
+        for col, val in filters.items():
+            if col in filtered.columns:
+                filtered = filtered[filtered[col] == val]
+        
+        print(f"Pattern '{pattern_name}' maps to {len(filtered)} anomalies")
+        print(f"Filters applied: {filters}")
+        
+        return self.drill_down_df(filtered)
+    
+    def drill_down_df(self, filtered_df: pd.DataFrame) -> pd.DataFrame:
+        """Helper to format a filtered dataframe for display."""
+        display_cols = ['severity', 'anomaly_type', 'theme', 'type', 'subtype', 
+                        'country', 'column', 'description', 'percent_change', 
+                        'previous_value', 'current_value']
+        available_cols = [c for c in display_cols if c in filtered_df.columns]
+        return filtered_df[available_cols]
     
     def top_countries(self, n: int = 20) -> pd.DataFrame:
         """Show top N countries by anomaly count."""
@@ -174,16 +385,30 @@ class AnomalyExplorer:
     def top_anomalies(self, n: int = 20, by: str = 'abs_change') -> pd.DataFrame:
         """Show top N anomalies by a metric (abs_change, previous_value, etc.)."""
         cols = ['severity', 'anomaly_type', 'theme', 'type', 'subtype', 'country', 
-                'percent_change', 'previous_value', 'current_value']
+                'column', 'percent_change', 'previous_value', 'current_value', 'description']
         available_cols = [c for c in cols if c in self.df.columns]
         return self.df.nlargest(n, by)[available_cols]
+    
+    def top_coverage_issues(self, n: int = 20) -> pd.DataFrame:
+        """Show top coverage issues by missing percentage."""
+        coverage = self.df[self.df['anomaly_type'] == 'low_attribute_coverage'].copy()
+        if coverage.empty:
+            print("No coverage anomalies found")
+            return pd.DataFrame()
+        
+        # Sort by highest null rate (lowest coverage)
+        coverage = coverage.sort_values('current_value', ascending=True)
+        
+        cols = ['theme', 'type', 'column', 'description', 'current_value', 'severity']
+        available_cols = [c for c in cols if c in coverage.columns]
+        return coverage[available_cols].head(n)
     
     def unique_patterns(self) -> pd.DataFrame:
         """Find unique anomaly patterns (excluding duplication bug)."""
         non_dup = self.df[~self.df['is_duplication']].copy()
         return non_dup.groupby(['anomaly_type', 'theme', 'type']).agg(
             count=('severity', 'size'),
-            countries=('country', lambda x: ', '.join(sorted(set(x.dropna().astype(str)))[:5])),
+            countries=('country', lambda x: ', '.join(sorted(set(str(c) for c in x.dropna() if c))[:5])),
             avg_change=('percent_change', 'mean')
         ).round(2).sort_values('count', ascending=False)
     
@@ -243,7 +468,7 @@ class AnomalyExplorer:
     </style>
 </head>
 <body>
-    <h1>🔍 Anomaly Explorer Report</h1>
+    <h1> Anomaly Explorer Report</h1>
     
     <div class="summary-box">
         <div class="stat">
@@ -272,22 +497,22 @@ class AnomalyExplorer:
         </div>
     </div>
     
-    <h2>By Pattern</h2>
+    <h2> By Pattern</h2>
     {self.group_by_pattern().to_html(classes='table')}
     
-    <h2>By Theme</h2>
+    <h2> By Theme</h2>
     {self.group_by_theme().to_html(classes='table')}
     
-    <h2>By Anomaly Type</h2>
+    <h2> By Anomaly Type</h2>
     {self.group_by_anomaly_type().to_html(classes='table')}
     
-    <h2> Top 20 Countries</h2>
+    <h2>Top 20 Countries</h2>
     {self.top_countries(20).to_html(classes='table')}
     
     <h2> Top 30 Anomalies by Change</h2>
     {self.top_anomalies(30).to_html(classes='table', index=False)}
     
-    <h2> Unique Patterns (Excluding Duplication Bug)</h2>
+    <h2>Unique Patterns (Excluding Duplication Bug)</h2>
     {self.unique_patterns().to_html(classes='table')}
     
     <h2> All Anomalies</h2>
@@ -374,7 +599,7 @@ def print_examples():
 ╚══════════════════════════════════════════════════════════════════════╝
 
 # Load anomalies
-explorer = AnomalyExplorer('all_anomalies.json')
+explorer = AnomalyExplorer('anomalies.json')
 
 # ==================== FILTERING ====================
 
@@ -386,6 +611,15 @@ explorer.filter_theme('divisions')
 
 # Filter by country
 explorer.filter_country('US')
+
+# Filter by column/field (for coverage anomalies)
+explorer.filter_column('names')
+explorer.filter_column('address_level_3')
+
+# Filter by anomaly category (broader grouping)
+explorer.filter_anomaly_category('coverage')   # All coverage-related
+explorer.filter_anomaly_category('churn')      # All churn-related
+explorer.filter_anomaly_category('geometry')   # All geometry-related
 
 # Exclude the duplication bug to see OTHER issues
 explorer.exclude_duplication_bug()
@@ -405,10 +639,35 @@ explorer.reset().filter_severity('critical').filter_theme('buildings')
 print(explorer.group_by_theme())
 print(explorer.group_by_country())
 print(explorer.group_by_anomaly_type())
+print(explorer.group_by_anomaly_category())  # NEW: broader categories
+print(explorer.group_by_column())            # NEW: group by field name
 print(explorer.group_by_pattern())
 
 # Custom grouping
 print(explorer.group_by('theme', 'type', 'country'))
+
+# ==================== AI PATTERN DRILL-DOWN ====================
+
+# Map AI pattern names back to rule-based anomalies
+print(explorer.explain_ai_pattern("Divisions Data Explosion"))
+print(explorer.explain_ai_pattern("Global Attribute Coverage Crisis"))
+print(explorer.explain_ai_pattern("Geometry Integrity Issues"))
+
+# Drill down into specific anomalies
+print(explorer.drill_down(anomaly_type='low_attribute_coverage', theme='addresses'))
+print(explorer.drill_down(theme='divisions', severity='critical'))
+
+# ==================== SOURCE FILE TRACKING ====================
+
+# Get source files for all anomalies (helps with debugging)
+print(explorer.get_source_files())
+
+# Get source files for a specific pattern
+print(explorer.show_files_for_pattern('low_attribute_coverage'))
+print(explorer.show_files_for_pattern('feature_count_spike'))
+
+# Export with source file info
+explorer.export_with_sources('anomalies_with_sources.csv')
 
 # ==================== ANALYSIS ====================
 
@@ -420,6 +679,9 @@ print(explorer.top_countries(20))
 
 # Top anomalies by change
 print(explorer.top_anomalies(20))
+
+# Top coverage issues (sorted by worst coverage)
+print(explorer.top_coverage_issues(20))
 
 # Unique patterns (excluding duplication)
 print(explorer.unique_patterns())
@@ -439,10 +701,12 @@ explorer.to_html_report('anomaly_report.html')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Explore and filter anomalies")
-    parser.add_argument("json_file", type=str, help="Path to all_anomalies.json")
+    parser.add_argument("json_file", type=str, help="Path to anomalies.json")
     parser.add_argument("--export-excel", type=str, help="Export to Excel file")
     parser.add_argument("--export-html", type=str, help="Export to HTML report")
     parser.add_argument("--export-csv", type=str, help="Export to CSV")
+    parser.add_argument("--export-sources", type=str, help="Export with source file paths")
+    parser.add_argument("--pattern", type=str, help="Drill down into AI pattern by name")
     parser.add_argument("--examples", action="store_true", help="Show usage examples")
     
     args = parser.parse_args()
@@ -465,19 +729,49 @@ if __name__ == "__main__":
     print(f"Countries Affected: {summary['unique_countries']}")
     
     print("\n" + "="*60)
-    print("BY PATTERN")
+    print("BY ANOMALY CATEGORY")
     print("="*60)
-    print(explorer.group_by_pattern())
+    print(explorer.group_by_anomaly_category())
+    
+    print("\n" + "="*60)
+    print("BY ANOMALY TYPE")
+    print("="*60)
+    print(explorer.group_by_anomaly_type())
     
     print("\n" + "="*60)
     print("BY THEME")
     print("="*60)
     print(explorer.group_by_theme())
     
+    # Show column breakdown if coverage anomalies exist
+    if 'column' in explorer.df.columns and explorer.df['column'].notna().any():
+        print("\n" + "="*60)
+        print("BY COLUMN/FIELD (Coverage Issues)")
+        print("="*60)
+        print(explorer.group_by_column())
+    
+    print("\n" + "="*60)
+    print("TOP COVERAGE ISSUES")
+    print("="*60)
+    top_cov = explorer.top_coverage_issues(10)
+    if not top_cov.empty:
+        print(top_cov.to_string())
+    else:
+        print("No coverage anomalies found")
+    
     print("\n" + "="*60)
     print("UNIQUE PATTERNS (NON-DUPLICATION)")
     print("="*60)
     print(explorer.unique_patterns())
+    
+    # Drill into specific pattern if requested
+    if args.pattern:
+        print("\n" + "="*60)
+        print(f"DRILL DOWN: {args.pattern}")
+        print("="*60)
+        pattern_df = explorer.explain_ai_pattern(args.pattern)
+        if not pattern_df.empty:
+            print(pattern_df.head(20).to_string())
     
     # Export if requested
     if args.export_excel:
@@ -491,3 +785,7 @@ if __name__ == "__main__":
     if args.export_csv:
         explorer.reset()
         explorer.to_csv(args.export_csv)
+    
+    if args.export_sources:
+        explorer.reset()
+        explorer.export_with_sources(args.export_sources)
