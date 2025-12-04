@@ -1,0 +1,1063 @@
+anomaly_id,severity,anomaly_type,theme,type,subtype,country,column,description,percent_change,previous_value,current_value,is_real_issue,confidence,notes
+0,critical,low_attribute_coverage,addresses,address,,,postal_city,99.2% of addresss missing 'postal_city' (0.8% coverage),0.0,0.0,0.7997035457666338,FALSE,MEDIUM,postal_city is optional granularity
+1,critical,low_attribute_coverage,base,infrastructure,,,wikidata,99.8% of infrastructures missing 'wikidata' (0.2% coverage),0.0,0.0,0.2121455633559965,FALSE,HIGH,wikidata is optional enrichment field - low coverage expected
+2,critical,low_attribute_coverage,base,infrastructure,,,surface,97.2% of infrastructures missing 'surface' (2.8% coverage),0.0,0.0,2.821108446416748,FALSE,MEDIUM,surface is optional attribute
+3,critical,low_attribute_coverage,base,infrastructure,,,height,99.1% of infrastructures missing 'height' (0.9% coverage),0.0,0.0,0.9140943909844614,UNCERTAIN,LOW,Very low coverage for height - needs investigation
+4,critical,net_feature_gain,base,infrastructure,,,,"Net gain of 1,367,815 features (1,501,897 added, 134,082 removed)",1.0,137307251.0,138675066.0,TRUE,HIGH,Large net gain indicates major data source addition
+5,critical,low_attribute_coverage,base,land,,,wikidata,99.7% of lands missing 'wikidata' (0.3% coverage),0.0,0.0,0.3123026671090808,FALSE,HIGH,wikidata is optional enrichment field - low coverage expected
+6,critical,low_attribute_coverage,base,land,,,names,97.7% of lands missing 'names' (2.3% coverage),0.0,0.0,2.264822505998453,UNCERTAIN,LOW,names for natural features often sparse
+7,critical,low_attribute_coverage,base,land,,,elevation,98.7% of lands missing 'elevation' (1.3% coverage),0.0,0.0,1.3129580195700417,FALSE,MEDIUM,elevation is optional enrichment data
+8,critical,low_attribute_coverage,base,land,,,surface,99.8% of lands missing 'surface' (0.2% coverage),0.0,0.0,0.2499713404520816,FALSE,MEDIUM,surface is optional attribute
+9,critical,low_attribute_coverage,base,land,,,level,100.0% of lands missing 'level' (0.0% coverage),0.0,0.0,0.0222276468322956,FALSE,HIGH,level attribute rarely applicable to this feature type
+10,critical,low_attribute_coverage,base,land_use,,,wikidata,99.4% of land_uses missing 'wikidata' (0.6% coverage),0.0,0.0,0.5980119055387064,FALSE,HIGH,wikidata is optional enrichment field - low coverage expected
+11,critical,low_attribute_coverage,base,land_use,,,surface,95.4% of land_uses missing 'surface' (4.6% coverage),0.0,0.0,4.6149790400417485,FALSE,MEDIUM,surface is optional attribute
+12,critical,low_attribute_coverage,base,land_use,,,level,99.9% of land_uses missing 'level' (0.1% coverage),0.0,0.0,0.0792152117413939,FALSE,HIGH,level attribute rarely applicable to this feature type
+13,critical,geometry_length_change,base,water,lake,,,Total geometry length changed significantly,-21.9,3331.768654101252,2602.0963101675006,TRUE,HIGH,Large geometry change indicates data loss or error
+14,critical,low_attribute_coverage,base,water,,,wikidata,99.5% of waters missing 'wikidata' (0.5% coverage),0.0,0.0,0.4882192382769038,FALSE,HIGH,wikidata is optional enrichment field - low coverage expected
+15,critical,low_attribute_coverage,base,water,,,is_salt,99.7% of waters missing 'is_salt' (0.3% coverage),0.0,0.0,0.2700381502845589,FALSE,MEDIUM,is_salt is optional - most water is freshwater
+16,critical,low_attribute_coverage,buildings,building,,,names,99.7% of buildings missing 'names' (0.3% coverage),0.0,0.0,0.3147318796602353,TRUE,MEDIUM,names for buildings is useful - low coverage notable
+17,critical,low_attribute_coverage,buildings,building,,,level,99.9% of buildings missing 'level' (0.1% coverage),0.0,0.0,0.072704168920891,FALSE,HIGH,level attribute rarely applicable to this feature type
+18,critical,low_attribute_coverage,buildings,building,,,num_floors,98.2% of buildings missing 'num_floors' (1.8% coverage),0.0,0.0,1.7904951440772343,TRUE,MEDIUM,num_floors is useful building metadata
+19,critical,low_attribute_coverage,buildings,building,,,facade_color,100.0% of buildings missing 'facade_color' (0.0% coverage),0.0,0.0,0.0326177637147865,FALSE,HIGH,facade_color is rare architectural attribute - low coverage expected
+20,critical,low_attribute_coverage,buildings,building,,,facade_material,99.9% of buildings missing 'facade_material' (0.1% coverage),0.0,0.0,0.0780514241406033,FALSE,HIGH,facade_material is rare architectural attribute - low coverage expected
+21,critical,low_attribute_coverage,buildings,building,,,roof_material,99.9% of buildings missing 'roof_material' (0.1% coverage),0.0,0.0,0.0698082995294845,FALSE,HIGH,roof_material is rare architectural attribute - low coverage expected
+22,critical,low_attribute_coverage,buildings,building,,,roof_shape,99.7% of buildings missing 'roof_shape' (0.3% coverage),0.0,0.0,0.3115686968203889,FALSE,HIGH,roof_shape is rare architectural attribute - low coverage expected
+23,critical,low_attribute_coverage,buildings,building,,,roof_direction,100.0% of buildings missing 'roof_direction' (0.0% coverage),0.0,0.0,0.0020403164462599,FALSE,HIGH,roof_direction is rare architectural attribute - low coverage expected
+24,critical,low_attribute_coverage,buildings,building,,,roof_orientation,100.0% of buildings missing 'roof_orientation' (0.0% coverage),0.0,0.0,0.0379322359540304,FALSE,HIGH,roof_orientation is rare architectural attribute - low coverage expected
+25,critical,low_attribute_coverage,buildings,building,,,roof_color,99.9% of buildings missing 'roof_color' (0.1% coverage),0.0,0.0,0.0673580972022787,FALSE,HIGH,roof_color is rare architectural attribute - low coverage expected
+26,critical,low_attribute_coverage,buildings,building,,,min_height,100.0% of buildings missing 'min_height' (0.0% coverage),0.0,0.0,0.0007147557642904,FALSE,HIGH,min_height is rare architectural attribute - low coverage expected
+27,critical,low_attribute_coverage,buildings,building,,,min_floor,100.0% of buildings missing 'min_floor' (0.0% coverage),0.0,0.0,0.0007417790394057,FALSE,HIGH,min_floor is rare architectural attribute - low coverage expected
+28,critical,low_attribute_coverage,buildings,building,,,roof_height,100.0% of buildings missing 'roof_height' (0.0% coverage),0.0,0.0,0.0126390421966626,FALSE,HIGH,roof_height is rare architectural attribute - low coverage expected
+29,critical,low_attribute_coverage,buildings,building,,,num_floors_underground,100.0% of buildings missing 'num_floors_underground' (0.0% coverage),0.0,0.0,0.0071315409280184,FALSE,HIGH,num_floors_underground is rare architectural attribute - low coverage expected
+30,critical,net_feature_loss,buildings,building,,,,"Net loss of 4,318,594 features (4,479,724 added, 8,798,318 removed)",-0.17,2539170484.0,2534851890.0,TRUE,HIGH,Net feature loss indicates data quality issue
+31,critical,low_attribute_coverage,buildings,building_part,,,level,99.1% of building_parts missing 'level' (0.9% coverage),0.0,0.0,0.9189428913833692,UNCERTAIN,LOW,Very low coverage for level - needs investigation
+32,critical,low_attribute_coverage,buildings,building_part,,,min_floor,97.3% of building_parts missing 'min_floor' (2.7% coverage),0.0,0.0,2.747158358862771,FALSE,HIGH,min_floor is rare architectural attribute - low coverage expected
+33,critical,low_attribute_coverage,buildings,building_part,,,roof_direction,97.7% of building_parts missing 'roof_direction' (2.3% coverage),0.0,0.0,2.3214015471335845,FALSE,HIGH,roof_direction is rare architectural attribute - low coverage expected
+34,critical,low_attribute_coverage,buildings,building_part,,,roof_orientation,96.6% of building_parts missing 'roof_orientation' (3.4% coverage),0.0,0.0,3.435883472408633,FALSE,HIGH,roof_orientation is rare architectural attribute - low coverage expected
+35,critical,low_attribute_coverage,buildings,building_part,,,roof_height,95.3% of building_parts missing 'roof_height' (4.7% coverage),0.0,0.0,4.6640719448085015,FALSE,HIGH,roof_height is rare architectural attribute - low coverage expected
+36,critical,feature_count_spike,divisions,division,locality,BR,,Feature count spiked unexpectedly,100.56,355.0,712.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+37,critical,feature_count_spike,divisions,division,locality,CA,,Feature count spiked unexpectedly,98.91,184.0,366.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+38,critical,feature_count_spike,divisions,division,locality,CN,,Feature count spiked unexpectedly,99.94,3115.0,6228.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+39,critical,feature_count_spike,divisions,division,locality,EG,,Feature count spiked unexpectedly,101.98,101.0,204.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+40,critical,feature_count_spike,divisions,division,locality,IN,,Feature count spiked unexpectedly,102.32,518.0,1048.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+41,critical,feature_count_spike,divisions,division,locality,IR,,Feature count spiked unexpectedly,98.45,129.0,256.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+42,critical,feature_count_spike,divisions,division,locality,JP,,Feature count spiked unexpectedly,100.0,819.0,1638.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+43,critical,feature_count_spike,divisions,division,locality,MX,,Feature count spiked unexpectedly,98.73,158.0,314.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+44,critical,feature_count_spike,divisions,division,locality,PH,,Feature count spiked unexpectedly,101.33,150.0,302.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+45,critical,feature_count_spike,divisions,division,locality,PK,,Feature count spiked unexpectedly,103.7,162.0,330.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+46,critical,feature_count_spike,divisions,division,locality,PT,,Feature count spiked unexpectedly,100.0,158.0,316.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+47,critical,feature_count_spike,divisions,division,locality,RO,,Feature count spiked unexpectedly,100.0,104.0,208.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+48,critical,feature_count_spike,divisions,division,locality,RU,,Feature count spiked unexpectedly,100.0,189.0,378.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+49,critical,feature_count_spike,divisions,division,locality,US,,Feature count spiked unexpectedly,98.93,1125.0,2238.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+50,critical,feature_count_spike,divisions,division,locality,VE,,Feature count spiked unexpectedly,100.0,185.0,370.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+51,critical,feature_count_spike,divisions,division,locality,AE,,Feature count spiked unexpectedly,100.0,120.0,240.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+52,critical,feature_count_spike,divisions,division,locality,AF,,Feature count spiked unexpectedly,100.0,494.0,988.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+53,critical,feature_count_spike,divisions,division,locality,AL,,Feature count spiked unexpectedly,100.0,1377.0,2754.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+54,critical,feature_count_spike,divisions,division,locality,AO,,Feature count spiked unexpectedly,108.84,1946.0,4064.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+55,critical,feature_count_spike,divisions,division,locality,AR,,Feature count spiked unexpectedly,100.0,4351.0,8702.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+56,critical,feature_count_spike,divisions,division,locality,AT,,Feature count spiked unexpectedly,100.31,15575.0,31198.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+57,critical,feature_count_spike,divisions,division,locality,AU,,Feature count spiked unexpectedly,100.56,5403.0,10836.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+58,critical,feature_count_spike,divisions,division,locality,AZ,,Feature count spiked unexpectedly,100.0,1813.0,3626.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+59,critical,feature_count_spike,divisions,division,locality,BA,,Feature count spiked unexpectedly,101.24,4180.0,8412.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+60,critical,feature_count_spike,divisions,division,locality,BB,,Feature count spiked unexpectedly,100.0,190.0,380.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+61,critical,feature_count_spike,divisions,division,locality,BE,,Feature count spiked unexpectedly,103.47,2651.0,5394.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+62,critical,feature_count_spike,divisions,division,locality,BF,,Feature count spiked unexpectedly,100.64,1248.0,2504.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+63,critical,feature_count_spike,divisions,division,locality,BG,,Feature count spiked unexpectedly,101.73,1732.0,3494.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+64,critical,feature_count_spike,divisions,division,locality,BJ,,Feature count spiked unexpectedly,105.21,8180.0,16786.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+65,critical,feature_count_spike,divisions,division,locality,BO,,Feature count spiked unexpectedly,100.73,11748.0,23582.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+66,critical,feature_count_spike,divisions,division,locality,BR,,Feature count spiked unexpectedly,107.59,65911.0,136826.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+67,critical,feature_count_spike,divisions,division,locality,BS,,Feature count spiked unexpectedly,100.0,134.0,268.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+68,critical,feature_count_spike,divisions,division,locality,BT,,Feature count spiked unexpectedly,100.0,273.0,546.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+69,critical,feature_count_spike,divisions,division,locality,BY,,Feature count spiked unexpectedly,100.74,19018.0,38176.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+70,critical,feature_count_spike,divisions,division,locality,BZ,,Feature count spiked unexpectedly,100.0,107.0,214.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+71,critical,feature_count_spike,divisions,division,locality,CA,,Feature count spiked unexpectedly,101.12,3944.0,7932.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+72,critical,feature_count_spike,divisions,division,locality,CD,,Feature count spiked unexpectedly,104.71,1486.0,3042.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+73,critical,feature_count_spike,divisions,division,locality,CF,,Feature count spiked unexpectedly,100.81,737.0,1480.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+74,critical,feature_count_spike,divisions,division,locality,CG,,Feature count spiked unexpectedly,100.0,1090.0,2180.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+75,critical,feature_count_spike,divisions,division,locality,CH,,Feature count spiked unexpectedly,100.11,7014.0,14036.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+76,critical,feature_count_spike,divisions,division,locality,CI,,Feature count spiked unexpectedly,109.25,1406.0,2942.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+77,critical,feature_count_spike,divisions,division,locality,CL,,Feature count spiked unexpectedly,100.57,14309.0,28700.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+78,critical,feature_count_spike,divisions,division,locality,CM,,Feature count spiked unexpectedly,100.0,765.0,1530.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+79,critical,feature_count_spike,divisions,division,locality,CN,,Feature count spiked unexpectedly,104.51,151890.0,310630.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+80,critical,feature_count_spike,divisions,division,locality,CO,,Feature count spiked unexpectedly,100.04,10828.0,21660.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+81,critical,feature_count_spike,divisions,division,locality,CR,,Feature count spiked unexpectedly,99.86,2928.0,5852.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+82,critical,feature_count_spike,divisions,division,locality,CU,,Feature count spiked unexpectedly,100.73,4657.0,9348.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+83,critical,feature_count_spike,divisions,division,locality,CV,,Feature count spiked unexpectedly,100.0,243.0,486.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+84,critical,feature_count_spike,divisions,division,locality,CY,,Feature count spiked unexpectedly,96.26,107.0,210.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+85,critical,feature_count_spike,divisions,division,locality,CZ,,Feature count spiked unexpectedly,100.64,5641.0,11318.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+86,critical,feature_count_spike,divisions,division,locality,DE,,Feature count spiked unexpectedly,99.96,46801.0,93584.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+87,critical,feature_count_spike,divisions,division,locality,DK,,Feature count spiked unexpectedly,99.83,6976.0,13940.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+88,critical,feature_count_spike,divisions,division,locality,DO,,Feature count spiked unexpectedly,100.51,1171.0,2348.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+89,critical,feature_count_spike,divisions,division,locality,DZ,,Feature count spiked unexpectedly,100.12,3359.0,6722.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+90,critical,feature_count_spike,divisions,division,locality,EC,,Feature count spiked unexpectedly,100.32,13934.0,27912.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+91,critical,feature_count_spike,divisions,division,locality,EE,,Feature count spiked unexpectedly,100.14,4416.0,8838.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+92,critical,feature_count_spike,divisions,division,locality,ES,,Feature count spiked unexpectedly,99.7,59031.0,117886.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+93,critical,feature_count_spike,divisions,division,locality,ET,,Feature count spiked unexpectedly,100.0,744.0,1488.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+94,critical,feature_count_spike,divisions,division,locality,FI,,Feature count spiked unexpectedly,100.38,5801.0,11624.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+95,critical,feature_count_spike,divisions,division,locality,FR,,Feature count spiked unexpectedly,100.27,226279.0,453164.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+96,critical,feature_count_spike,divisions,division,locality,GA,,Feature count spiked unexpectedly,100.0,171.0,342.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+97,critical,feature_count_spike,divisions,division,locality,GB,,Feature count spiked unexpectedly,101.03,19940.0,40086.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+98,critical,feature_count_spike,divisions,division,locality,GE,,Feature count spiked unexpectedly,103.39,590.0,1200.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+99,critical,feature_count_spike,divisions,division,locality,GF,,Feature count spiked unexpectedly,100.0,331.0,662.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+100,critical,feature_count_spike,divisions,division,locality,GH,,Feature count spiked unexpectedly,100.28,1442.0,2888.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+101,critical,feature_count_spike,divisions,division,locality,GM,,Feature count spiked unexpectedly,100.0,151.0,302.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+102,critical,feature_count_spike,divisions,division,locality,GN,,Feature count spiked unexpectedly,99.27,6303.0,12560.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+103,critical,feature_count_spike,divisions,division,locality,GP,,Feature count spiked unexpectedly,100.51,393.0,788.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+104,critical,feature_count_spike,divisions,division,locality,GR,,Feature count spiked unexpectedly,100.12,4873.0,9752.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+105,critical,feature_count_spike,divisions,division,locality,GT,,Feature count spiked unexpectedly,111.63,3713.0,7858.0,UNCERTAIN,LOW,Needs manual review
+106,critical,feature_count_spike,divisions,division,locality,GW,,Feature count spiked unexpectedly,100.0,238.0,476.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+107,critical,feature_count_spike,divisions,division,locality,GY,,Feature count spiked unexpectedly,99.69,637.0,1272.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+108,critical,feature_count_spike,divisions,division,locality,HK,,Feature count spiked unexpectedly,99.79,962.0,1922.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+109,critical,feature_count_spike,divisions,division,locality,HN,,Feature count spiked unexpectedly,100.2,1973.0,3950.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+110,critical,feature_count_spike,divisions,division,locality,HR,,Feature count spiked unexpectedly,101.22,12917.0,25992.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+111,critical,feature_count_spike,divisions,division,locality,HT,,Feature count spiked unexpectedly,100.0,2597.0,5194.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+112,critical,feature_count_spike,divisions,division,locality,HU,,Feature count spiked unexpectedly,104.52,1505.0,3078.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+113,critical,feature_count_spike,divisions,division,locality,ID,,Feature count spiked unexpectedly,111.58,19478.0,41212.0,UNCERTAIN,LOW,Needs manual review
+114,critical,feature_count_spike,divisions,division,locality,IE,,Feature count spiked unexpectedly,100.38,1584.0,3174.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+115,critical,feature_count_spike,divisions,division,locality,IN,,Feature count spiked unexpectedly,100.85,87186.0,175116.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+116,critical,feature_count_spike,divisions,division,locality,IQ,,Feature count spiked unexpectedly,99.19,491.0,978.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+117,critical,feature_count_spike,divisions,division,locality,IR,,Feature count spiked unexpectedly,99.81,4247.0,8486.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+118,critical,feature_count_spike,divisions,division,locality,IT,,Feature count spiked unexpectedly,100.41,47760.0,95714.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+119,critical,feature_count_spike,divisions,division,locality,JM,,Feature count spiked unexpectedly,100.0,1535.0,3070.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+120,critical,feature_count_spike,divisions,division,locality,JP,,Feature count spiked unexpectedly,97.69,5977.0,11816.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+121,critical,feature_count_spike,divisions,division,locality,KE,,Feature count spiked unexpectedly,101.27,474.0,954.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+122,critical,feature_count_spike,divisions,division,locality,KG,,Feature count spiked unexpectedly,97.7,609.0,1204.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+123,critical,feature_count_spike,divisions,division,locality,KH,,Feature count spiked unexpectedly,102.55,550.0,1114.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+124,critical,feature_count_spike,divisions,division,locality,KP,,Feature count spiked unexpectedly,100.7,570.0,1144.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+125,critical,feature_count_spike,divisions,division,locality,KR,,Feature count spiked unexpectedly,164.9,453.0,1200.0,TRUE,HIGH,Very large spike indicates data source change or error
+126,critical,feature_count_spike,divisions,division,locality,KZ,,Feature count spiked unexpectedly,96.92,3376.0,6648.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+127,critical,feature_count_spike,divisions,division,locality,LC,,Feature count spiked unexpectedly,100.0,257.0,514.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+128,critical,feature_count_spike,divisions,division,locality,LK,,Feature count spiked unexpectedly,100.09,2146.0,4294.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+129,critical,feature_count_spike,divisions,division,locality,LR,,Feature count spiked unexpectedly,100.0,12236.0,24472.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+130,critical,feature_count_spike,divisions,division,locality,LS,,Feature count spiked unexpectedly,100.84,2151.0,4320.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+131,critical,feature_count_spike,divisions,division,locality,LT,,Feature count spiked unexpectedly,100.0,1582.0,3164.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+132,critical,feature_count_spike,divisions,division,locality,LU,,Feature count spiked unexpectedly,100.0,208.0,416.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+133,critical,feature_count_spike,divisions,division,locality,LV,,Feature count spiked unexpectedly,100.18,4428.0,8864.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+134,critical,feature_count_spike,divisions,division,locality,MA,,Feature count spiked unexpectedly,100.09,2186.0,4374.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+135,critical,feature_count_spike,divisions,division,locality,ME,,Feature count spiked unexpectedly,104.39,2686.0,5490.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+136,critical,feature_count_spike,divisions,division,locality,MG,,Feature count spiked unexpectedly,100.26,13215.0,26464.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+137,critical,feature_count_spike,divisions,division,locality,MK,,Feature count spiked unexpectedly,100.0,308.0,616.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+138,critical,feature_count_spike,divisions,division,locality,ML,,Feature count spiked unexpectedly,105.87,7118.0,14654.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+139,critical,feature_count_spike,divisions,division,locality,MM,,Feature count spiked unexpectedly,105.49,583.0,1198.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+140,critical,feature_count_spike,divisions,division,locality,MN,,Feature count spiked unexpectedly,98.88,178.0,354.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+141,critical,feature_count_spike,divisions,division,locality,MQ,,Feature count spiked unexpectedly,100.0,113.0,226.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+142,critical,feature_count_spike,divisions,division,locality,MR,,Feature count spiked unexpectedly,98.64,883.0,1754.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+143,critical,feature_count_spike,divisions,division,locality,MX,,Feature count spiked unexpectedly,100.15,35499.0,71052.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+144,critical,feature_count_spike,divisions,division,locality,MY,,Feature count spiked unexpectedly,100.54,2584.0,5182.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+145,critical,feature_count_spike,divisions,division,locality,MZ,,Feature count spiked unexpectedly,100.0,371.0,742.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+146,critical,feature_count_spike,divisions,division,locality,NC,,Feature count spiked unexpectedly,100.0,174.0,348.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+147,critical,feature_count_spike,divisions,division,locality,NE,,Feature count spiked unexpectedly,100.0,5798.0,11596.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+148,critical,feature_count_spike,divisions,division,locality,NG,,Feature count spiked unexpectedly,100.0,3946.0,7892.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+149,critical,feature_count_spike,divisions,division,locality,NI,,Feature count spiked unexpectedly,100.0,5657.0,11314.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+150,critical,feature_count_spike,divisions,division,locality,NL,,Feature count spiked unexpectedly,100.05,3853.0,7708.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+151,critical,feature_count_spike,divisions,division,locality,NO,,Feature count spiked unexpectedly,100.02,18710.0,37424.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+152,critical,feature_count_spike,divisions,division,locality,NP,,Feature count spiked unexpectedly,100.07,11218.0,22444.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+153,critical,feature_count_drop,divisions,division,locality,NZ,,Feature count dropped significantly,-100.0,1431.0,0.0,TRUE,HIGH,Large drop - data loss concern
+154,critical,feature_count_spike,divisions,division,locality,OM,,Feature count spiked unexpectedly,100.9,444.0,892.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+155,critical,feature_count_spike,divisions,division,locality,PA,,Feature count spiked unexpectedly,102.04,2062.0,4166.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+156,critical,feature_count_spike,divisions,division,locality,PE,,Feature count spiked unexpectedly,100.48,39417.0,79024.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+157,critical,feature_count_spike,divisions,division,locality,PG,,Feature count spiked unexpectedly,100.19,2147.0,4298.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+158,critical,feature_count_spike,divisions,division,locality,PH,,Feature count spiked unexpectedly,100.95,7968.0,16012.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+159,critical,feature_count_spike,divisions,division,locality,PK,,Feature count spiked unexpectedly,99.9,1947.0,3892.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+160,critical,feature_count_spike,divisions,division,locality,PL,,Feature count spiked unexpectedly,99.87,56631.0,113188.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+161,critical,feature_count_spike,divisions,division,locality,PR,,Feature count spiked unexpectedly,148.14,1803.0,4474.0,UNCERTAIN,LOW,Needs manual review
+162,critical,feature_count_spike,divisions,division,locality,PT,,Feature count spiked unexpectedly,100.69,14426.0,28952.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+163,critical,feature_count_spike,divisions,division,locality,PY,,Feature count spiked unexpectedly,100.0,520.0,1040.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+164,critical,feature_count_spike,divisions,division,locality,RO,,Feature count spiked unexpectedly,100.37,536.0,1074.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+165,critical,feature_count_spike,divisions,division,locality,RS,,Feature count spiked unexpectedly,100.23,1710.0,3424.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+166,critical,feature_count_spike,divisions,division,locality,RU,,Feature count spiked unexpectedly,99.99,106531.0,213048.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+167,critical,feature_count_spike,divisions,division,locality,SA,,Feature count spiked unexpectedly,100.48,2934.0,5882.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+168,critical,feature_count_spike,divisions,division,locality,SD,,Feature count spiked unexpectedly,99.94,6789.0,13574.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+169,critical,feature_count_spike,divisions,division,locality,SE,,Feature count spiked unexpectedly,100.05,39661.0,79340.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+170,critical,feature_count_spike,divisions,division,locality,SI,,Feature count spiked unexpectedly,98.73,1894.0,3764.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+171,critical,feature_count_spike,divisions,division,locality,SK,,Feature count spiked unexpectedly,101.33,1800.0,3624.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+172,critical,feature_count_spike,divisions,division,locality,SL,,Feature count spiked unexpectedly,99.97,7070.0,14138.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+173,critical,feature_count_spike,divisions,division,locality,SM,,Feature count spiked unexpectedly,100.0,259.0,518.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+174,critical,feature_count_spike,divisions,division,locality,SN,,Feature count spiked unexpectedly,100.0,2787.0,5574.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+175,critical,feature_count_spike,divisions,division,locality,SO,,Feature count spiked unexpectedly,100.0,2101.0,4202.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+176,critical,feature_count_spike,divisions,division,locality,SR,,Feature count spiked unexpectedly,104.22,237.0,484.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+177,critical,feature_count_spike,divisions,division,locality,SS,,Feature count spiked unexpectedly,98.82,170.0,338.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+178,critical,feature_count_spike,divisions,division,locality,ST,,Feature count spiked unexpectedly,100.0,327.0,654.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+179,critical,feature_count_spike,divisions,division,locality,SV,,Feature count spiked unexpectedly,100.16,1275.0,2552.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+180,critical,feature_count_spike,divisions,division,locality,SY,,Feature count spiked unexpectedly,100.0,2204.0,4408.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+181,critical,feature_count_spike,divisions,division,locality,SZ,,Feature count spiked unexpectedly,100.0,349.0,698.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+182,critical,feature_count_spike,divisions,division,locality,TD,,Feature count spiked unexpectedly,98.9,10398.0,20682.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+183,critical,feature_count_spike,divisions,division,locality,TG,,Feature count spiked unexpectedly,100.0,150.0,300.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+184,critical,feature_count_spike,divisions,division,locality,TH,,Feature count spiked unexpectedly,104.62,4030.0,8246.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+185,critical,feature_count_spike,divisions,division,locality,TJ,,Feature count spiked unexpectedly,99.7,660.0,1318.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+186,critical,feature_count_spike,divisions,division,locality,TL,,Feature count spiked unexpectedly,100.0,2627.0,5254.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+187,critical,feature_count_spike,divisions,division,locality,TN,,Feature count spiked unexpectedly,100.0,422.0,844.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+188,critical,feature_count_spike,divisions,division,locality,TO,,Feature count spiked unexpectedly,100.0,128.0,256.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+189,critical,feature_count_spike,divisions,division,locality,TR,,Feature count spiked unexpectedly,100.11,7343.0,14694.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+190,critical,feature_count_spike,divisions,division,locality,TW,,Feature count spiked unexpectedly,102.51,13860.0,28068.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+191,critical,feature_count_spike,divisions,division,locality,TZ,,Feature count spiked unexpectedly,100.24,822.0,1646.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+192,critical,feature_count_spike,divisions,division,locality,UA,,Feature count spiked unexpectedly,103.01,3186.0,6468.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+193,critical,feature_count_spike,divisions,division,locality,UG,,Feature count spiked unexpectedly,100.0,829.0,1658.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+194,critical,feature_count_spike,divisions,division,locality,US,,Feature count spiked unexpectedly,99.93,110141.0,220200.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+195,critical,feature_count_spike,divisions,division,locality,UY,,Feature count spiked unexpectedly,104.1,293.0,598.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+196,critical,feature_count_spike,divisions,division,locality,UZ,,Feature count spiked unexpectedly,100.23,3421.0,6850.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+197,critical,feature_count_spike,divisions,division,locality,VE,,Feature count spiked unexpectedly,100.38,3121.0,6254.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+198,critical,feature_count_spike,divisions,division,locality,VI,,Feature count spiked unexpectedly,115.69,102.0,220.0,UNCERTAIN,LOW,Needs manual review
+199,critical,feature_count_spike,divisions,division,locality,VU,,Feature count spiked unexpectedly,100.0,398.0,796.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+200,critical,feature_count_spike,divisions,division,locality,XK,,Feature count spiked unexpectedly,101.06,377.0,758.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+201,critical,feature_count_spike,divisions,division,locality,XW,,Feature count spiked unexpectedly,101.47,272.0,548.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+202,critical,feature_count_spike,divisions,division,locality,YE,,Feature count spiked unexpectedly,100.0,53713.0,107426.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+203,critical,feature_count_spike,divisions,division,locality,ZA,,Feature count spiked unexpectedly,99.24,526.0,1048.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+204,critical,feature_count_spike,divisions,division,locality,ZW,,Feature count spiked unexpectedly,100.0,162.0,324.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+205,critical,feature_count_spike,divisions,division,locality,AE,,Feature count spiked unexpectedly,91.3,138.0,264.0,TRUE,MEDIUM,Large spike - likely data source change
+206,critical,feature_count_spike,divisions,division,locality,AF,,Feature count spiked unexpectedly,100.0,279.0,558.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+207,critical,feature_count_spike,divisions,division,locality,AO,,Feature count spiked unexpectedly,100.0,150.0,300.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+208,critical,feature_count_spike,divisions,division,locality,AR,,Feature count spiked unexpectedly,100.78,511.0,1026.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+209,critical,feature_count_spike,divisions,division,locality,AT,,Feature count spiked unexpectedly,100.0,226.0,452.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+210,critical,feature_count_spike,divisions,division,locality,AU,,Feature count spiked unexpectedly,100.68,1180.0,2368.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+211,critical,feature_count_spike,divisions,division,locality,BA,,Feature count spiked unexpectedly,100.0,101.0,202.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+212,critical,feature_count_spike,divisions,division,locality,BD,,Feature count spiked unexpectedly,99.54,434.0,866.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+213,critical,feature_count_spike,divisions,division,locality,BE,,Feature count spiked unexpectedly,100.0,375.0,750.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+214,critical,feature_count_spike,divisions,division,locality,BF,,Feature count spiked unexpectedly,100.0,217.0,434.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+215,critical,feature_count_spike,divisions,division,locality,BG,,Feature count spiked unexpectedly,100.0,229.0,458.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+216,critical,feature_count_spike,divisions,division,locality,BI,,Feature count spiked unexpectedly,100.0,113.0,226.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+217,critical,feature_count_spike,divisions,division,locality,BJ,,Feature count spiked unexpectedly,100.0,211.0,422.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+218,critical,feature_count_spike,divisions,division,locality,BR,,Feature count spiked unexpectedly,100.13,2988.0,5980.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+219,critical,feature_count_spike,divisions,division,locality,BY,,Feature count spiked unexpectedly,100.0,190.0,380.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+220,critical,feature_count_spike,divisions,division,locality,CA,,Feature count spiked unexpectedly,100.81,1475.0,2962.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+221,critical,feature_count_spike,divisions,division,locality,CD,,Feature count spiked unexpectedly,100.38,526.0,1054.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+222,critical,feature_count_spike,divisions,division,locality,CF,,Feature count spiked unexpectedly,100.0,158.0,316.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+223,critical,feature_count_spike,divisions,division,locality,CH,,Feature count spiked unexpectedly,100.0,164.0,328.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+224,critical,feature_count_spike,divisions,division,locality,CI,,Feature count spiked unexpectedly,100.0,135.0,270.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+225,critical,feature_count_spike,divisions,division,locality,CL,,Feature count spiked unexpectedly,99.18,244.0,486.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+226,critical,feature_count_spike,divisions,division,locality,CM,,Feature count spiked unexpectedly,100.0,341.0,682.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+227,critical,feature_count_spike,divisions,division,locality,CN,,Feature count spiked unexpectedly,99.94,32236.0,64452.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+228,critical,feature_count_spike,divisions,division,locality,CO,,Feature count spiked unexpectedly,100.37,1092.0,2188.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+229,critical,feature_count_spike,divisions,division,locality,CU,,Feature count spiked unexpectedly,100.0,246.0,492.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+230,critical,feature_count_spike,divisions,division,locality,CZ,,Feature count spiked unexpectedly,100.0,503.0,1006.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+231,critical,feature_count_spike,divisions,division,locality,DE,,Feature count spiked unexpectedly,98.41,2261.0,4486.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+232,critical,feature_count_spike,divisions,division,locality,DK,,Feature count spiked unexpectedly,100.0,105.0,210.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+233,critical,feature_count_spike,divisions,division,locality,DO,,Feature count spiked unexpectedly,98.67,301.0,598.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+234,critical,feature_count_spike,divisions,division,locality,DZ,,Feature count spiked unexpectedly,99.65,567.0,1132.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+235,critical,feature_count_spike,divisions,division,locality,EC,,Feature count spiked unexpectedly,100.0,213.0,426.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+236,critical,feature_count_spike,divisions,division,locality,EG,,Feature count spiked unexpectedly,100.0,214.0,428.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+237,critical,feature_count_spike,divisions,division,locality,ES,,Feature count spiked unexpectedly,89.47,912.0,1728.0,TRUE,MEDIUM,Large spike - likely data source change
+238,critical,feature_count_spike,divisions,division,locality,ET,,Feature count spiked unexpectedly,101.95,717.0,1448.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+239,critical,feature_count_spike,divisions,division,locality,FI,,Feature count spiked unexpectedly,99.58,473.0,944.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+240,critical,feature_count_spike,divisions,division,locality,FR,,Feature count spiked unexpectedly,100.0,1044.0,2088.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+241,critical,feature_count_spike,divisions,division,locality,GB,,Feature count spiked unexpectedly,100.25,1580.0,3164.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+242,critical,feature_count_spike,divisions,division,locality,GH,,Feature count spiked unexpectedly,100.74,538.0,1080.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+243,critical,feature_count_spike,divisions,division,locality,GN,,Feature count spiked unexpectedly,94.17,206.0,400.0,TRUE,MEDIUM,Large spike - likely data source change
+244,critical,feature_count_spike,divisions,division,locality,GR,,Feature count spiked unexpectedly,100.0,366.0,732.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+245,critical,feature_count_spike,divisions,division,locality,GT,,Feature count spiked unexpectedly,100.74,272.0,546.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+246,critical,feature_count_spike,divisions,division,locality,HN,,Feature count spiked unexpectedly,100.0,304.0,608.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+247,critical,feature_count_spike,divisions,division,locality,HR,,Feature count spiked unexpectedly,101.75,114.0,230.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+248,critical,feature_count_spike,divisions,division,locality,HT,,Feature count spiked unexpectedly,100.0,109.0,218.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+249,critical,feature_count_spike,divisions,division,locality,HU,,Feature count spiked unexpectedly,100.0,329.0,658.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+250,critical,feature_count_spike,divisions,division,locality,ID,,Feature count spiked unexpectedly,108.53,1781.0,3714.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+251,critical,feature_count_spike,divisions,division,locality,IE,,Feature count spiked unexpectedly,97.63,253.0,500.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+252,critical,feature_count_spike,divisions,division,locality,IL,,Feature count spiked unexpectedly,98.15,108.0,214.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+253,critical,feature_count_spike,divisions,division,locality,IN,,Feature count spiked unexpectedly,100.39,4143.0,8302.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+254,critical,feature_count_spike,divisions,division,locality,IQ,,Feature count spiked unexpectedly,100.0,388.0,776.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+255,critical,feature_count_spike,divisions,division,locality,IR,,Feature count spiked unexpectedly,100.12,1663.0,3328.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+256,critical,feature_count_spike,divisions,division,locality,IT,,Feature count spiked unexpectedly,102.18,1190.0,2406.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+257,critical,feature_count_spike,divisions,division,locality,JP,,Feature count spiked unexpectedly,100.0,746.0,1492.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+258,critical,feature_count_spike,divisions,division,locality,KE,,Feature count spiked unexpectedly,100.0,291.0,582.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+259,critical,feature_count_spike,divisions,division,locality,KH,,Feature count spiked unexpectedly,100.0,173.0,346.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+260,critical,feature_count_spike,divisions,division,locality,KP,,Feature count spiked unexpectedly,100.9,221.0,444.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+261,critical,feature_count_spike,divisions,division,locality,KR,,Feature count spiked unexpectedly,100.0,1413.0,2826.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+262,critical,feature_count_spike,divisions,division,locality,KZ,,Feature count spiked unexpectedly,97.81,183.0,362.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+263,critical,feature_count_spike,divisions,division,locality,LA,,Feature count spiked unexpectedly,100.0,110.0,220.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+264,critical,feature_count_spike,divisions,division,locality,LK,,Feature count spiked unexpectedly,100.0,371.0,742.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+265,critical,feature_count_spike,divisions,division,locality,LT,,Feature count spiked unexpectedly,100.0,359.0,718.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+266,critical,feature_count_spike,divisions,division,locality,LY,,Feature count spiked unexpectedly,101.35,148.0,298.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+267,critical,feature_count_spike,divisions,division,locality,MA,,Feature count spiked unexpectedly,98.92,186.0,370.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+268,critical,feature_count_spike,divisions,division,locality,MG,,Feature count spiked unexpectedly,100.0,116.0,232.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+269,critical,feature_count_spike,divisions,division,locality,ML,,Feature count spiked unexpectedly,101.09,549.0,1104.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+270,critical,feature_count_spike,divisions,division,locality,MM,,Feature count spiked unexpectedly,100.77,522.0,1048.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+271,critical,feature_count_spike,divisions,division,locality,MN,,Feature count spiked unexpectedly,102.08,385.0,778.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+272,critical,feature_count_spike,divisions,division,locality,MX,,Feature count spiked unexpectedly,100.34,2329.0,4666.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+273,critical,feature_count_spike,divisions,division,locality,MY,,Feature count spiked unexpectedly,104.12,388.0,792.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+274,critical,feature_count_spike,divisions,division,locality,MZ,,Feature count spiked unexpectedly,100.0,332.0,664.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+275,critical,feature_count_spike,divisions,division,locality,NE,,Feature count spiked unexpectedly,100.0,131.0,262.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+276,critical,feature_count_spike,divisions,division,locality,NG,,Feature count spiked unexpectedly,104.53,795.0,1626.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+277,critical,feature_count_spike,divisions,division,locality,NI,,Feature count spiked unexpectedly,101.45,138.0,278.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+278,critical,feature_count_spike,divisions,division,locality,NL,,Feature count spiked unexpectedly,100.0,275.0,550.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+279,critical,feature_count_spike,divisions,division,locality,NO,,Feature count spiked unexpectedly,100.0,122.0,244.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+280,critical,feature_count_spike,divisions,division,locality,NP,,Feature count spiked unexpectedly,101.99,201.0,406.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+281,critical,feature_count_drop,divisions,division,locality,NZ,,Feature count dropped significantly,-100.0,195.0,0.0,TRUE,HIGH,Large drop - data loss concern
+282,critical,feature_count_spike,divisions,division,locality,OM,,Feature count spiked unexpectedly,95.15,165.0,322.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+283,critical,feature_count_spike,divisions,division,locality,PA,,Feature count spiked unexpectedly,101.92,104.0,210.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+284,critical,feature_count_spike,divisions,division,locality,PE,,Feature count spiked unexpectedly,100.92,652.0,1310.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+285,critical,feature_count_spike,divisions,division,locality,PG,,Feature count spiked unexpectedly,100.0,121.0,242.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+286,critical,feature_count_spike,divisions,division,locality,PH,,Feature count spiked unexpectedly,100.0,1503.0,3006.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+287,critical,feature_count_spike,divisions,division,locality,PK,,Feature count spiked unexpectedly,102.88,904.0,1834.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+288,critical,feature_count_spike,divisions,division,locality,PL,,Feature count spiked unexpectedly,100.0,954.0,1908.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+289,critical,feature_count_spike,divisions,division,locality,PT,,Feature count spiked unexpectedly,100.34,592.0,1186.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+290,critical,feature_count_spike,divisions,division,locality,PY,,Feature count spiked unexpectedly,100.86,233.0,468.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+291,critical,feature_count_spike,divisions,division,locality,RO,,Feature count spiked unexpectedly,100.0,227.0,454.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+292,critical,feature_count_spike,divisions,division,locality,RS,,Feature count spiked unexpectedly,97.42,155.0,306.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+293,critical,feature_count_spike,divisions,division,locality,RU,,Feature count spiked unexpectedly,99.83,2391.0,4778.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+294,critical,feature_count_spike,divisions,division,locality,SA,,Feature count spiked unexpectedly,100.0,241.0,482.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+295,critical,feature_count_spike,divisions,division,locality,SD,,Feature count spiked unexpectedly,100.0,359.0,718.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+296,critical,feature_count_spike,divisions,division,locality,SE,,Feature count spiked unexpectedly,97.99,298.0,590.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+297,critical,feature_count_spike,divisions,division,locality,SK,,Feature count spiked unexpectedly,77.07,157.0,278.0,TRUE,MEDIUM,Large spike - likely data source change
+298,critical,feature_count_spike,divisions,division,locality,SN,,Feature count spiked unexpectedly,98.31,236.0,468.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+299,critical,feature_count_spike,divisions,division,locality,SO,,Feature count spiked unexpectedly,101.53,131.0,264.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+300,critical,feature_count_spike,divisions,division,locality,SS,,Feature count spiked unexpectedly,100.0,161.0,322.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+301,critical,feature_count_spike,divisions,division,locality,SV,,Feature count spiked unexpectedly,100.0,259.0,518.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+302,critical,feature_count_spike,divisions,division,locality,SY,,Feature count spiked unexpectedly,100.0,402.0,804.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+303,critical,feature_count_spike,divisions,division,locality,TD,,Feature count spiked unexpectedly,100.0,277.0,554.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+304,critical,feature_count_spike,divisions,division,locality,TH,,Feature count spiked unexpectedly,99.8,1022.0,2042.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+305,critical,feature_count_spike,divisions,division,locality,TN,,Feature count spiked unexpectedly,100.0,131.0,262.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+306,critical,feature_count_spike,divisions,division,locality,TR,,Feature count spiked unexpectedly,100.21,934.0,1870.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+307,critical,feature_count_spike,divisions,division,locality,TW,,Feature count spiked unexpectedly,95.93,246.0,482.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+308,critical,feature_count_spike,divisions,division,locality,TZ,,Feature count spiked unexpectedly,100.98,205.0,412.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+309,critical,feature_count_spike,divisions,division,locality,UA,,Feature count spiked unexpectedly,100.63,1261.0,2530.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+310,critical,feature_count_spike,divisions,division,locality,UG,,Feature count spiked unexpectedly,100.0,199.0,398.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+311,critical,feature_count_spike,divisions,division,locality,US,,Feature count spiked unexpectedly,100.15,6607.0,13224.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+312,critical,feature_count_spike,divisions,division,locality,UY,,Feature count spiked unexpectedly,100.0,124.0,248.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+313,critical,feature_count_spike,divisions,division,locality,UZ,,Feature count spiked unexpectedly,100.0,305.0,610.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+314,critical,feature_count_spike,divisions,division,locality,VE,,Feature count spiked unexpectedly,100.0,1347.0,2694.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+315,critical,feature_count_spike,divisions,division,locality,VN,,Feature count spiked unexpectedly,106.3,667.0,1376.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+316,critical,feature_count_spike,divisions,division,locality,YE,,Feature count spiked unexpectedly,100.9,222.0,446.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+317,critical,feature_count_spike,divisions,division,locality,ZA,,Feature count spiked unexpectedly,100.0,753.0,1506.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+318,critical,feature_count_spike,divisions,division,locality,ZM,,Feature count spiked unexpectedly,100.0,118.0,236.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+319,critical,feature_count_spike,divisions,division,locality,AE,,Feature count spiked unexpectedly,101.08,185.0,372.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+320,critical,feature_count_spike,divisions,division,locality,AF,,Feature count spiked unexpectedly,100.28,2180.0,4366.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+321,critical,feature_count_spike,divisions,division,locality,AL,,Feature count spiked unexpectedly,99.93,3008.0,6014.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+322,critical,feature_count_spike,divisions,division,locality,AM,,Feature count spiked unexpectedly,103.06,981.0,1992.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+323,critical,feature_count_spike,divisions,division,locality,AO,,Feature count spiked unexpectedly,99.4,1002.0,1998.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+324,critical,feature_count_spike,divisions,division,locality,AR,,Feature count spiked unexpectedly,100.14,2894.0,5792.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+325,critical,feature_count_spike,divisions,division,locality,AT,,Feature count spiked unexpectedly,99.93,6061.0,12118.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+326,critical,feature_count_spike,divisions,division,locality,AU,,Feature count spiked unexpectedly,104.02,1839.0,3752.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+327,critical,feature_count_spike,divisions,division,locality,AZ,,Feature count spiked unexpectedly,100.08,2639.0,5280.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+328,critical,feature_count_spike,divisions,division,locality,BA,,Feature count spiked unexpectedly,99.24,4998.0,9958.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+329,critical,feature_count_spike,divisions,division,locality,BB,,Feature count spiked unexpectedly,100.0,131.0,262.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+330,critical,feature_count_spike,divisions,division,locality,BD,,Feature count spiked unexpectedly,100.21,3773.0,7554.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+331,critical,feature_count_spike,divisions,division,locality,BE,,Feature count spiked unexpectedly,100.61,2962.0,5942.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+332,critical,feature_count_spike,divisions,division,locality,BF,,Feature count spiked unexpectedly,100.5,6755.0,13544.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+333,critical,feature_count_spike,divisions,division,locality,BG,,Feature count spiked unexpectedly,100.37,4839.0,9696.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+334,critical,feature_count_spike,divisions,division,locality,BI,,Feature count spiked unexpectedly,100.0,1410.0,2820.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+335,critical,feature_count_spike,divisions,division,locality,BJ,,Feature count spiked unexpectedly,101.72,3139.0,6332.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+336,critical,feature_count_spike,divisions,division,locality,BN,,Feature count spiked unexpectedly,100.0,118.0,236.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+337,critical,feature_count_spike,divisions,division,locality,BO,,Feature count spiked unexpectedly,99.89,5573.0,11140.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+338,critical,feature_count_spike,divisions,division,locality,BR,,Feature count spiked unexpectedly,99.87,12375.0,24734.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+339,critical,feature_count_spike,divisions,division,locality,BT,,Feature count spiked unexpectedly,100.36,549.0,1100.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+340,critical,feature_count_spike,divisions,division,locality,BW,,Feature count spiked unexpectedly,100.0,495.0,990.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+341,critical,feature_count_spike,divisions,division,locality,BY,,Feature count spiked unexpectedly,94.53,2668.0,5190.0,TRUE,MEDIUM,Large spike - likely data source change
+342,critical,feature_count_spike,divisions,division,locality,BZ,,Feature count spiked unexpectedly,100.0,216.0,432.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+343,critical,feature_count_spike,divisions,division,locality,CA,,Feature count spiked unexpectedly,101.74,5870.0,11842.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+344,critical,feature_count_spike,divisions,division,locality,CD,,Feature count spiked unexpectedly,101.11,12958.0,26060.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+345,critical,feature_count_spike,divisions,division,locality,CF,,Feature count spiked unexpectedly,100.39,3082.0,6176.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+346,critical,feature_count_spike,divisions,division,locality,CG,,Feature count spiked unexpectedly,102.37,169.0,342.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+347,critical,feature_count_spike,divisions,division,locality,CH,,Feature count spiked unexpectedly,100.0,3558.0,7116.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+348,critical,feature_count_spike,divisions,division,locality,CI,,Feature count spiked unexpectedly,103.93,5288.0,10784.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+349,critical,feature_count_spike,divisions,division,locality,CL,,Feature count spiked unexpectedly,99.75,806.0,1610.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+350,critical,feature_count_spike,divisions,division,locality,CM,,Feature count spiked unexpectedly,100.08,10384.0,20776.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+351,critical,feature_count_spike,divisions,division,locality,CN,,Feature count spiked unexpectedly,102.26,243854.0,493228.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+352,critical,feature_count_spike,divisions,division,locality,CO,,Feature count spiked unexpectedly,101.85,2915.0,5884.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+353,critical,feature_count_spike,divisions,division,locality,CR,,Feature count spiked unexpectedly,100.45,444.0,890.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+354,critical,feature_count_spike,divisions,division,locality,CU,,Feature count spiked unexpectedly,100.18,1142.0,2286.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+355,critical,feature_count_spike,divisions,division,locality,CV,,Feature count spiked unexpectedly,100.0,210.0,420.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+356,critical,feature_count_spike,divisions,division,locality,CY,,Feature count spiked unexpectedly,98.15,324.0,642.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+357,critical,feature_count_spike,divisions,division,locality,CZ,,Feature count spiked unexpectedly,100.02,10013.0,20028.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+358,critical,feature_count_spike,divisions,division,locality,DE,,Feature count spiked unexpectedly,100.05,36840.0,73700.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+359,critical,feature_count_spike,divisions,division,locality,DK,,Feature count spiked unexpectedly,100.13,1562.0,3126.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+360,critical,feature_count_spike,divisions,division,locality,DO,,Feature count spiked unexpectedly,101.11,361.0,726.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+361,critical,feature_count_spike,divisions,division,locality,DZ,,Feature count spiked unexpectedly,100.25,5495.0,11004.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+362,critical,feature_count_spike,divisions,division,locality,EC,,Feature count spiked unexpectedly,100.74,2169.0,4354.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+363,critical,feature_count_spike,divisions,division,locality,EE,,Feature count spiked unexpectedly,98.04,204.0,404.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+364,critical,feature_count_spike,divisions,division,locality,EG,,Feature count spiked unexpectedly,100.0,1562.0,3124.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+365,critical,feature_count_spike,divisions,division,locality,ER,,Feature count spiked unexpectedly,101.11,360.0,724.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+366,critical,feature_count_spike,divisions,division,locality,ES,,Feature count spiked unexpectedly,101.11,8098.0,16286.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+367,critical,feature_count_spike,divisions,division,locality,ET,,Feature count spiked unexpectedly,99.78,1833.0,3662.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+368,critical,feature_count_spike,divisions,division,locality,FI,,Feature count spiked unexpectedly,101.55,3474.0,7002.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+369,critical,feature_count_spike,divisions,division,locality,FJ,,Feature count spiked unexpectedly,101.38,436.0,878.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+370,critical,feature_count_spike,divisions,division,locality,FO,,Feature count spiked unexpectedly,100.0,117.0,234.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+371,critical,feature_count_spike,divisions,division,locality,FR,,Feature count spiked unexpectedly,100.0,37257.0,74514.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+372,critical,feature_count_spike,divisions,division,locality,GA,,Feature count spiked unexpectedly,99.65,569.0,1136.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+373,critical,feature_count_spike,divisions,division,locality,GB,,Feature count spiked unexpectedly,100.05,15277.0,30562.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+374,critical,feature_count_spike,divisions,division,locality,GD,,Feature count spiked unexpectedly,100.0,116.0,232.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+375,critical,feature_count_spike,divisions,division,locality,GE,,Feature count spiked unexpectedly,98.93,3728.0,7416.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+376,critical,feature_count_spike,divisions,division,locality,GH,,Feature count spiked unexpectedly,100.29,5531.0,11078.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+377,critical,feature_count_spike,divisions,division,locality,GL,,Feature count spiked unexpectedly,98.11,106.0,210.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+378,critical,feature_count_spike,divisions,division,locality,GM,,Feature count spiked unexpectedly,101.65,846.0,1706.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+379,critical,feature_count_spike,divisions,division,locality,GN,,Feature count spiked unexpectedly,100.59,3042.0,6102.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+380,critical,feature_count_spike,divisions,division,locality,GQ,,Feature count spiked unexpectedly,100.0,125.0,250.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+381,critical,feature_count_spike,divisions,division,locality,GR,,Feature count spiked unexpectedly,100.14,7241.0,14492.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+382,critical,feature_count_spike,divisions,division,locality,GT,,Feature count spiked unexpectedly,104.86,1892.0,3876.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+383,critical,feature_count_spike,divisions,division,locality,GW,,Feature count spiked unexpectedly,100.0,563.0,1126.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+384,critical,feature_count_spike,divisions,division,locality,GY,,Feature count spiked unexpectedly,102.55,157.0,318.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+385,critical,feature_count_spike,divisions,division,locality,HK,,Feature count spiked unexpectedly,101.02,196.0,394.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+386,critical,feature_count_spike,divisions,division,locality,HN,,Feature count spiked unexpectedly,100.18,1138.0,2278.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+387,critical,feature_count_spike,divisions,division,locality,HR,,Feature count spiked unexpectedly,100.16,6310.0,12630.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+388,critical,feature_count_spike,divisions,division,locality,HT,,Feature count spiked unexpectedly,100.0,1225.0,2450.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+389,critical,feature_count_spike,divisions,division,locality,HU,,Feature count spiked unexpectedly,100.0,2808.0,5616.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+390,critical,feature_count_spike,divisions,division,locality,ID,,Feature count spiked unexpectedly,99.68,75934.0,151624.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+391,critical,feature_count_spike,divisions,division,locality,IE,,Feature count spiked unexpectedly,99.48,1158.0,2310.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+392,critical,feature_count_spike,divisions,division,locality,IL,,Feature count spiked unexpectedly,100.0,1081.0,2162.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+393,critical,feature_count_spike,divisions,division,locality,IN,,Feature count spiked unexpectedly,100.31,170817.0,342168.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+394,critical,feature_count_spike,divisions,division,locality,IQ,,Feature count spiked unexpectedly,99.91,11758.0,23506.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+395,critical,feature_count_spike,divisions,division,locality,IR,,Feature count spiked unexpectedly,100.11,40031.0,80108.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+396,critical,feature_count_spike,divisions,division,locality,IT,,Feature count spiked unexpectedly,100.07,14691.0,29392.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+397,critical,feature_count_spike,divisions,division,locality,JM,,Feature count spiked unexpectedly,100.0,293.0,586.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+398,critical,feature_count_spike,divisions,division,locality,JO,,Feature count spiked unexpectedly,100.0,735.0,1470.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+399,critical,feature_count_spike,divisions,division,locality,JP,,Feature count spiked unexpectedly,100.0,192.0,384.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+400,critical,feature_count_spike,divisions,division,locality,KE,,Feature count spiked unexpectedly,99.83,8283.0,16552.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+401,critical,feature_count_spike,divisions,division,locality,KG,,Feature count spiked unexpectedly,98.99,1388.0,2762.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+402,critical,feature_count_spike,divisions,division,locality,KH,,Feature count spiked unexpectedly,101.43,840.0,1692.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+403,critical,feature_count_spike,divisions,division,locality,KI,,Feature count spiked unexpectedly,100.0,107.0,214.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+404,critical,feature_count_spike,divisions,division,locality,KM,,Feature count spiked unexpectedly,100.0,175.0,350.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+405,critical,feature_count_spike,divisions,division,locality,KP,,Feature count spiked unexpectedly,100.14,4343.0,8692.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+406,critical,feature_count_spike,divisions,division,locality,KR,,Feature count spiked unexpectedly,100.03,15150.0,30304.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+407,critical,feature_count_spike,divisions,division,locality,KZ,,Feature count spiked unexpectedly,103.71,3770.0,7680.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+408,critical,feature_count_spike,divisions,division,locality,LA,,Feature count spiked unexpectedly,100.07,6129.0,12262.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+409,critical,feature_count_spike,divisions,division,locality,LB,,Feature count spiked unexpectedly,100.28,1409.0,2822.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+410,critical,feature_count_spike,divisions,division,locality,LK,,Feature count spiked unexpectedly,100.35,3452.0,6916.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+411,critical,feature_count_spike,divisions,division,locality,LR,,Feature count spiked unexpectedly,100.0,514.0,1028.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+412,critical,feature_count_spike,divisions,division,locality,LS,,Feature count spiked unexpectedly,100.93,2371.0,4764.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+413,critical,feature_count_spike,divisions,division,locality,LT,,Feature count spiked unexpectedly,99.98,18977.0,37950.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+414,critical,feature_count_spike,divisions,division,locality,LU,,Feature count spiked unexpectedly,100.0,458.0,916.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+415,critical,feature_count_spike,divisions,division,locality,LV,,Feature count spiked unexpectedly,97.4,1385.0,2734.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+416,critical,feature_count_spike,divisions,division,locality,LY,,Feature count spiked unexpectedly,100.0,623.0,1246.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+417,critical,feature_count_spike,divisions,division,locality,MA,,Feature count spiked unexpectedly,106.45,4775.0,9858.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+418,critical,feature_count_spike,divisions,division,locality,MD,,Feature count spiked unexpectedly,100.36,1652.0,3310.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+419,critical,feature_count_spike,divisions,division,locality,ME,,Feature count spiked unexpectedly,101.06,943.0,1896.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+420,critical,feature_count_spike,divisions,division,locality,MG,,Feature count spiked unexpectedly,100.37,5917.0,11856.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+421,critical,feature_count_spike,divisions,division,locality,MK,,Feature count spiked unexpectedly,100.13,1524.0,3050.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+422,critical,feature_count_spike,divisions,division,locality,ML,,Feature count spiked unexpectedly,101.63,8595.0,17330.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+423,critical,feature_count_spike,divisions,division,locality,MM,,Feature count spiked unexpectedly,101.26,43476.0,87498.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+424,critical,feature_count_spike,divisions,division,locality,MR,,Feature count spiked unexpectedly,112.2,492.0,1044.0,UNCERTAIN,LOW,Needs manual review
+425,critical,feature_count_spike,divisions,division,locality,MU,,Feature count spiked unexpectedly,100.0,169.0,338.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+426,critical,feature_count_spike,divisions,division,locality,MW,,Feature count spiked unexpectedly,114.66,2183.0,4686.0,UNCERTAIN,LOW,Needs manual review
+427,critical,feature_count_spike,divisions,division,locality,MX,,Feature count spiked unexpectedly,100.29,15005.0,30054.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+428,critical,feature_count_spike,divisions,division,locality,MY,,Feature count spiked unexpectedly,105.21,3836.0,7872.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+429,critical,feature_count_spike,divisions,division,locality,MZ,,Feature count spiked unexpectedly,100.0,1211.0,2422.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+430,critical,feature_count_spike,divisions,division,locality,NE,,Feature count spiked unexpectedly,99.99,13782.0,27562.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+431,critical,feature_count_spike,divisions,division,locality,NG,,Feature count spiked unexpectedly,100.17,16040.0,32108.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+432,critical,feature_count_spike,divisions,division,locality,NI,,Feature count spiked unexpectedly,100.46,1314.0,2634.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+433,critical,feature_count_spike,divisions,division,locality,NL,,Feature count spiked unexpectedly,100.09,2145.0,4292.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+434,critical,feature_count_spike,divisions,division,locality,NO,,Feature count spiked unexpectedly,99.89,1754.0,3506.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+435,critical,feature_count_spike,divisions,division,locality,NP,,Feature count spiked unexpectedly,100.14,4393.0,8792.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+436,critical,feature_count_drop,divisions,division,locality,NZ,,Feature count dropped significantly,-100.0,418.0,0.0,TRUE,HIGH,Large drop - data loss concern
+437,critical,feature_count_spike,divisions,division,locality,OM,,Feature count spiked unexpectedly,99.78,1860.0,3716.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+438,critical,feature_count_spike,divisions,division,locality,PA,,Feature count spiked unexpectedly,85.34,805.0,1492.0,TRUE,MEDIUM,Large spike - likely data source change
+439,critical,feature_count_spike,divisions,division,locality,PE,,Feature count spiked unexpectedly,100.12,9880.0,19772.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+440,critical,feature_count_spike,divisions,division,locality,PF,,Feature count spiked unexpectedly,100.0,154.0,308.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+441,critical,feature_count_spike,divisions,division,locality,PG,,Feature count spiked unexpectedly,100.81,7671.0,15404.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+442,critical,feature_count_spike,divisions,division,locality,PH,,Feature count spiked unexpectedly,99.93,25700.0,51382.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+443,critical,feature_count_spike,divisions,division,locality,PK,,Feature count spiked unexpectedly,102.17,22141.0,44762.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+444,critical,feature_count_spike,divisions,division,locality,PL,,Feature count spiked unexpectedly,99.95,47215.0,94406.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+445,critical,feature_count_spike,divisions,division,locality,PT,,Feature count spiked unexpectedly,99.77,3451.0,6894.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+446,critical,feature_count_spike,divisions,division,locality,PY,,Feature count spiked unexpectedly,100.0,757.0,1514.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+447,critical,feature_count_spike,divisions,division,locality,RE,,Feature count spiked unexpectedly,100.0,123.0,246.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+448,critical,feature_count_spike,divisions,division,locality,RO,,Feature count spiked unexpectedly,100.04,13549.0,27104.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+449,critical,feature_count_spike,divisions,division,locality,RS,,Feature count spiked unexpectedly,100.0,4124.0,8248.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+450,critical,feature_count_spike,divisions,division,locality,RU,,Feature count spiked unexpectedly,100.04,36365.0,72744.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+451,critical,feature_count_spike,divisions,division,locality,RW,,Feature count spiked unexpectedly,100.0,457.0,914.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+452,critical,feature_count_spike,divisions,division,locality,SA,,Feature count spiked unexpectedly,99.94,3328.0,6654.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+453,critical,feature_count_spike,divisions,division,locality,SB,,Feature count spiked unexpectedly,100.85,235.0,472.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+454,critical,feature_count_spike,divisions,division,locality,SD,,Feature count spiked unexpectedly,100.52,4217.0,8456.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+455,critical,feature_count_spike,divisions,division,locality,SE,,Feature count spiked unexpectedly,100.08,2572.0,5146.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+456,critical,feature_count_spike,divisions,division,locality,SI,,Feature count spiked unexpectedly,100.72,4720.0,9474.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+457,critical,feature_count_spike,divisions,division,locality,SK,,Feature count spiked unexpectedly,100.0,2802.0,5604.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+458,critical,feature_count_spike,divisions,division,locality,SL,,Feature count spiked unexpectedly,100.28,1446.0,2896.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+459,critical,feature_count_spike,divisions,division,locality,SN,,Feature count spiked unexpectedly,100.04,5637.0,11276.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+460,critical,feature_count_spike,divisions,division,locality,SO,,Feature count spiked unexpectedly,100.46,5260.0,10544.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+461,critical,feature_count_spike,divisions,division,locality,SR,,Feature count spiked unexpectedly,105.71,105.0,216.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+462,critical,feature_count_spike,divisions,division,locality,SS,,Feature count spiked unexpectedly,100.29,683.0,1368.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+463,critical,feature_count_spike,divisions,division,locality,SV,,Feature count spiked unexpectedly,100.0,273.0,546.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+464,critical,feature_count_spike,divisions,division,locality,SY,,Feature count spiked unexpectedly,99.97,5864.0,11726.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+465,critical,feature_count_spike,divisions,division,locality,TD,,Feature count spiked unexpectedly,101.06,9823.0,19750.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+466,critical,feature_count_spike,divisions,division,locality,TG,,Feature count spiked unexpectedly,100.64,1246.0,2500.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+467,critical,feature_count_spike,divisions,division,locality,TH,,Feature count spiked unexpectedly,102.35,17030.0,34460.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+468,critical,feature_count_spike,divisions,division,locality,TJ,,Feature count spiked unexpectedly,100.71,1981.0,3976.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+469,critical,feature_count_spike,divisions,division,locality,TL,,Feature count spiked unexpectedly,100.0,113.0,226.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+470,critical,feature_count_spike,divisions,division,locality,TM,,Feature count spiked unexpectedly,100.0,928.0,1856.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+471,critical,feature_count_spike,divisions,division,locality,TN,,Feature count spiked unexpectedly,100.0,794.0,1588.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+472,critical,feature_count_spike,divisions,division,locality,TR,,Feature count spiked unexpectedly,99.89,37339.0,74638.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+473,critical,feature_count_spike,divisions,division,locality,TT,,Feature count spiked unexpectedly,106.33,158.0,326.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+474,critical,feature_count_spike,divisions,division,locality,TW,,Feature count spiked unexpectedly,101.04,1914.0,3848.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+475,critical,feature_count_spike,divisions,division,locality,TZ,,Feature count spiked unexpectedly,100.09,10763.0,21536.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+476,critical,feature_count_spike,divisions,division,locality,UA,,Feature count spiked unexpectedly,99.64,25527.0,50962.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+477,critical,feature_count_spike,divisions,division,locality,UG,,Feature count spiked unexpectedly,99.98,61903.0,123794.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+478,critical,feature_count_spike,divisions,division,locality,US,,Feature count spiked unexpectedly,99.4,19228.0,38340.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+479,critical,feature_count_spike,divisions,division,locality,UY,,Feature count spiked unexpectedly,110.64,188.0,396.0,UNCERTAIN,LOW,Needs manual review
+480,critical,feature_count_spike,divisions,division,locality,UZ,,Feature count spiked unexpectedly,100.14,5796.0,11600.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+481,critical,feature_count_spike,divisions,division,locality,VE,,Feature count spiked unexpectedly,100.03,6313.0,12628.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+482,critical,feature_count_spike,divisions,division,locality,VN,,Feature count spiked unexpectedly,214.16,5098.0,16016.0,TRUE,HIGH,Very large spike indicates data source change or error
+483,critical,feature_count_spike,divisions,division,locality,VU,,Feature count spiked unexpectedly,100.0,540.0,1080.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+484,critical,feature_count_spike,divisions,division,locality,WS,,Feature count spiked unexpectedly,100.57,349.0,700.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+485,critical,feature_count_spike,divisions,division,locality,XK,,Feature count spiked unexpectedly,99.87,1495.0,2988.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+486,critical,feature_count_spike,divisions,division,locality,XW,,Feature count spiked unexpectedly,100.0,582.0,1164.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+487,critical,feature_count_spike,divisions,division,locality,YE,,Feature count spiked unexpectedly,100.14,10270.0,20554.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+488,critical,feature_count_spike,divisions,division,locality,ZA,,Feature count spiked unexpectedly,100.0,1304.0,2608.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+489,critical,feature_count_spike,divisions,division,locality,ZM,,Feature count spiked unexpectedly,100.0,1138.0,2276.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+490,critical,feature_count_spike,divisions,division,locality,ZW,,Feature count spiked unexpectedly,107.63,367.0,762.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+491,critical,low_attribute_coverage,divisions,division,,,perspectives,100.0% of divisions missing 'perspectives' (0.0% coverage),0.0,0.0,0.0,UNCERTAIN,LOW,Very low coverage for perspectives - needs investigation
+492,critical,low_attribute_coverage,divisions,division,,,norms,100.0% of divisions missing 'norms' (0.0% coverage),0.0,0.0,0.0061073419231301,UNCERTAIN,LOW,Very low coverage for norms - needs investigation
+493,critical,low_attribute_coverage,divisions,division,,,capital_division_ids,99.1% of divisions missing 'capital_division_ids' (0.9% coverage),0.0,0.0,0.9193570405976572,UNCERTAIN,LOW,Very low coverage for capital_division_ids - needs investigation
+494,critical,low_attribute_coverage,divisions,division,,,capital_of_divisions,99.1% of divisions missing 'capital_of_divisions' (0.9% coverage),0.0,0.0,0.8578120986443498,UNCERTAIN,LOW,Very low coverage for capital_of_divisions - needs investigation
+495,critical,feature_count_spike,divisions,division_area,county,AF,,Feature count spiked unexpectedly,100.0,397.0,794.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+496,critical,feature_count_spike,divisions,division_area,county,AO,,Feature count spiked unexpectedly,100.0,157.0,314.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+497,critical,feature_count_spike,divisions,division_area,county,AR,,Feature count spiked unexpectedly,100.0,513.0,1026.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+498,critical,feature_count_spike,divisions,division_area,county,AU,,Feature count spiked unexpectedly,100.33,598.0,1198.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+499,critical,feature_count_spike,divisions,division_area,county,BA,,Feature count spiked unexpectedly,100.0,111.0,222.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+500,critical,feature_count_spike,divisions,division_area,county,BG,,Feature count spiked unexpectedly,100.0,265.0,530.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+501,critical,feature_count_spike,divisions,division_area,county,BI,,Feature count spiked unexpectedly,100.0,119.0,238.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+502,critical,feature_count_spike,divisions,division_area,county,BO,,Feature count spiked unexpectedly,100.0,112.0,224.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+503,critical,feature_count_spike,divisions,division_area,county,BY,,Feature count spiked unexpectedly,101.57,127.0,256.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+504,critical,feature_count_spike,divisions,division_area,county,CA,,Feature count spiked unexpectedly,105.0,1479.0,3032.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+505,critical,feature_count_spike,divisions,division_area,county,CD,,Feature count spiked unexpectedly,100.0,189.0,378.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+506,critical,feature_count_spike,divisions,division_area,county,CH,,Feature count spiked unexpectedly,100.0,169.0,338.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+507,critical,feature_count_spike,divisions,division_area,county,CN,,Feature count spiked unexpectedly,100.0,333.0,666.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+508,critical,feature_count_spike,divisions,division_area,county,CO,,Feature count spiked unexpectedly,100.0,1122.0,2244.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+509,critical,feature_count_spike,divisions,division_area,county,CU,,Feature count spiked unexpectedly,100.0,168.0,336.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+510,critical,feature_count_spike,divisions,division_area,county,DE,,Feature count spiked unexpectedly,100.0,398.0,796.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+511,critical,feature_count_spike,divisions,division_area,county,DO,,Feature count spiked unexpectedly,100.0,155.0,310.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+512,critical,feature_count_spike,divisions,division_area,county,DZ,,Feature count spiked unexpectedly,100.0,547.0,1094.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+513,critical,feature_count_spike,divisions,division_area,county,EC,,Feature count spiked unexpectedly,100.0,221.0,442.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+514,critical,feature_count_spike,divisions,division_area,county,EG,,Feature count spiked unexpectedly,100.0,365.0,730.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+515,critical,feature_count_spike,divisions,division_area,county,GB,,Feature count spiked unexpectedly,100.0,216.0,432.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+516,critical,feature_count_spike,divisions,division_area,county,GH,,Feature count spiked unexpectedly,100.0,261.0,522.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+517,critical,feature_count_spike,divisions,division_area,county,GR,,Feature count spiked unexpectedly,100.0,332.0,664.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+518,critical,feature_count_spike,divisions,division_area,county,GT,,Feature count spiked unexpectedly,100.0,316.0,632.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+519,critical,feature_count_spike,divisions,division_area,county,GY,,Feature count spiked unexpectedly,101.75,114.0,230.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+520,critical,feature_count_spike,divisions,division_area,county,HN,,Feature count spiked unexpectedly,100.0,298.0,596.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+521,critical,feature_count_spike,divisions,division_area,county,HR,,Feature count spiked unexpectedly,100.0,555.0,1110.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+522,critical,feature_count_spike,divisions,division_area,county,HU,,Feature count spiked unexpectedly,100.0,174.0,348.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+523,critical,feature_count_spike,divisions,division_area,county,ID,,Feature count spiked unexpectedly,100.76,523.0,1050.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+524,critical,feature_count_spike,divisions,division_area,county,IN,,Feature count spiked unexpectedly,100.0,789.0,1578.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+525,critical,feature_count_spike,divisions,division_area,county,IQ,,Feature count spiked unexpectedly,100.0,128.0,256.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+526,critical,feature_count_spike,divisions,division_area,county,IR,,Feature count spiked unexpectedly,100.84,476.0,956.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+527,critical,feature_count_spike,divisions,division_area,county,IT,,Feature count spiked unexpectedly,100.0,107.0,214.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+528,critical,feature_count_spike,divisions,division_area,county,JP,,Feature count spiked unexpectedly,100.0,1742.0,3484.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+529,critical,feature_count_spike,divisions,division_area,county,KE,,Feature count spiked unexpectedly,100.0,291.0,582.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+530,critical,feature_count_spike,divisions,division_area,county,KH,,Feature count spiked unexpectedly,100.0,197.0,394.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+531,critical,feature_count_spike,divisions,division_area,county,KR,,Feature count spiked unexpectedly,100.0,228.0,456.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+532,critical,feature_count_spike,divisions,division_area,county,KW,,Feature count spiked unexpectedly,100.0,137.0,274.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+533,critical,feature_count_spike,divisions,division_area,county,KZ,,Feature count spiked unexpectedly,100.0,224.0,448.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+534,critical,feature_count_spike,divisions,division_area,county,LA,,Feature count spiked unexpectedly,100.0,148.0,296.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+535,critical,feature_count_spike,divisions,division_area,county,LR,,Feature count spiked unexpectedly,100.0,141.0,282.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+536,critical,feature_count_spike,divisions,division_area,county,LU,,Feature count spiked unexpectedly,100.0,100.0,200.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+537,critical,feature_count_spike,divisions,division_area,county,MG,,Feature count spiked unexpectedly,100.0,119.0,238.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+538,critical,feature_count_spike,divisions,division_area,county,MM,,Feature count spiked unexpectedly,100.0,359.0,718.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+539,critical,feature_count_spike,divisions,division_area,county,MN,,Feature count spiked unexpectedly,100.0,339.0,678.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+540,critical,feature_count_spike,divisions,division_area,county,MX,,Feature count spiked unexpectedly,100.0,2475.0,4950.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+541,critical,feature_count_spike,divisions,division_area,county,MY,,Feature count spiked unexpectedly,100.0,154.0,308.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+542,critical,feature_count_spike,divisions,division_area,county,MZ,,Feature count spiked unexpectedly,100.0,161.0,322.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+543,critical,feature_count_spike,divisions,division_area,county,NG,,Feature count spiked unexpectedly,100.0,773.0,1546.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+544,critical,feature_count_spike,divisions,division_area,county,NI,,Feature count spiked unexpectedly,100.0,153.0,306.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+545,critical,feature_count_spike,divisions,division_area,county,NL,,Feature count spiked unexpectedly,100.0,342.0,684.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+546,critical,feature_count_spike,divisions,division_area,county,NO,,Feature count spiked unexpectedly,100.0,357.0,714.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+547,critical,feature_count_spike,divisions,division_area,county,PE,,Feature count spiked unexpectedly,100.0,196.0,392.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+548,critical,feature_count_spike,divisions,division_area,county,PL,,Feature count spiked unexpectedly,100.0,380.0,760.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+549,critical,feature_count_spike,divisions,division_area,county,PT,,Feature count spiked unexpectedly,100.0,308.0,616.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+550,critical,feature_count_spike,divisions,division_area,county,RO,,Feature count spiked unexpectedly,100.0,3179.0,6358.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+551,critical,feature_count_spike,divisions,division_area,county,RU,,Feature count spiked unexpectedly,100.0,2329.0,4658.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+552,critical,feature_count_spike,divisions,division_area,county,SA,,Feature count spiked unexpectedly,100.0,149.0,298.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+553,critical,feature_count_spike,divisions,division_area,county,SD,,Feature count spiked unexpectedly,100.0,189.0,378.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+554,critical,feature_count_spike,divisions,division_area,county,SE,,Feature count spiked unexpectedly,100.0,290.0,580.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+555,critical,feature_count_spike,divisions,division_area,county,SV,,Feature count spiked unexpectedly,100.0,272.0,544.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+556,critical,feature_count_spike,divisions,division_area,county,TH,,Feature count spiked unexpectedly,100.0,928.0,1856.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+557,critical,feature_count_spike,divisions,division_area,county,TN,,Feature count spiked unexpectedly,100.0,266.0,532.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+558,critical,feature_count_spike,divisions,division_area,county,TR,,Feature count spiked unexpectedly,100.0,974.0,1948.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+559,critical,feature_count_spike,divisions,division_area,county,TZ,,Feature count spiked unexpectedly,100.0,195.0,390.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+560,critical,feature_count_spike,divisions,division_area,county,UA,,Feature count spiked unexpectedly,100.0,151.0,302.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+561,critical,feature_count_spike,divisions,division_area,county,UG,,Feature count spiked unexpectedly,100.0,147.0,294.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+562,critical,feature_count_spike,divisions,division_area,county,US,,Feature count spiked unexpectedly,100.0,3134.0,6268.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+563,critical,feature_count_spike,divisions,division_area,county,UY,,Feature count spiked unexpectedly,100.0,124.0,248.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+564,critical,feature_count_spike,divisions,division_area,county,UZ,,Feature count spiked unexpectedly,100.0,202.0,404.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+565,critical,feature_count_spike,divisions,division_area,county,VE,,Feature count spiked unexpectedly,100.0,348.0,696.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+566,critical,feature_count_spike,divisions,division_area,county,ZM,,Feature count spiked unexpectedly,100.0,116.0,232.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+567,critical,feature_count_spike,divisions,division_area,county,NO,,Feature count spiked unexpectedly,101.69,118.0,238.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+568,critical,feature_count_spike,divisions,division_area,county,US,,Feature count spiked unexpectedly,100.0,175.0,350.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+569,critical,feature_count_spike,divisions,division_area,localadmin,BF,,Feature count spiked unexpectedly,100.0,231.0,462.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+570,critical,feature_count_spike,divisions,division_area,localadmin,CH,,Feature count spiked unexpectedly,100.0,2125.0,4250.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+571,critical,feature_count_spike,divisions,division_area,localadmin,CN,,Feature count spiked unexpectedly,100.0,2853.0,5706.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+572,critical,feature_count_spike,divisions,division_area,localadmin,CZ,,Feature count spiked unexpectedly,100.0,6258.0,12516.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+573,critical,feature_count_spike,divisions,division_area,localadmin,FR,,Feature count spiked unexpectedly,100.0,320.0,640.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+574,critical,feature_count_spike,divisions,division_area,localadmin,HT,,Feature count spiked unexpectedly,100.0,143.0,286.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+575,critical,feature_count_spike,divisions,division_area,localadmin,ID,,Feature count spiked unexpectedly,117.13,1635.0,3550.0,UNCERTAIN,LOW,Needs manual review
+576,critical,feature_count_spike,divisions,division_area,localadmin,IQ,,Feature count spiked unexpectedly,100.0,402.0,804.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+577,critical,feature_count_spike,divisions,division_area,localadmin,IR,,Feature count spiked unexpectedly,101.97,1115.0,2252.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+578,critical,feature_count_spike,divisions,division_area,localadmin,MA,,Feature count spiked unexpectedly,100.0,427.0,854.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+579,critical,feature_count_spike,divisions,division_area,localadmin,SK,,Feature count spiked unexpectedly,100.0,2939.0,5878.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+580,critical,feature_count_spike,divisions,division_area,localadmin,SN,,Feature count spiked unexpectedly,100.0,128.0,256.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+581,critical,feature_count_spike,divisions,division_area,localadmin,SY,,Feature count spiked unexpectedly,100.0,275.0,550.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+582,critical,feature_count_spike,divisions,division_area,locality,AE,,Feature count spiked unexpectedly,100.61,326.0,654.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+583,critical,feature_count_spike,divisions,division_area,locality,AF,,Feature count spiked unexpectedly,103.28,122.0,248.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+584,critical,feature_count_spike,divisions,division_area,locality,AL,,Feature count spiked unexpectedly,100.0,397.0,794.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+585,critical,feature_count_spike,divisions,division_area,locality,AM,,Feature count spiked unexpectedly,99.6,999.0,1994.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+586,critical,feature_count_spike,divisions,division_area,locality,AT,,Feature count spiked unexpectedly,100.0,2237.0,4474.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+587,critical,feature_count_spike,divisions,division_area,locality,AU,,Feature count spiked unexpectedly,100.01,13976.0,27954.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+588,critical,feature_count_spike,divisions,division_area,locality,AZ,,Feature count spiked unexpectedly,100.18,3370.0,6746.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+589,critical,feature_count_spike,divisions,division_area,locality,BD,,Feature count spiked unexpectedly,104.05,148.0,302.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+590,critical,feature_count_spike,divisions,division_area,locality,BE,,Feature count spiked unexpectedly,101.27,2518.0,5068.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+591,critical,feature_count_spike,divisions,division_area,locality,BG,,Feature count spiked unexpectedly,100.1,2018.0,4038.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+592,critical,feature_count_spike,divisions,division_area,locality,BJ,,Feature count spiked unexpectedly,100.0,265.0,530.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+593,critical,feature_count_spike,divisions,division_area,locality,BO,,Feature count spiked unexpectedly,97.34,4433.0,8748.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+594,critical,feature_count_spike,divisions,division_area,locality,BR,,Feature count spiked unexpectedly,99.94,6382.0,12760.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+595,critical,feature_count_spike,divisions,division_area,locality,BT,,Feature count spiked unexpectedly,100.19,1040.0,2082.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+596,critical,feature_count_spike,divisions,division_area,locality,BY,,Feature count spiked unexpectedly,99.94,23708.0,47402.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+597,critical,feature_count_spike,divisions,division_area,locality,CA,,Feature count spiked unexpectedly,97.87,5909.0,11692.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+598,critical,feature_count_spike,divisions,division_area,locality,CD,,Feature count spiked unexpectedly,100.16,1275.0,2552.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+599,critical,feature_count_spike,divisions,division_area,locality,CH,,Feature count spiked unexpectedly,100.72,552.0,1108.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+600,critical,feature_count_spike,divisions,division_area,locality,CI,,Feature count spiked unexpectedly,91.78,146.0,280.0,TRUE,MEDIUM,Large spike - likely data source change
+601,critical,feature_count_spike,divisions,division_area,locality,CL,,Feature count spiked unexpectedly,100.57,351.0,704.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+602,critical,feature_count_spike,divisions,division_area,locality,CM,,Feature count spiked unexpectedly,101.87,427.0,862.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+603,critical,feature_count_spike,divisions,division_area,locality,CN,,Feature count spiked unexpectedly,103.62,26090.0,53124.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+604,critical,feature_count_spike,divisions,division_area,locality,CO,,Feature count spiked unexpectedly,110.88,3235.0,6822.0,UNCERTAIN,LOW,Needs manual review
+605,critical,feature_count_spike,divisions,division_area,locality,CR,,Feature count spiked unexpectedly,100.0,498.0,996.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+606,critical,feature_count_spike,divisions,division_area,locality,CU,,Feature count spiked unexpectedly,98.56,277.0,550.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+607,critical,feature_count_spike,divisions,division_area,locality,CY,,Feature count spiked unexpectedly,100.0,695.0,1390.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+608,critical,feature_count_spike,divisions,division_area,locality,CZ,,Feature count spiked unexpectedly,100.0,13101.0,26202.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+609,critical,feature_count_spike,divisions,division_area,locality,DE,,Feature count spiked unexpectedly,99.93,22662.0,45308.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+610,critical,feature_count_spike,divisions,division_area,locality,DK,,Feature count spiked unexpectedly,97.39,537.0,1060.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+611,critical,feature_count_spike,divisions,division_area,locality,DZ,,Feature count spiked unexpectedly,100.0,1670.0,3340.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+612,critical,feature_count_spike,divisions,division_area,locality,EC,,Feature count spiked unexpectedly,100.36,1124.0,2252.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+613,critical,feature_count_spike,divisions,division_area,locality,EE,,Feature count spiked unexpectedly,100.17,4790.0,9588.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+614,critical,feature_count_spike,divisions,division_area,locality,EG,,Feature count spiked unexpectedly,100.42,477.0,956.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+615,critical,feature_count_spike,divisions,division_area,locality,ES,,Feature count spiked unexpectedly,99.63,8726.0,17420.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+616,critical,feature_count_spike,divisions,division_area,locality,FI,,Feature count spiked unexpectedly,100.12,1695.0,3392.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+617,critical,feature_count_spike,divisions,division_area,locality,FJ,,Feature count spiked unexpectedly,100.0,111.0,222.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+618,critical,feature_count_spike,divisions,division_area,locality,FR,,Feature count spiked unexpectedly,100.06,36956.0,73934.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+619,critical,feature_count_spike,divisions,division_area,locality,GB,,Feature count spiked unexpectedly,100.06,21791.0,43594.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+620,critical,feature_count_spike,divisions,division_area,locality,GE,,Feature count spiked unexpectedly,99.32,1179.0,2350.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+621,critical,feature_count_spike,divisions,division_area,locality,GM,,Feature count spiked unexpectedly,97.67,172.0,340.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+622,critical,feature_count_spike,divisions,division_area,locality,GN,,Feature count spiked unexpectedly,53.03,132.0,202.0,TRUE,MEDIUM,Large spike - likely data source change
+623,critical,feature_count_spike,divisions,division_area,locality,GR,,Feature count spiked unexpectedly,108.59,163.0,340.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+624,critical,feature_count_spike,divisions,division_area,locality,GW,,Feature count spiked unexpectedly,100.0,131.0,262.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+625,critical,feature_count_spike,divisions,division_area,locality,HN,,Feature count spiked unexpectedly,103.75,160.0,326.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+626,critical,feature_count_spike,divisions,division_area,locality,HR,,Feature count spiked unexpectedly,124.32,6259.0,14040.0,UNCERTAIN,LOW,Needs manual review
+627,critical,feature_count_spike,divisions,division_area,locality,HU,,Feature count spiked unexpectedly,100.0,3163.0,6326.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+628,critical,feature_count_spike,divisions,division_area,locality,ID,,Feature count spiked unexpectedly,101.17,7335.0,14756.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+629,critical,feature_count_spike,divisions,division_area,locality,IE,,Feature count spiked unexpectedly,99.7,674.0,1346.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+630,critical,feature_count_spike,divisions,division_area,locality,IL,,Feature count spiked unexpectedly,100.0,1196.0,2392.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+631,critical,feature_count_spike,divisions,division_area,locality,IN,,Feature count spiked unexpectedly,100.36,4971.0,9960.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+632,critical,feature_count_spike,divisions,division_area,locality,IQ,,Feature count spiked unexpectedly,100.44,1360.0,2726.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+633,critical,feature_count_spike,divisions,division_area,locality,IR,,Feature count spiked unexpectedly,100.27,6564.0,13146.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+634,critical,feature_count_spike,divisions,division_area,locality,IT,,Feature count spiked unexpectedly,100.12,8611.0,17232.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+635,critical,feature_count_spike,divisions,division_area,locality,JP,,Feature count spiked unexpectedly,99.91,2136.0,4270.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+636,critical,feature_count_spike,divisions,division_area,locality,KE,,Feature count spiked unexpectedly,105.69,1512.0,3110.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+637,critical,feature_count_spike,divisions,division_area,locality,KG,,Feature count spiked unexpectedly,100.27,1466.0,2936.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+638,critical,feature_count_spike,divisions,division_area,locality,KH,,Feature count spiked unexpectedly,106.67,120.0,248.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+639,critical,feature_count_spike,divisions,division_area,locality,KP,,Feature count spiked unexpectedly,100.0,100.0,200.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+640,critical,feature_count_spike,divisions,division_area,locality,KR,,Feature count spiked unexpectedly,102.34,3074.0,6220.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+641,critical,feature_count_spike,divisions,division_area,locality,KZ,,Feature count spiked unexpectedly,102.16,3886.0,7856.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+642,critical,feature_count_spike,divisions,division_area,locality,LB,,Feature count spiked unexpectedly,101.8,1000.0,2018.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+643,critical,feature_count_spike,divisions,division_area,locality,LT,,Feature count spiked unexpectedly,99.91,4525.0,9046.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+644,critical,feature_count_spike,divisions,division_area,locality,LV,,Feature count spiked unexpectedly,98.17,2077.0,4116.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+645,critical,feature_count_spike,divisions,division_area,locality,LY,,Feature count spiked unexpectedly,100.0,187.0,374.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+646,critical,feature_count_spike,divisions,division_area,locality,MA,,Feature count spiked unexpectedly,99.88,1632.0,3262.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+647,critical,feature_count_spike,divisions,division_area,locality,MD,,Feature count spiked unexpectedly,100.24,1660.0,3324.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+648,critical,feature_count_spike,divisions,division_area,locality,ME,,Feature count spiked unexpectedly,100.0,330.0,660.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+649,critical,feature_count_spike,divisions,division_area,locality,MG,,Feature count spiked unexpectedly,99.79,952.0,1902.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+650,critical,feature_count_spike,divisions,division_area,locality,MK,,Feature count spiked unexpectedly,100.0,1746.0,3492.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+651,critical,feature_count_spike,divisions,division_area,locality,MM,,Feature count spiked unexpectedly,101.49,3615.0,7284.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+652,critical,feature_count_spike,divisions,division_area,locality,MN,,Feature count spiked unexpectedly,100.0,135.0,270.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+653,critical,feature_count_spike,divisions,division_area,locality,MU,,Feature count spiked unexpectedly,100.0,202.0,404.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+654,critical,feature_count_spike,divisions,division_area,locality,MX,,Feature count spiked unexpectedly,102.24,1516.0,3066.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+655,critical,feature_count_spike,divisions,division_area,locality,MY,,Feature count spiked unexpectedly,99.37,632.0,1260.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+656,critical,feature_count_spike,divisions,division_area,locality,MZ,,Feature count spiked unexpectedly,87.4,127.0,238.0,TRUE,MEDIUM,Large spike - likely data source change
+657,critical,feature_count_spike,divisions,division_area,locality,NG,,Feature count spiked unexpectedly,100.0,2859.0,5718.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+658,critical,feature_count_spike,divisions,division_area,locality,NI,,Feature count spiked unexpectedly,100.0,123.0,246.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+659,critical,feature_count_spike,divisions,division_area,locality,NL,,Feature count spiked unexpectedly,100.08,2537.0,5076.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+660,critical,feature_count_spike,divisions,division_area,locality,NP,,Feature count spiked unexpectedly,100.84,952.0,1912.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+661,critical,feature_count_spike,divisions,division_area,locality,PA,,Feature count spiked unexpectedly,100.42,479.0,960.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+662,critical,feature_count_spike,divisions,division_area,locality,PE,,Feature count spiked unexpectedly,99.61,2043.0,4078.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+663,critical,feature_count_spike,divisions,division_area,locality,PF,,Feature count spiked unexpectedly,100.0,117.0,234.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+664,critical,feature_count_spike,divisions,division_area,locality,PH,,Feature count spiked unexpectedly,101.11,1259.0,2532.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+665,critical,feature_count_spike,divisions,division_area,locality,PK,,Feature count spiked unexpectedly,100.3,1323.0,2650.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+666,critical,feature_count_spike,divisions,division_area,locality,PL,,Feature count spiked unexpectedly,101.31,28079.0,56526.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+667,critical,feature_count_spike,divisions,division_area,locality,PT,,Feature count spiked unexpectedly,99.75,3230.0,6452.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+668,critical,feature_count_spike,divisions,division_area,locality,PY,,Feature count spiked unexpectedly,100.37,542.0,1086.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+669,critical,feature_count_spike,divisions,division_area,locality,RO,,Feature count spiked unexpectedly,100.06,3528.0,7058.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+670,critical,feature_count_spike,divisions,division_area,locality,RS,,Feature count spiked unexpectedly,100.0,4734.0,9468.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+671,critical,feature_count_spike,divisions,division_area,locality,RU,,Feature count spiked unexpectedly,100.2,130677.0,261610.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+672,critical,feature_count_spike,divisions,division_area,locality,RW,,Feature count spiked unexpectedly,100.0,431.0,862.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+673,critical,feature_count_spike,divisions,division_area,locality,SA,,Feature count spiked unexpectedly,101.71,117.0,236.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+674,critical,feature_count_spike,divisions,division_area,locality,SE,,Feature count spiked unexpectedly,103.9,154.0,314.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+675,critical,feature_count_spike,divisions,division_area,locality,SI,,Feature count spiked unexpectedly,147.17,106.0,262.0,UNCERTAIN,LOW,Needs manual review
+676,critical,feature_count_spike,divisions,division_area,locality,SK,,Feature count spiked unexpectedly,99.95,3794.0,7586.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+677,critical,feature_count_spike,divisions,division_area,locality,SN,,Feature count spiked unexpectedly,100.0,589.0,1178.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+678,critical,feature_count_spike,divisions,division_area,locality,SV,,Feature count spiked unexpectedly,101.03,194.0,390.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+679,critical,feature_count_spike,divisions,division_area,locality,SY,,Feature count spiked unexpectedly,99.17,242.0,482.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+680,critical,feature_count_spike,divisions,division_area,locality,TH,,Feature count spiked unexpectedly,100.66,1213.0,2434.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+681,critical,feature_count_spike,divisions,division_area,locality,TJ,,Feature count spiked unexpectedly,101.33,301.0,606.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+682,critical,feature_count_spike,divisions,division_area,locality,TN,,Feature count spiked unexpectedly,100.0,2147.0,4294.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+683,critical,feature_count_spike,divisions,division_area,locality,TR,,Feature count spiked unexpectedly,111.61,224.0,474.0,UNCERTAIN,LOW,Needs manual review
+684,critical,feature_count_spike,divisions,division_area,locality,TW,,Feature count spiked unexpectedly,99.83,8113.0,16212.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+685,critical,feature_count_spike,divisions,division_area,locality,TZ,,Feature count spiked unexpectedly,98.78,164.0,326.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+686,critical,feature_count_spike,divisions,division_area,locality,UA,,Feature count spiked unexpectedly,100.39,19822.0,39722.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+687,critical,feature_count_spike,divisions,division_area,locality,US,,Feature count spiked unexpectedly,100.52,30465.0,61088.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+688,critical,feature_count_spike,divisions,division_area,locality,UY,,Feature count spiked unexpectedly,109.14,591.0,1236.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+689,critical,feature_count_spike,divisions,division_area,locality,UZ,,Feature count spiked unexpectedly,100.49,3686.0,7390.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+690,critical,feature_count_spike,divisions,division_area,locality,VE,,Feature count spiked unexpectedly,100.11,1828.0,3658.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+691,critical,feature_count_spike,divisions,division_area,locality,VN,,Feature count spiked unexpectedly,235.91,1757.0,5902.0,TRUE,HIGH,Very large spike indicates data source change or error
+692,critical,feature_count_spike,divisions,division_area,locality,WS,,Feature count spiked unexpectedly,100.0,243.0,486.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+693,critical,feature_count_spike,divisions,division_area,locality,XK,,Feature count spiked unexpectedly,100.0,249.0,498.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+694,critical,feature_count_spike,divisions,division_area,locality,XW,,Feature count spiked unexpectedly,100.0,309.0,618.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+695,critical,feature_count_spike,divisions,division_area,locality,YE,,Feature count spiked unexpectedly,103.04,395.0,802.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+696,critical,feature_count_spike,divisions,division_area,locality,ZA,,Feature count spiked unexpectedly,98.4,125.0,248.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+697,critical,feature_count_spike,divisions,division_area,macrohood,AE,,Feature count spiked unexpectedly,99.52,421.0,840.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+698,critical,feature_count_spike,divisions,division_area,macrohood,AR,,Feature count spiked unexpectedly,99.64,2812.0,5614.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+699,critical,feature_count_spike,divisions,division_area,macrohood,AT,,Feature count spiked unexpectedly,102.93,205.0,416.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+700,critical,feature_count_spike,divisions,division_area,macrohood,AU,,Feature count spiked unexpectedly,100.32,1869.0,3744.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+701,critical,feature_count_spike,divisions,division_area,macrohood,BG,,Feature count spiked unexpectedly,99.08,217.0,432.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+702,critical,feature_count_spike,divisions,division_area,macrohood,BR,,Feature count spiked unexpectedly,103.36,15595.0,31714.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+703,critical,feature_count_spike,divisions,division_area,macrohood,BY,,Feature count spiked unexpectedly,94.5,109.0,212.0,TRUE,MEDIUM,Large spike - likely data source change
+704,critical,feature_count_spike,divisions,division_area,macrohood,CA,,Feature count spiked unexpectedly,100.4,498.0,998.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+705,critical,feature_count_spike,divisions,division_area,macrohood,CN,,Feature count spiked unexpectedly,100.66,302.0,606.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+706,critical,feature_count_spike,divisions,division_area,macrohood,DE,,Feature count spiked unexpectedly,101.72,2447.0,4936.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+707,critical,feature_count_spike,divisions,division_area,macrohood,ES,,Feature count spiked unexpectedly,99.22,511.0,1018.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+708,critical,feature_count_spike,divisions,division_area,macrohood,FR,,Feature count spiked unexpectedly,100.0,536.0,1072.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+709,critical,feature_count_spike,divisions,division_area,macrohood,GB,,Feature count spiked unexpectedly,107.5,240.0,498.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+710,critical,feature_count_spike,divisions,division_area,macrohood,HU,,Feature count spiked unexpectedly,100.0,327.0,654.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+711,critical,feature_count_spike,divisions,division_area,macrohood,IL,,Feature count spiked unexpectedly,100.0,257.0,514.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+712,critical,feature_count_spike,divisions,division_area,macrohood,IN,,Feature count spiked unexpectedly,103.58,279.0,568.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+713,critical,feature_count_spike,divisions,division_area,macrohood,IR,,Feature count spiked unexpectedly,98.57,280.0,556.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+714,critical,feature_count_spike,divisions,division_area,macrohood,IT,,Feature count spiked unexpectedly,99.51,405.0,808.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+715,critical,feature_count_spike,divisions,division_area,macrohood,JP,,Feature count spiked unexpectedly,100.0,183.0,366.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+716,critical,feature_count_spike,divisions,division_area,macrohood,KZ,,Feature count spiked unexpectedly,98.83,341.0,678.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+717,critical,feature_count_spike,divisions,division_area,macrohood,MX,,Feature count spiked unexpectedly,109.9,101.0,212.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+718,critical,feature_count_spike,divisions,division_area,macrohood,MY,,Feature count spiked unexpectedly,100.0,133.0,266.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+719,critical,feature_count_spike,divisions,division_area,macrohood,NZ,,Feature count spiked unexpectedly,1581.36,118.0,1984.0,TRUE,HIGH,Very large spike indicates data source change or error
+720,critical,feature_count_spike,divisions,division_area,macrohood,PK,,Feature count spiked unexpectedly,102.8,143.0,290.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+721,critical,feature_count_spike,divisions,division_area,macrohood,PL,,Feature count spiked unexpectedly,98.82,338.0,672.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+722,critical,feature_count_spike,divisions,division_area,macrohood,PR,,Feature count spiked unexpectedly,101.01,794.0,1596.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+723,critical,feature_count_spike,divisions,division_area,macrohood,PY,,Feature count spiked unexpectedly,100.0,177.0,354.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+724,critical,feature_count_spike,divisions,division_area,macrohood,RO,,Feature count spiked unexpectedly,99.18,244.0,486.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+725,critical,feature_count_spike,divisions,division_area,macrohood,RU,,Feature count spiked unexpectedly,100.46,1740.0,3488.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+726,critical,feature_count_spike,divisions,division_area,macrohood,SA,,Feature count spiked unexpectedly,98.43,255.0,506.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+727,critical,feature_count_spike,divisions,division_area,macrohood,SE,,Feature count spiked unexpectedly,100.0,289.0,578.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+728,critical,feature_count_spike,divisions,division_area,macrohood,TR,,Feature count spiked unexpectedly,99.9,5797.0,11588.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+729,critical,feature_count_spike,divisions,division_area,macrohood,UA,,Feature count spiked unexpectedly,99.1,444.0,884.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+730,critical,feature_count_spike,divisions,division_area,macrohood,US,,Feature count spiked unexpectedly,100.0,810.0,1620.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+731,critical,feature_count_spike,divisions,division_area,macrohood,VE,,Feature count spiked unexpectedly,100.0,483.0,966.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+732,critical,feature_count_spike,divisions,division_area,macrohood,ZA,,Feature count spiked unexpectedly,100.0,369.0,738.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+733,critical,feature_count_spike,divisions,division_area,microhood,AR,,Feature count spiked unexpectedly,116.12,1005.0,2172.0,UNCERTAIN,LOW,Needs manual review
+734,critical,feature_count_spike,divisions,division_area,microhood,AT,,Feature count spiked unexpectedly,102.09,383.0,774.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+735,critical,feature_count_spike,divisions,division_area,microhood,AZ,,Feature count spiked unexpectedly,102.76,145.0,294.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+736,critical,feature_count_spike,divisions,division_area,microhood,BE,,Feature count spiked unexpectedly,107.16,559.0,1158.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+737,critical,feature_count_spike,divisions,division_area,microhood,BG,,Feature count spiked unexpectedly,112.03,133.0,282.0,UNCERTAIN,LOW,Needs manual review
+738,critical,feature_count_spike,divisions,division_area,microhood,BO,,Feature count spiked unexpectedly,99.06,1906.0,3794.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+739,critical,feature_count_spike,divisions,division_area,microhood,BR,,Feature count spiked unexpectedly,106.17,2106.0,4342.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+740,critical,feature_count_spike,divisions,division_area,microhood,BY,,Feature count spiked unexpectedly,100.91,219.0,440.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+741,critical,feature_count_spike,divisions,division_area,microhood,CA,,Feature count spiked unexpectedly,98.6,285.0,566.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+742,critical,feature_count_spike,divisions,division_area,microhood,CH,,Feature count spiked unexpectedly,104.49,712.0,1456.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+743,critical,feature_count_spike,divisions,division_area,microhood,CL,,Feature count spiked unexpectedly,98.11,106.0,210.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+744,critical,feature_count_spike,divisions,division_area,microhood,CN,,Feature count spiked unexpectedly,105.16,1898.0,3894.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+745,critical,feature_count_spike,divisions,division_area,microhood,CO,,Feature count spiked unexpectedly,100.0,399.0,798.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+746,critical,feature_count_spike,divisions,division_area,microhood,CU,,Feature count spiked unexpectedly,104.6,174.0,356.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+747,critical,feature_count_spike,divisions,division_area,microhood,CZ,,Feature count spiked unexpectedly,100.35,572.0,1146.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+748,critical,feature_count_spike,divisions,division_area,microhood,DE,,Feature count spiked unexpectedly,105.09,4166.0,8544.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+749,critical,feature_count_spike,divisions,division_area,microhood,DK,,Feature count spiked unexpectedly,102.38,589.0,1192.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+750,critical,feature_count_spike,divisions,division_area,microhood,DZ,,Feature count spiked unexpectedly,101.77,226.0,456.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+751,critical,feature_count_spike,divisions,division_area,microhood,EC,,Feature count spiked unexpectedly,100.0,107.0,214.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+752,critical,feature_count_spike,divisions,division_area,microhood,EE,,Feature count spiked unexpectedly,96.61,118.0,232.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+753,critical,feature_count_spike,divisions,division_area,microhood,ES,,Feature count spiked unexpectedly,102.82,10576.0,21450.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+754,critical,feature_count_spike,divisions,division_area,microhood,FI,,Feature count spiked unexpectedly,101.08,372.0,748.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+755,critical,feature_count_spike,divisions,division_area,microhood,FR,,Feature count spiked unexpectedly,104.82,10833.0,22188.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+756,critical,feature_count_spike,divisions,division_area,microhood,GB,,Feature count spiked unexpectedly,103.61,388.0,790.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+757,critical,feature_count_spike,divisions,division_area,microhood,GE,,Feature count spiked unexpectedly,100.0,111.0,222.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+758,critical,feature_count_spike,divisions,division_area,microhood,GR,,Feature count spiked unexpectedly,107.07,990.0,2050.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+759,critical,feature_count_spike,divisions,division_area,microhood,HR,,Feature count spiked unexpectedly,103.17,315.0,640.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+760,critical,feature_count_spike,divisions,division_area,microhood,HU,,Feature count spiked unexpectedly,102.84,211.0,428.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+761,critical,feature_count_spike,divisions,division_area,microhood,IE,,Feature count spiked unexpectedly,97.88,189.0,374.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+762,critical,feature_count_spike,divisions,division_area,microhood,IN,,Feature count spiked unexpectedly,107.69,130.0,270.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+763,critical,feature_count_spike,divisions,division_area,microhood,IQ,,Feature count spiked unexpectedly,98.74,317.0,630.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+764,critical,feature_count_spike,divisions,division_area,microhood,IR,,Feature count spiked unexpectedly,100.0,259.0,518.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+765,critical,feature_count_spike,divisions,division_area,microhood,IT,,Feature count spiked unexpectedly,105.98,16012.0,32982.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+766,critical,feature_count_spike,divisions,division_area,microhood,JP,,Feature count spiked unexpectedly,102.64,2648.0,5366.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+767,critical,feature_count_spike,divisions,division_area,microhood,KR,,Feature count spiked unexpectedly,103.17,252.0,512.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+768,critical,feature_count_spike,divisions,division_area,microhood,KZ,,Feature count spiked unexpectedly,103.83,366.0,746.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+769,critical,feature_count_spike,divisions,division_area,microhood,MM,,Feature count spiked unexpectedly,170.3,202.0,546.0,TRUE,HIGH,Very large spike indicates data source change or error
+770,critical,feature_count_spike,divisions,division_area,microhood,MX,,Feature count spiked unexpectedly,103.35,896.0,1822.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+771,critical,feature_count_spike,divisions,division_area,microhood,MY,,Feature count spiked unexpectedly,100.58,342.0,686.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+772,critical,feature_count_spike,divisions,division_area,microhood,NL,,Feature count spiked unexpectedly,101.77,793.0,1600.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+773,critical,feature_count_spike,divisions,division_area,microhood,NO,,Feature count spiked unexpectedly,102.88,139.0,282.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+774,critical,feature_count_spike,divisions,division_area,microhood,PE,,Feature count spiked unexpectedly,100.56,357.0,716.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+775,critical,feature_count_spike,divisions,division_area,microhood,PH,,Feature count spiked unexpectedly,108.57,1634.0,3408.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+776,critical,feature_count_spike,divisions,division_area,microhood,PL,,Feature count spiked unexpectedly,100.26,1510.0,3024.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+777,critical,feature_count_spike,divisions,division_area,microhood,PT,,Feature count spiked unexpectedly,105.8,1380.0,2840.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+778,critical,feature_count_spike,divisions,division_area,microhood,PY,,Feature count spiked unexpectedly,100.0,150.0,300.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+779,critical,feature_count_spike,divisions,division_area,microhood,RS,,Feature count spiked unexpectedly,100.0,143.0,286.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+780,critical,feature_count_spike,divisions,division_area,microhood,RU,,Feature count spiked unexpectedly,101.73,2308.0,4656.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+781,critical,feature_count_spike,divisions,division_area,microhood,SE,,Feature count spiked unexpectedly,105.81,344.0,708.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+782,critical,feature_count_spike,divisions,division_area,microhood,SK,,Feature count spiked unexpectedly,113.79,145.0,310.0,UNCERTAIN,LOW,Needs manual review
+783,critical,feature_count_spike,divisions,division_area,microhood,TR,,Feature count spiked unexpectedly,103.52,227.0,462.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+784,critical,feature_count_spike,divisions,division_area,microhood,TW,,Feature count spiked unexpectedly,101.0,201.0,404.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+785,critical,feature_count_spike,divisions,division_area,microhood,UA,,Feature count spiked unexpectedly,100.57,698.0,1400.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+786,critical,feature_count_spike,divisions,division_area,microhood,US,,Feature count spiked unexpectedly,110.08,972.0,2042.0,UNCERTAIN,LOW,Needs manual review
+787,critical,feature_count_spike,divisions,division_area,microhood,VE,,Feature count spiked unexpectedly,100.0,414.0,828.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+788,critical,feature_count_spike,divisions,division_area,microhood,VN,,Feature count spiked unexpectedly,162.81,121.0,318.0,TRUE,HIGH,Very large spike indicates data source change or error
+789,critical,feature_count_spike,divisions,division_area,neighborhood,AE,,Feature count spiked unexpectedly,100.0,278.0,556.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+790,critical,feature_count_spike,divisions,division_area,neighborhood,AM,,Feature count spiked unexpectedly,102.59,232.0,470.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+791,critical,feature_count_spike,divisions,division_area,neighborhood,AR,,Feature count spiked unexpectedly,103.44,6224.0,12662.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+792,critical,feature_count_spike,divisions,division_area,neighborhood,AT,,Feature count spiked unexpectedly,170.6,2337.0,6324.0,TRUE,HIGH,Very large spike indicates data source change or error
+793,critical,feature_count_spike,divisions,division_area,neighborhood,AU,,Feature count spiked unexpectedly,109.62,104.0,218.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+794,critical,feature_count_spike,divisions,division_area,neighborhood,BA,,Feature count spiked unexpectedly,103.6,3554.0,7236.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+795,critical,feature_count_spike,divisions,division_area,neighborhood,BB,,Feature count spiked unexpectedly,102.27,352.0,712.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+796,critical,feature_count_spike,divisions,division_area,neighborhood,BD,,Feature count spiked unexpectedly,101.82,110.0,222.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+797,critical,feature_count_spike,divisions,division_area,neighborhood,BE,,Feature count spiked unexpectedly,97.0,200.0,394.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+798,critical,feature_count_spike,divisions,division_area,neighborhood,BN,,Feature count spiked unexpectedly,100.0,234.0,468.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+799,critical,feature_count_spike,divisions,division_area,neighborhood,BO,,Feature count spiked unexpectedly,100.76,263.0,528.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+800,critical,feature_count_spike,divisions,division_area,neighborhood,BR,,Feature count spiked unexpectedly,97.13,13648.0,26904.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+801,critical,feature_count_spike,divisions,division_area,neighborhood,BS,,Feature count spiked unexpectedly,100.0,412.0,824.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+802,critical,feature_count_spike,divisions,division_area,neighborhood,BY,,Feature count spiked unexpectedly,100.0,538.0,1076.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+803,critical,feature_count_spike,divisions,division_area,neighborhood,BZ,,Feature count spiked unexpectedly,100.0,171.0,342.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+804,critical,feature_count_spike,divisions,division_area,neighborhood,CA,,Feature count spiked unexpectedly,101.47,2717.0,5474.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+805,critical,feature_count_spike,divisions,division_area,neighborhood,CD,,Feature count spiked unexpectedly,100.0,625.0,1250.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+806,critical,feature_count_spike,divisions,division_area,neighborhood,CH,,Feature count spiked unexpectedly,101.32,152.0,306.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+807,critical,feature_count_spike,divisions,division_area,neighborhood,CL,,Feature count spiked unexpectedly,109.09,352.0,736.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+808,critical,feature_count_spike,divisions,division_area,neighborhood,CM,,Feature count spiked unexpectedly,100.0,139.0,278.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+809,critical,feature_count_spike,divisions,division_area,neighborhood,CN,,Feature count spiked unexpectedly,100.42,1890.0,3788.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+810,critical,feature_count_spike,divisions,division_area,neighborhood,CO,,Feature count spiked unexpectedly,100.83,2885.0,5794.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+811,critical,feature_count_spike,divisions,division_area,neighborhood,CR,,Feature count spiked unexpectedly,103.9,462.0,942.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+812,critical,feature_count_spike,divisions,division_area,neighborhood,CU,,Feature count spiked unexpectedly,102.58,233.0,472.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+813,critical,feature_count_spike,divisions,division_area,neighborhood,CW,,Feature count spiked unexpectedly,100.0,264.0,528.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+814,critical,feature_count_spike,divisions,division_area,neighborhood,CY,,Feature count spiked unexpectedly,123.76,101.0,226.0,UNCERTAIN,LOW,Needs manual review
+815,critical,feature_count_spike,divisions,division_area,neighborhood,DE,,Feature count spiked unexpectedly,103.04,6517.0,13232.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+816,critical,feature_count_spike,divisions,division_area,neighborhood,EC,,Feature count spiked unexpectedly,100.35,570.0,1142.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+817,critical,feature_count_spike,divisions,division_area,neighborhood,EG,,Feature count spiked unexpectedly,99.97,7974.0,15946.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+818,critical,feature_count_spike,divisions,division_area,neighborhood,ES,,Feature count spiked unexpectedly,100.42,7121.0,14272.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+819,critical,feature_count_spike,divisions,division_area,neighborhood,FR,,Feature count spiked unexpectedly,100.39,7142.0,14312.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+820,critical,feature_count_spike,divisions,division_area,neighborhood,GB,,Feature count spiked unexpectedly,100.83,1208.0,2426.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+821,critical,feature_count_spike,divisions,division_area,neighborhood,GE,,Feature count spiked unexpectedly,100.0,125.0,250.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+822,critical,feature_count_spike,divisions,division_area,neighborhood,GN,,Feature count spiked unexpectedly,100.0,358.0,716.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+823,critical,feature_count_spike,divisions,division_area,neighborhood,GR,,Feature count spiked unexpectedly,101.54,130.0,262.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+824,critical,feature_count_spike,divisions,division_area,neighborhood,HN,,Feature count spiked unexpectedly,103.86,311.0,634.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+825,critical,feature_count_spike,divisions,division_area,neighborhood,HR,,Feature count spiked unexpectedly,98.64,147.0,292.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+826,critical,feature_count_spike,divisions,division_area,neighborhood,HT,,Feature count spiked unexpectedly,100.0,573.0,1146.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+827,critical,feature_count_spike,divisions,division_area,neighborhood,ID,,Feature count spiked unexpectedly,100.9,14604.0,29340.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+828,critical,feature_count_spike,divisions,division_area,neighborhood,IE,,Feature count spiked unexpectedly,100.05,51333.0,102690.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+829,critical,feature_count_spike,divisions,division_area,neighborhood,IL,,Feature count spiked unexpectedly,100.0,104.0,208.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+830,critical,feature_count_spike,divisions,division_area,neighborhood,IN,,Feature count spiked unexpectedly,100.12,55584.0,111236.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+831,critical,feature_count_spike,divisions,division_area,neighborhood,IQ,,Feature count spiked unexpectedly,100.17,1143.0,2288.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+832,critical,feature_count_spike,divisions,division_area,neighborhood,IR,,Feature count spiked unexpectedly,100.39,3594.0,7202.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+833,critical,feature_count_spike,divisions,division_area,neighborhood,IS,,Feature count spiked unexpectedly,100.0,126.0,252.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+834,critical,feature_count_spike,divisions,division_area,neighborhood,IT,,Feature count spiked unexpectedly,102.19,1188.0,2402.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+835,critical,feature_count_spike,divisions,division_area,neighborhood,JM,,Feature count spiked unexpectedly,100.0,177.0,354.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+836,critical,feature_count_spike,divisions,division_area,neighborhood,JO,,Feature count spiked unexpectedly,100.0,1177.0,2354.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+837,critical,feature_count_spike,divisions,division_area,neighborhood,JP,,Feature count spiked unexpectedly,109.39,16915.0,35418.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+838,critical,feature_count_spike,divisions,division_area,neighborhood,KW,,Feature count spiked unexpectedly,100.0,867.0,1734.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+839,critical,feature_count_spike,divisions,division_area,neighborhood,KZ,,Feature count spiked unexpectedly,100.0,860.0,1720.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+840,critical,feature_count_spike,divisions,division_area,neighborhood,LR,,Feature count spiked unexpectedly,100.0,135.0,270.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+841,critical,feature_count_spike,divisions,division_area,neighborhood,LU,,Feature count spiked unexpectedly,161.02,118.0,308.0,TRUE,HIGH,Very large spike indicates data source change or error
+842,critical,feature_count_spike,divisions,division_area,neighborhood,MA,,Feature count spiked unexpectedly,112.99,154.0,328.0,UNCERTAIN,LOW,Needs manual review
+843,critical,feature_count_spike,divisions,division_area,neighborhood,MX,,Feature count spiked unexpectedly,110.78,2820.0,5944.0,UNCERTAIN,LOW,Needs manual review
+844,critical,feature_count_spike,divisions,division_area,neighborhood,MY,,Feature count spiked unexpectedly,102.11,3508.0,7090.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+845,critical,feature_count_spike,divisions,division_area,neighborhood,NI,,Feature count spiked unexpectedly,100.05,4327.0,8656.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+846,critical,feature_count_spike,divisions,division_area,neighborhood,NL,,Feature count spiked unexpectedly,102.24,1161.0,2348.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+847,critical,feature_count_spike,divisions,division_area,neighborhood,NO,,Feature count spiked unexpectedly,100.0,140.0,280.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+848,critical,feature_count_spike,divisions,division_area,neighborhood,NP,,Feature count spiked unexpectedly,99.97,6748.0,13494.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+849,critical,feature_count_spike,divisions,division_area,neighborhood,OM,,Feature count spiked unexpectedly,103.77,106.0,216.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+850,critical,feature_count_spike,divisions,division_area,neighborhood,PA,,Feature count spiked unexpectedly,106.73,594.0,1228.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+851,critical,feature_count_spike,divisions,division_area,neighborhood,PE,,Feature count spiked unexpectedly,115.04,492.0,1058.0,UNCERTAIN,LOW,Needs manual review
+852,critical,feature_count_spike,divisions,division_area,neighborhood,PH,,Feature count spiked unexpectedly,100.86,5584.0,11216.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+853,critical,feature_count_spike,divisions,division_area,neighborhood,PK,,Feature count spiked unexpectedly,99.71,692.0,1382.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+854,critical,feature_count_spike,divisions,division_area,neighborhood,PL,,Feature count spiked unexpectedly,99.34,1807.0,3602.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+855,critical,feature_count_spike,divisions,division_area,neighborhood,PR,,Feature count spiked unexpectedly,98.71,775.0,1540.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+856,critical,feature_count_spike,divisions,division_area,neighborhood,PT,,Feature count spiked unexpectedly,99.52,420.0,838.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+857,critical,feature_count_spike,divisions,division_area,neighborhood,PY,,Feature count spiked unexpectedly,104.26,329.0,672.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+858,critical,feature_count_spike,divisions,division_area,neighborhood,RO,,Feature count spiked unexpectedly,100.0,196.0,392.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+859,critical,feature_count_spike,divisions,division_area,neighborhood,RS,,Feature count spiked unexpectedly,100.73,274.0,550.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+860,critical,feature_count_spike,divisions,division_area,neighborhood,RU,,Feature count spiked unexpectedly,96.3,8435.0,16558.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+861,critical,feature_count_spike,divisions,division_area,neighborhood,SA,,Feature count spiked unexpectedly,196.31,1275.0,3778.0,TRUE,HIGH,Very large spike indicates data source change or error
+862,critical,feature_count_spike,divisions,division_area,neighborhood,SD,,Feature count spiked unexpectedly,101.04,193.0,388.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+863,critical,feature_count_spike,divisions,division_area,neighborhood,SE,,Feature count spiked unexpectedly,100.41,490.0,982.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+864,critical,feature_count_spike,divisions,division_area,neighborhood,SG,,Feature count spiked unexpectedly,96.0,200.0,392.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+865,critical,feature_count_spike,divisions,division_area,neighborhood,SV,,Feature count spiked unexpectedly,100.23,876.0,1754.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+866,critical,feature_count_spike,divisions,division_area,neighborhood,SY,,Feature count spiked unexpectedly,100.0,184.0,368.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+867,critical,feature_count_spike,divisions,division_area,neighborhood,TD,,Feature count spiked unexpectedly,100.0,124.0,248.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+868,critical,feature_count_drop,divisions,division_area,neighborhood,TH,,Feature count dropped significantly,-35.99,578.0,370.0,TRUE,MEDIUM,Notable drop - investigate
+869,critical,feature_count_spike,divisions,division_area,neighborhood,TM,,Feature count spiked unexpectedly,100.0,123.0,246.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+870,critical,feature_count_spike,divisions,division_area,neighborhood,TR,,Feature count spiked unexpectedly,100.61,7178.0,14400.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+871,critical,feature_count_spike,divisions,division_area,neighborhood,TZ,,Feature count spiked unexpectedly,100.0,322.0,644.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+872,critical,feature_count_spike,divisions,division_area,neighborhood,UA,,Feature count spiked unexpectedly,102.0,700.0,1414.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+873,critical,feature_count_spike,divisions,division_area,neighborhood,UG,,Feature count spiked unexpectedly,100.0,396.0,792.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+874,critical,feature_count_spike,divisions,division_area,neighborhood,US,,Feature count spiked unexpectedly,102.35,20688.0,41862.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+875,critical,feature_count_spike,divisions,division_area,neighborhood,UY,,Feature count spiked unexpectedly,103.51,171.0,348.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+876,critical,feature_count_spike,divisions,division_area,neighborhood,UZ,,Feature count spiked unexpectedly,99.22,258.0,514.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+877,critical,feature_count_spike,divisions,division_area,neighborhood,VE,,Feature count spiked unexpectedly,99.52,1243.0,2480.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+878,critical,feature_count_spike,divisions,division_area,neighborhood,ZA,,Feature count spiked unexpectedly,99.91,4345.0,8686.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+879,critical,feature_count_spike,divisions,division_area,region,SI,,Feature count spiked unexpectedly,100.0,212.0,424.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+880,critical,feature_count_spike,divisions,division_boundary,county,AF,,Feature count spiked unexpectedly,100.0,715.0,1430.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+881,critical,feature_count_spike,divisions,division_boundary,county,AM,,Feature count spiked unexpectedly,100.0,122.0,244.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+882,critical,feature_count_spike,divisions,division_boundary,county,AO,,Feature count spiked unexpectedly,100.0,269.0,538.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+883,critical,feature_count_spike,divisions,division_boundary,county,AR,,Feature count spiked unexpectedly,100.0,1122.0,2244.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+884,critical,feature_count_spike,divisions,division_boundary,county,AT,,Feature count spiked unexpectedly,100.0,150.0,300.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+885,critical,feature_count_spike,divisions,division_boundary,county,AU,,Feature count spiked unexpectedly,100.0,1303.0,2606.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+886,critical,feature_count_spike,divisions,division_boundary,county,BA,,Feature count spiked unexpectedly,101.27,158.0,318.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+887,critical,feature_count_spike,divisions,division_boundary,county,BD,,Feature count spiked unexpectedly,100.0,102.0,204.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+888,critical,feature_count_spike,divisions,division_boundary,county,BG,,Feature count spiked unexpectedly,100.0,439.0,878.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+889,critical,feature_count_spike,divisions,division_boundary,county,BI,,Feature count spiked unexpectedly,100.0,178.0,356.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+890,critical,feature_count_spike,divisions,division_boundary,county,BJ,,Feature count spiked unexpectedly,100.0,122.0,244.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+891,critical,feature_count_spike,divisions,division_boundary,county,BO,,Feature count spiked unexpectedly,100.0,206.0,412.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+892,critical,feature_count_spike,divisions,division_boundary,county,BY,,Feature count spiked unexpectedly,100.8,250.0,502.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+893,critical,feature_count_spike,divisions,division_boundary,county,CA,,Feature count spiked unexpectedly,107.48,2568.0,5328.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+894,critical,feature_count_spike,divisions,division_boundary,county,CD,,Feature count spiked unexpectedly,100.0,260.0,520.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+895,critical,feature_count_spike,divisions,division_boundary,county,CH,,Feature count spiked unexpectedly,100.0,250.0,500.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+896,critical,feature_count_spike,divisions,division_boundary,county,CN,,Feature count spiked unexpectedly,100.33,603.0,1208.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+897,critical,feature_count_spike,divisions,division_boundary,county,CO,,Feature count spiked unexpectedly,100.0,2541.0,5082.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+898,critical,feature_count_spike,divisions,division_boundary,county,CR,,Feature count spiked unexpectedly,100.0,141.0,282.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+899,critical,feature_count_spike,divisions,division_boundary,county,CU,,Feature count spiked unexpectedly,100.0,304.0,608.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+900,critical,feature_count_spike,divisions,division_boundary,county,CZ,,Feature count spiked unexpectedly,100.0,112.0,224.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+901,critical,feature_count_spike,divisions,division_boundary,county,DE,,Feature count spiked unexpectedly,100.0,834.0,1668.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+902,critical,feature_count_spike,divisions,division_boundary,county,DK,,Feature count spiked unexpectedly,100.0,170.0,340.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+903,critical,feature_count_spike,divisions,division_boundary,county,DO,,Feature count spiked unexpectedly,100.0,189.0,378.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+904,critical,feature_count_spike,divisions,division_boundary,county,DZ,,Feature count spiked unexpectedly,100.0,984.0,1968.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+905,critical,feature_count_spike,divisions,division_boundary,county,EC,,Feature count spiked unexpectedly,100.0,370.0,740.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+906,critical,feature_count_spike,divisions,division_boundary,county,EE,,Feature count spiked unexpectedly,100.0,109.0,218.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+907,critical,feature_count_spike,divisions,division_boundary,county,EG,,Feature count spiked unexpectedly,97.35,604.0,1192.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+908,critical,feature_count_spike,divisions,division_boundary,county,ER,,Feature count spiked unexpectedly,100.0,104.0,208.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+909,critical,feature_count_spike,divisions,division_boundary,county,FR,,Feature count spiked unexpectedly,100.0,158.0,316.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+910,critical,feature_count_spike,divisions,division_boundary,county,GB,,Feature count spiked unexpectedly,100.0,488.0,976.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+911,critical,feature_count_spike,divisions,division_boundary,county,GE,,Feature count spiked unexpectedly,100.0,110.0,220.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+912,critical,feature_count_spike,divisions,division_boundary,county,GH,,Feature count spiked unexpectedly,100.0,536.0,1072.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+913,critical,feature_count_spike,divisions,division_boundary,county,GR,,Feature count spiked unexpectedly,100.0,545.0,1090.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+914,critical,feature_count_spike,divisions,division_boundary,county,GT,,Feature count spiked unexpectedly,100.0,594.0,1188.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+915,critical,feature_count_spike,divisions,division_boundary,county,GY,,Feature count spiked unexpectedly,103.16,190.0,386.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+916,critical,feature_count_spike,divisions,division_boundary,county,HN,,Feature count spiked unexpectedly,100.0,560.0,1120.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+917,critical,feature_count_spike,divisions,division_boundary,county,HR,,Feature count spiked unexpectedly,100.0,1086.0,2172.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+918,critical,feature_count_spike,divisions,division_boundary,county,HU,,Feature count spiked unexpectedly,100.0,293.0,586.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+919,critical,feature_count_spike,divisions,division_boundary,county,ID,,Feature count spiked unexpectedly,100.0,795.0,1590.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+920,critical,feature_count_spike,divisions,division_boundary,county,IN,,Feature count spiked unexpectedly,100.0,1646.0,3292.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+921,critical,feature_count_spike,divisions,division_boundary,county,IQ,,Feature count spiked unexpectedly,100.0,202.0,404.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+922,critical,feature_count_spike,divisions,division_boundary,county,IR,,Feature count spiked unexpectedly,101.32,910.0,1832.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+923,critical,feature_count_spike,divisions,division_boundary,county,IT,,Feature count spiked unexpectedly,100.0,144.0,288.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+924,critical,feature_count_spike,divisions,division_boundary,county,JE,,Feature count spiked unexpectedly,100.0,126.0,252.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+925,critical,feature_count_spike,divisions,division_boundary,county,JP,,Feature count spiked unexpectedly,100.0,3677.0,7354.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+926,critical,feature_count_spike,divisions,division_boundary,county,KE,,Feature count spiked unexpectedly,100.0,424.0,848.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+927,critical,feature_count_spike,divisions,division_boundary,county,KH,,Feature count spiked unexpectedly,100.0,330.0,660.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+928,critical,feature_count_spike,divisions,division_boundary,county,KR,,Feature count spiked unexpectedly,100.0,417.0,834.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+929,critical,feature_count_spike,divisions,division_boundary,county,KW,,Feature count spiked unexpectedly,100.0,216.0,432.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+930,critical,feature_count_spike,divisions,division_boundary,county,KZ,,Feature count spiked unexpectedly,100.0,398.0,796.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+931,critical,feature_count_spike,divisions,division_boundary,county,LA,,Feature count spiked unexpectedly,100.0,236.0,472.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+932,critical,feature_count_spike,divisions,division_boundary,county,LR,,Feature count spiked unexpectedly,100.0,225.0,450.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+933,critical,feature_count_spike,divisions,division_boundary,county,LS,,Feature count spiked unexpectedly,100.0,122.0,244.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+934,critical,feature_count_spike,divisions,division_boundary,county,LU,,Feature count spiked unexpectedly,100.0,166.0,332.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+935,critical,feature_count_spike,divisions,division_boundary,county,MA,,Feature count spiked unexpectedly,100.0,110.0,220.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+936,critical,feature_count_spike,divisions,division_boundary,county,MG,,Feature count spiked unexpectedly,100.0,298.0,596.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+937,critical,feature_count_spike,divisions,division_boundary,county,MM,,Feature count spiked unexpectedly,99.72,722.0,1442.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+938,critical,feature_count_spike,divisions,division_boundary,county,MN,,Feature count spiked unexpectedly,100.0,646.0,1292.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+939,critical,feature_count_spike,divisions,division_boundary,county,MX,,Feature count spiked unexpectedly,100.0,6211.0,12422.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+940,critical,feature_count_spike,divisions,division_boundary,county,MY,,Feature count spiked unexpectedly,100.0,284.0,568.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+941,critical,feature_count_spike,divisions,division_boundary,county,MZ,,Feature count spiked unexpectedly,100.0,296.0,592.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+942,critical,feature_count_spike,divisions,division_boundary,county,NG,,Feature count spiked unexpectedly,100.0,1618.0,3236.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+943,critical,feature_count_spike,divisions,division_boundary,county,NI,,Feature count spiked unexpectedly,100.0,246.0,492.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+944,critical,feature_count_spike,divisions,division_boundary,county,NL,,Feature count spiked unexpectedly,100.0,744.0,1488.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+945,critical,feature_count_spike,divisions,division_boundary,county,NO,,Feature count spiked unexpectedly,100.0,595.0,1190.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+946,critical,feature_count_spike,divisions,division_boundary,county,NP,,Feature count spiked unexpectedly,100.0,136.0,272.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+947,critical,feature_count_spike,divisions,division_boundary,county,PA,,Feature count spiked unexpectedly,100.0,111.0,222.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+948,critical,feature_count_spike,divisions,division_boundary,county,PE,,Feature count spiked unexpectedly,100.0,309.0,618.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+949,critical,feature_count_spike,divisions,division_boundary,county,PG,,Feature count spiked unexpectedly,100.0,104.0,208.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+950,critical,feature_count_spike,divisions,division_boundary,county,PL,,Feature count spiked unexpectedly,100.0,787.0,1574.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+951,critical,feature_count_spike,divisions,division_boundary,county,PT,,Feature count spiked unexpectedly,100.0,550.0,1100.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+952,critical,feature_count_spike,divisions,division_boundary,county,QA,,Feature count spiked unexpectedly,100.0,143.0,286.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+953,critical,feature_count_spike,divisions,division_boundary,county,RO,,Feature count spiked unexpectedly,100.0,7928.0,15856.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+954,critical,feature_count_spike,divisions,division_boundary,county,RU,,Feature count spiked unexpectedly,100.0,4931.0,9862.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+955,critical,feature_count_spike,divisions,division_boundary,county,SA,,Feature count spiked unexpectedly,100.0,284.0,568.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+956,critical,feature_count_spike,divisions,division_boundary,county,SD,,Feature count spiked unexpectedly,100.0,323.0,646.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+957,critical,feature_count_spike,divisions,division_boundary,county,SE,,Feature count spiked unexpectedly,100.0,559.0,1118.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+958,critical,feature_count_spike,divisions,division_boundary,county,SK,,Feature count spiked unexpectedly,100.0,133.0,266.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+959,critical,feature_count_spike,divisions,division_boundary,county,SO,,Feature count spiked unexpectedly,100.0,112.0,224.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+960,critical,feature_count_spike,divisions,division_boundary,county,SS,,Feature count spiked unexpectedly,100.0,108.0,216.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+961,critical,feature_count_spike,divisions,division_boundary,county,SV,,Feature count spiked unexpectedly,100.0,542.0,1084.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+962,critical,feature_count_spike,divisions,division_boundary,county,SZ,,Feature count spiked unexpectedly,100.0,102.0,204.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+963,critical,feature_count_spike,divisions,division_boundary,county,TH,,Feature count spiked unexpectedly,100.0,1667.0,3334.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+964,critical,feature_count_spike,divisions,division_boundary,county,TJ,,Feature count spiked unexpectedly,100.0,108.0,216.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+965,critical,feature_count_spike,divisions,division_boundary,county,TN,,Feature count spiked unexpectedly,100.0,466.0,932.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+966,critical,feature_count_spike,divisions,division_boundary,county,TR,,Feature count spiked unexpectedly,100.0,1691.0,3382.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+967,critical,feature_count_spike,divisions,division_boundary,county,TZ,,Feature count spiked unexpectedly,100.0,264.0,528.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+968,critical,feature_count_spike,divisions,division_boundary,county,UA,,Feature count spiked unexpectedly,100.0,240.0,480.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+969,critical,feature_count_spike,divisions,division_boundary,county,UG,,Feature count spiked unexpectedly,100.0,336.0,672.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+970,critical,feature_count_spike,divisions,division_boundary,county,US,,Feature count spiked unexpectedly,100.0,7529.0,15058.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+971,critical,feature_count_spike,divisions,division_boundary,county,UY,,Feature count spiked unexpectedly,100.0,145.0,290.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+972,critical,feature_count_spike,divisions,division_boundary,county,UZ,,Feature count spiked unexpectedly,100.0,377.0,754.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+973,critical,feature_count_spike,divisions,division_boundary,county,VE,,Feature count spiked unexpectedly,100.0,627.0,1254.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+974,critical,feature_count_spike,divisions,division_boundary,county,ZM,,Feature count spiked unexpectedly,100.0,201.0,402.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+975,critical,feature_count_spike,divisions,division_boundary,county,AU,,Feature count spiked unexpectedly,100.0,168.0,336.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+976,critical,feature_count_spike,divisions,division_boundary,county,CA,,Feature count spiked unexpectedly,109.34,407.0,852.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+977,critical,feature_count_spike,divisions,division_boundary,county,JP,,Feature count spiked unexpectedly,100.0,240.0,480.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+978,critical,feature_count_spike,divisions,division_boundary,county,NO,,Feature count spiked unexpectedly,100.0,373.0,746.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+979,critical,feature_count_spike,divisions,division_boundary,county,US,,Feature count spiked unexpectedly,100.0,314.0,628.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+980,critical,feature_count_spike,divisions,division_boundary,region,AZ,,Feature count spiked unexpectedly,100.0,166.0,332.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+981,critical,feature_count_spike,divisions,division_boundary,region,DZ,,Feature count spiked unexpectedly,100.0,142.0,284.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+982,critical,feature_count_spike,divisions,division_boundary,region,KE,,Feature count spiked unexpectedly,100.0,113.0,226.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+983,critical,feature_count_spike,divisions,division_boundary,region,MK,,Feature count spiked unexpectedly,100.0,174.0,348.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+984,critical,feature_count_spike,divisions,division_boundary,region,MT,,Feature count spiked unexpectedly,100.0,155.0,310.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+985,critical,feature_count_spike,divisions,division_boundary,region,PR,,Feature count spiked unexpectedly,100.0,183.0,366.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+986,critical,feature_count_spike,divisions,division_boundary,region,RO,,Feature count spiked unexpectedly,100.0,102.0,204.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+987,critical,feature_count_spike,divisions,division_boundary,region,RU,,Feature count spiked unexpectedly,100.0,188.0,376.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+988,critical,feature_count_spike,divisions,division_boundary,region,SI,,Feature count spiked unexpectedly,100.0,551.0,1102.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+989,critical,feature_count_spike,divisions,division_boundary,region,TH,,Feature count spiked unexpectedly,100.0,176.0,352.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+990,critical,feature_count_spike,divisions,division_boundary,region,TR,,Feature count spiked unexpectedly,100.0,198.0,396.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+991,critical,feature_count_spike,divisions,division_boundary,region,US,,Feature count spiked unexpectedly,100.0,109.0,218.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+992,critical,low_attribute_coverage,divisions,division_boundary,,,perspectives,100.0% of division_boundarys missing 'perspectives' (0.0% coverage),0.0,0.0,0.0,UNCERTAIN,LOW,Very low coverage for perspectives - needs investigation
+993,critical,low_attribute_coverage,places,place,,,brand,95.5% of places missing 'brand' (4.5% coverage),0.0,0.0,4.452952144369425,UNCERTAIN,LOW,Very low coverage for brand - needs investigation
+994,critical,high_removal_rate,places,place,,,,"5.50% of records removed (3,594,864 features)",-5.5,65342823.0,61747959.0,TRUE,MEDIUM,High removal rate indicates data quality change
+995,critical,net_feature_gain,places,place,,,,"Net gain of 6,281,706 features (9,876,570 added, 3,594,864 removed)",9.61,65342823.0,71624529.0,TRUE,HIGH,Large net gain indicates major data source addition
+996,critical,data_regeneration,places,place,,,,"Complete data rebuild detected: only 0.0% unchanged (94.5% modified, 15.1% added, 5.5% removed)",0.0,100.0,0.0,TRUE,HIGH,Data regeneration indicates pipeline rebuilt data
+997,critical,net_feature_gain,transportation,connector,,,,"Net gain of 2,412,319 features (2,797,905 added, 385,586 removed)",0.63,383075438.0,385487757.0,TRUE,HIGH,Large net gain indicates major data source addition
+998,critical,feature_count_spike,transportation,segment,rail,,,Feature count spiked unexpectedly,100.0,1309.0,2618.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+999,critical,feature_count_spike,transportation,segment,rail,,,Feature count spiked unexpectedly,101.04,16218.0,32604.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1000,critical,feature_count_spike,transportation,segment,rail,,,Feature count spiked unexpectedly,100.93,3023.0,6074.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1001,critical,feature_count_spike,transportation,segment,rail,,,Feature count spiked unexpectedly,100.39,31044.0,62210.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1002,critical,feature_count_spike,transportation,segment,rail,,,Feature count spiked unexpectedly,100.39,1429962.0,2865484.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1003,critical,feature_count_spike,transportation,segment,rail,,,Feature count spiked unexpectedly,101.59,52417.0,105668.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1004,critical,feature_count_spike,transportation,segment,rail,,,Feature count spiked unexpectedly,100.28,58992.0,118150.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1005,critical,feature_count_spike,transportation,segment,rail,,,Feature count spiked unexpectedly,101.15,376475.0,757294.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1006,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,101.57,99768.0,201100.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1007,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,101.22,1329598.0,2675482.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1008,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,102.09,21614295.0,43681092.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1009,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.58,3322367.0,6664084.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1010,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.04,1073404.0,2147268.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1011,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,101.01,13455216.0,27046782.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1012,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.48,464602.0,931444.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1013,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.48,7171816.0,14378334.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1014,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.3,125698481.0,251771750.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1015,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.39,11104850.0,22252886.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1016,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,101.04,57642931.0,115886728.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1017,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,101.52,1863964.0,3756202.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1018,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.53,20125635.0,40357296.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1019,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.81,25187115.0,50579278.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1020,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.77,3996224.0,8023178.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1021,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,100.34,29598013.0,59297958.0,TRUE,HIGH,~100% increase indicates systematic duplication bug
+1022,critical,feature_count_spike,transportation,segment,road,,,Feature count spiked unexpectedly,167.31,1279752.0,3420960.0,TRUE,HIGH,Very large spike indicates data source change or error
+1023,critical,low_attribute_coverage,transportation,segment,,,level_rules,98.1% of segments missing 'level_rules' (1.9% coverage),0.0,0.0,1.8857035390978765,FALSE,MEDIUM,level_rules is optional transportation metadata
+1024,critical,low_attribute_coverage,transportation,segment,,,prohibited_transitions,99.5% of segments missing 'prohibited_transitions' (0.5% coverage),0.0,0.0,0.4578508721372438,FALSE,MEDIUM,prohibited_transitions is optional transportation metadata
+1025,critical,low_attribute_coverage,transportation,segment,,,road_flags,97.1% of segments missing 'road_flags' (2.9% coverage),0.0,0.0,2.919943617458794,FALSE,MEDIUM,road_flags is optional transportation metadata
+1026,critical,low_attribute_coverage,transportation,segment,,,width_rules,98.9% of segments missing 'width_rules' (1.1% coverage),0.0,0.0,1.0961325237420845,FALSE,MEDIUM,width_rules is optional transportation metadata
+1027,critical,low_attribute_coverage,transportation,segment,,,routes,96.6% of segments missing 'routes' (3.4% coverage),0.0,0.0,3.443452085878228,UNCERTAIN,LOW,routes coverage varies by region
+1028,critical,low_attribute_coverage,transportation,segment,,,destinations,99.3% of segments missing 'destinations' (0.7% coverage),0.0,0.0,0.7318126265257731,FALSE,MEDIUM,destinations is optional transportation metadata
+1029,critical,net_feature_gain,transportation,segment,,,,"Net gain of 1,513,559 features (2,259,885 added, 746,326 removed)",0.46,327025730.0,328539289.0,TRUE,HIGH,Large net gain indicates major data source addition
+1030,warning,low_attribute_coverage,addresses,address,,,unit,91.1% of addresss missing 'unit' (8.9% coverage),0.0,0.0,8.930627122863854,FALSE,MEDIUM,unit is optional - many addresses have no unit
+1031,warning,low_attribute_coverage,addresses,address,,,address_level_3,89.7% of addresss missing 'address_level_3' (10.3% coverage),0.0,0.0,10.295468329330468,TRUE,MEDIUM,address_level_3 is important for address hierarchy
+1032,warning,low_attribute_coverage,base,infrastructure,,,names,92.3% of infrastructures missing 'names' (7.7% coverage),0.0,0.0,7.734652168833292,UNCERTAIN,LOW,names for infrastructure often sparse
+1033,warning,low_attribute_coverage,base,infrastructure,,,level,94.7% of infrastructures missing 'level' (5.3% coverage),0.0,0.0,5.29133406001047,FALSE,HIGH,level attribute rarely applicable to this feature type
+1034,warning,geometry_length_change,base,land,sand,,,Total geometry length changed significantly,-13.8,167.20878297205337,144.13336680304226,TRUE,MEDIUM,Notable geometry change
+1035,warning,geometry_length_change,base,land,shrub,,,Total geometry length changed significantly,-13.37,103.22741890742172,89.42530386874253,TRUE,MEDIUM,Notable geometry change
+1036,warning,net_feature_gain,base,land,,,,"Net gain of 572,909 features (663,913 added, 91,004 removed)",0.84,67999352.0,68572261.0,TRUE,MEDIUM,Significant net gain - verify data source
+1037,warning,low_attribute_coverage,base,land_use,,,names,91.1% of land_uses missing 'names' (8.9% coverage),0.0,0.0,8.90362570151986,UNCERTAIN,LOW,Low coverage for names - may be expected
+1038,warning,net_feature_gain,base,land_use,,,,"Net gain of 317,268 features (385,095 added, 67,827 removed)",0.62,51237224.0,51554492.0,TRUE,MEDIUM,Significant net gain - verify data source
+1039,warning,low_attribute_coverage,base,water,,,names,89.2% of waters missing 'names' (10.8% coverage),0.0,0.0,10.765355596526344,UNCERTAIN,LOW,names for natural features often sparse
+1040,warning,low_attribute_coverage,base,water,,,is_intermittent,89.1% of waters missing 'is_intermittent' (10.9% coverage),0.0,0.0,10.883802802634362,UNCERTAIN,LOW,Low coverage for is_intermittent - may be expected
+1041,warning,low_attribute_coverage,base,water,,,level,93.2% of waters missing 'level' (6.8% coverage),0.0,0.0,6.805349322518269,FALSE,HIGH,level attribute rarely applicable to this feature type
+1042,warning,net_feature_gain,base,water,,,,"Net gain of 596,697 features (639,265 added, 42,568 removed)",0.98,60856842.0,61453539.0,TRUE,MEDIUM,Significant net gain - verify data source
+1043,warning,low_attribute_coverage,buildings,building,,,class,94.7% of buildings missing 'class' (5.3% coverage),0.0,0.0,5.321913344609653,TRUE,MEDIUM,class is useful building metadata - low coverage notable
+1044,warning,low_attribute_coverage,buildings,building,,,height,92.1% of buildings missing 'height' (7.9% coverage),0.0,0.0,7.916941017015397,TRUE,MEDIUM,height is important building attribute
+1045,warning,low_attribute_coverage,buildings,building,,,subtype,94.6% of buildings missing 'subtype' (5.4% coverage),0.0,0.0,5.394617158480214,UNCERTAIN,LOW,Low coverage for subtype - may be expected
+1046,warning,low_attribute_coverage,buildings,building_part,,,min_height,94.7% of building_parts missing 'min_height' (5.3% coverage),0.0,0.0,5.286886994039463,FALSE,HIGH,min_height is rare architectural attribute - low coverage expected
+1047,warning,low_attribute_coverage,buildings,building_part,,,facade_color,90.9% of building_parts missing 'facade_color' (9.1% coverage),0.0,0.0,9.13830186926318,FALSE,HIGH,facade_color is rare architectural attribute - low coverage expected
+1048,warning,low_attribute_coverage,buildings,building_part,,,facade_material,93.5% of building_parts missing 'facade_material' (6.5% coverage),0.0,0.0,6.531348474339775,FALSE,HIGH,facade_material is rare architectural attribute - low coverage expected
+1049,warning,low_attribute_coverage,buildings,building_part,,,roof_material,93.3% of building_parts missing 'roof_material' (6.7% coverage),0.0,0.0,6.689170357065437,FALSE,HIGH,roof_material is rare architectural attribute - low coverage expected
+1050,warning,low_attribute_coverage,buildings,building_part,,,roof_shape,82.3% of building_parts missing 'roof_shape' (17.7% coverage),0.0,0.0,17.71782896455172,FALSE,HIGH,roof_shape is rare architectural attribute - low coverage expected
+1051,warning,low_attribute_coverage,buildings,building_part,,,roof_color,89.7% of building_parts missing 'roof_color' (10.3% coverage),0.0,0.0,10.337187241260636,FALSE,HIGH,roof_color is rare architectural attribute - low coverage expected
+1052,warning,low_attribute_coverage,buildings,building_part,,,num_floors_underground,93.8% of building_parts missing 'num_floors_underground' (6.2% coverage),0.0,0.0,6.180996749488584,FALSE,HIGH,num_floors_underground is rare architectural attribute - low coverage expected
+1053,warning,low_attribute_coverage,divisions,division,,,population,85.4% of divisions missing 'population' (14.6% coverage),0.0,0.0,14.592842374893792,TRUE,MEDIUM,population is important division attribute
+1054,warning,feature_count_spike,divisions,division_area,locality,AR,,Feature count spiked unexpectedly,27.3,3238.0,4122.0,UNCERTAIN,MEDIUM,Moderate spike - may be data expansion
+1055,warning,low_attribute_coverage,places,place,,,emails,91.4% of places missing 'emails' (8.6% coverage),0.0,0.0,8.608990643414911,FALSE,MEDIUM,emails is optional contact info
+1056,warning,high_addition_rate,places,place,,,,"15.12% new records (9,876,570 features)",15.12,65342823.0,75219393.0,TRUE,MEDIUM,High addition rate for places - verify quality
+1057,warning,churn_spike,places,place,,,,"High churn: 15.12% added, 5.50% removed",20.62,65342823.0,71624529.0,TRUE,MEDIUM,High churn indicates significant data instability
+1058,warning,low_attribute_coverage,transportation,segment,,,access_restrictions,85.1% of segments missing 'access_restrictions' (14.9% coverage),0.0,0.0,14.94990542820588,UNCERTAIN,LOW,access_restrictions - coverage varies by region
+1059,warning,low_attribute_coverage,transportation,segment,,,speed_limits,92.0% of segments missing 'speed_limits' (8.0% coverage),0.0,0.0,8.03871588094902,TRUE,MEDIUM,speed_limits is important road attribute
+1060,warning,low_attribute_coverage,transportation,segment,,,subclass,89.9% of segments missing 'subclass' (10.1% coverage),0.0,0.0,10.068833502589092,UNCERTAIN,LOW,subclass coverage varies - may be expected
+1061,warning,low_attribute_coverage,transportation,segment,,,subclass_rules,89.2% of segments missing 'subclass_rules' (10.8% coverage),0.0,0.0,10.78728395251382,UNCERTAIN,LOW,subclass coverage varies - may be expected
