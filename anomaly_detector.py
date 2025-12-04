@@ -233,6 +233,32 @@ REQUIRED_FIELDS = {
     ("base", "infrastructure"): ["subtype", "class", "names"],
 }
 
+# Optional fields - these are expected to be sparse and should NOT be flagged
+OPTIONAL_FIELDS = {
+    # Enrichment fields - most features don't have these
+    "wikidata", "wikipedia",
+    
+    # Building architectural details - rarely captured
+    "facade_color", "facade_material",
+    "roof_color", "roof_material", "roof_shape", "roof_direction", "roof_orientation", "roof_height",
+    "min_height", "min_floor", "num_floors_underground",
+    
+    # Environmental/physical attributes - sparse data
+    "elevation", "surface", "is_salt", "is_intermittent",
+    
+    # Contact info - optional
+    "emails",
+    
+    # Level attributes - only applies to multi-level features
+    "level",
+    
+    # Transportation optional attributes
+    "level_rules", "prohibited_transitions", "width_rules", "destinations", "road_flags",
+    
+    # Address optional granularity
+    "postal_city", "unit",
+}
+
 
 class OvertureAnomalyDetector:
     """
@@ -841,15 +867,19 @@ class OvertureAnomalyDetector:
                 if col in ['release', 'theme', 'type', 'total_count', 'id', 'geometry', 'bbox', 'version', 'sources']:
                     continue
                 
+                # Skip optional fields - these are expected to be sparse
+                if col in OPTIONAL_FIELDS:
+                    continue
+                
                 try:
                     current_filled = float(current_row.get(col, 0))
                     current_coverage = (current_filled / current_total) * 100
                     current_null_rate = 100 - current_coverage
                     
-                    # Report LOW absolute coverage for important fields
+                    # Only report LOW coverage for important/required fields
                     is_important = col in all_important_fields or col in required_fields
                     
-                    if is_important or current_null_rate > 80:  # Report if important OR >80% null
+                    if is_important:  # Only flag important fields, not all >80% null
                         if current_coverage < self.thresholds.low_coverage_critical:
                             severity = Severity.CRITICAL
                         elif current_coverage < self.thresholds.low_coverage_warning:
@@ -1369,6 +1399,47 @@ class OvertureAnomalyDetector:
             data["summary"]["by_type"][atype] = data["summary"]["by_type"].get(atype, 0) + 1
         
         output_path.write_text(json.dumps(data, indent=2))
+    
+    def export_excel(self, output_path: Path) -> None:
+        """Export anomalies to Excel with multiple sheets."""
+        # Convert anomalies to dataframe
+        records = [a.to_dict() for a in self.anomalies]
+        df = pd.DataFrame(records)
+        
+        if df.empty:
+            print("No anomalies to export")
+            return
+        
+        with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
+            # All anomalies
+            df.to_excel(writer, sheet_name='All Anomalies', index=False)
+            
+            # Summary by severity
+            severity_summary = df.groupby('severity').size().reset_index(name='count')
+            severity_summary.to_excel(writer, sheet_name='By Severity', index=False)
+            
+            # Summary by type
+            type_summary = df.groupby('anomaly_type').size().reset_index(name='count')
+            type_summary = type_summary.sort_values('count', ascending=False)
+            type_summary.to_excel(writer, sheet_name='By Type', index=False)
+            
+            # Summary by theme
+            theme_summary = df.groupby('theme').size().reset_index(name='count')
+            theme_summary = theme_summary.sort_values('count', ascending=False)
+            theme_summary.to_excel(writer, sheet_name='By Theme', index=False)
+            
+            # Critical only
+            critical = df[df['severity'] == 'critical']
+            if not critical.empty:
+                critical.to_excel(writer, sheet_name='Critical Only', index=False)
+            
+            # By country (if available)
+            if 'country' in df.columns:
+                country_summary = df.groupby('country').size().reset_index(name='count')
+                country_summary = country_summary.sort_values('count', ascending=False)
+                country_summary.to_excel(writer, sheet_name='By Country', index=False)
+        
+        print(f"Excel exported to: {output_path}")
 
 
 # CLI
@@ -1381,6 +1452,7 @@ if __name__ == "__main__":
     parser.add_argument("--previous", type=str, help="Previous release to compare against")
     parser.add_argument("--output", type=Path, help="Output file for text report")
     parser.add_argument("--json", type=Path, help="Output JSON file")
+    parser.add_argument("--excel", type=Path, help="Output Excel file")
     
     # Threshold arguments
     parser.add_argument("--count-drop-warning", type=float, default=-10.0)
@@ -1406,3 +1478,7 @@ if __name__ == "__main__":
     if args.json:
         detector.export_json(args.json)
         print(f"\nJSON exported to: {args.json}")
+    
+    if args.excel:
+        detector.export_excel(args.excel)
+        print(f"\nExcel exported to: {args.excel}")

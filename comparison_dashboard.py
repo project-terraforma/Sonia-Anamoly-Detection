@@ -903,6 +903,173 @@ def generate_comparison_dashboard(results: dict, output_path: Path) -> str:
         }});
     </script>
     
+    <!-- Chat Panel -->
+    <div id="chatPanel" class="fixed bottom-4 right-4 z-50">
+        <!-- Chat Toggle Button -->
+        <button id="chatToggle" onclick="toggleChat()" 
+                class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+        </button>
+        
+        <!-- Chat Window -->
+        <div id="chatWindow" class="hidden absolute bottom-16 right-0 w-96 bg-white rounded-lg shadow-2xl border border-gray-200">
+            <div class="bg-blue-600 text-white p-3 rounded-t-lg flex justify-between items-center">
+                <span class="font-semibold">Ask about anomalies</span>
+                <button onclick="toggleChat()" class="text-white hover:text-gray-200">&times;</button>
+            </div>
+            
+            <div id="chatMessages" class="h-80 overflow-y-auto p-4 space-y-3">
+                <div class="bg-gray-100 rounded-lg p-3 text-sm">
+                    <p class="font-medium text-gray-700">AI Assistant</p>
+                    <p class="text-gray-600">Ask me questions about the anomalies, like:</p>
+                    <ul class="text-gray-500 text-xs mt-1 list-disc list-inside">
+                        <li>Which countries are most affected?</li>
+                        <li>What should I prioritize fixing?</li>
+                        <li>Explain the duplication pattern</li>
+                        <li>What files should I check?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t p-3">
+                <div class="flex gap-2">
+                    <input type="text" id="chatInput" 
+                           placeholder="Ask a question..." 
+                           class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           onkeypress="if(event.key==='Enter')sendMessage()">
+                    <button onclick="sendMessage()" 
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm">
+                        Send
+                    </button>
+                </div>
+                <p id="chatStatus" class="text-xs text-gray-400 mt-1 hidden">Thinking...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Chat functionality
+        const anomalyContext = {json.dumps({
+            'summary': ai.get('executive_summary', ''),
+            'patterns': ai.get('patterns', []),
+            'root_causes': ai.get('root_causes', []),
+            'total_anomalies': rb.get('total_anomalies', 0),
+            'critical_count': rb.get('by_severity', {}).get('critical', 0),
+            'by_theme': rb.get('by_theme', {}),
+            'by_type': rb.get('by_type', {}),
+            'top_countries': rb.get('top_countries', {}),
+            'recommended_actions': ai.get('recommended_actions', [])
+        })};
+        
+        let chatHistory = [];
+        
+        function toggleChat() {{
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('hidden');
+        }}
+        
+        function addMessage(content, isUser) {{
+            const messagesDiv = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = isUser 
+                ? 'bg-blue-100 rounded-lg p-3 text-sm ml-8' 
+                : 'bg-gray-100 rounded-lg p-3 text-sm mr-8';
+            messageDiv.innerHTML = `
+                <p class="font-medium ${{isUser ? 'text-blue-700' : 'text-gray-700'}}">${{isUser ? 'You' : 'AI Assistant'}}</p>
+                <p class="text-gray-600 whitespace-pre-wrap">${{content}}</p>
+            `;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }}
+        
+        async function sendMessage() {{
+            const input = document.getElementById('chatInput');
+            const status = document.getElementById('chatStatus');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addMessage(message, true);
+            input.value = '';
+            status.classList.remove('hidden');
+            
+            // Build prompt with context
+            const systemPrompt = `You are an AI assistant helping analyze Overture Maps release anomalies. 
+            
+Here is the context about the current anomaly analysis:
+
+Executive Summary: ${{anomalyContext.summary}}
+
+Total Anomalies: ${{anomalyContext.total_anomalies}}
+Critical: ${{anomalyContext.critical_count}}
+
+Patterns Identified:
+${{JSON.stringify(anomalyContext.patterns, null, 2)}}
+
+Root Causes:
+${{JSON.stringify(anomalyContext.root_causes, null, 2)}}
+
+By Theme: ${{JSON.stringify(anomalyContext.by_theme)}}
+By Type: ${{JSON.stringify(anomalyContext.by_type)}}
+Top Countries: ${{JSON.stringify(anomalyContext.top_countries)}}
+
+Recommended Actions:
+${{JSON.stringify(anomalyContext.recommended_actions, null, 2)}}
+
+Answer the user's question concisely based on this context. If asked about files to check, suggest looking at the metrics files for the relevant theme/type.`;
+
+            chatHistory.push({{ role: 'user', content: message }});
+            
+            try {{
+                const response = await fetch('https://api.anthropic.com/v1/messages', {{
+                    method: 'POST',
+                    headers: {{
+                        'Content-Type': 'application/json',
+                        'x-api-key': localStorage.getItem('anthropic_api_key') || '',
+                        'anthropic-version': '2023-06-01',
+                        'anthropic-dangerous-direct-browser-access': 'true'
+                    }},
+                    body: JSON.stringify({{
+                        model: 'claude-sonnet-4-20250514',
+                        max_tokens: 1024,
+                        system: systemPrompt,
+                        messages: chatHistory
+                    }})
+                }});
+                
+                if (!response.ok) {{
+                    if (response.status === 401) {{
+                        const apiKey = prompt('Enter your Anthropic API key for chat:');
+                        if (apiKey) {{
+                            localStorage.setItem('anthropic_api_key', apiKey);
+                            addMessage('API key saved. Please try your question again.', false);
+                        }} else {{
+                            addMessage('Chat requires an API key. Enter it when prompted.', false);
+                        }}
+                    }} else {{
+                        throw new Error(`API error: ${{response.status}}`);
+                    }}
+                    status.classList.add('hidden');
+                    return;
+                }}
+                
+                const data = await response.json();
+                const assistantMessage = data.content[0].text;
+                
+                chatHistory.push({{ role: 'assistant', content: assistantMessage }});
+                addMessage(assistantMessage, false);
+                
+            }} catch (error) {{
+                addMessage(`Error: ${{error.message}}. Make sure you have a valid API key.`, false);
+            }}
+            
+            status.classList.add('hidden');
+        }}
+    </script>
+    
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto px-4 text-center text-sm opacity-75">
             Overture Maps Anomaly Detection System | Generated: {results['timestamp']}
